@@ -11,6 +11,8 @@
 		8DD76F6A0486A84900D96B5E /* hatlocal.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hatlocal.1 */; };
 		FE0251C31350E10F00E89344 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0251C21350E10F00E89344 /* libIceUtil.34.dylib */; };
 		FE0251C51350E11D00E89344 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0251C41350E11D00E89344 /* libIce.34.dylib */; };
+		FE69BC701354A064001F00E6 /* LocalSynchronizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE69BC6F1354A064001F00E6 /* LocalSynchronizer.cpp */; };
+		FE69BC7B1354A1AB001F00E6 /* FSWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE69BC7A1354A1AB001F00E6 /* FSWatcher.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,10 @@
 		C6859E8B029090EE04C91782 /* hatlocal.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatlocal.1; sourceTree = "<group>"; };
 		FE0251C21350E10F00E89344 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
 		FE0251C41350E11D00E89344 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
+		FE69BC6E1354A064001F00E6 /* LocalSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalSynchronizer.h; sourceTree = "<group>"; };
+		FE69BC6F1354A064001F00E6 /* LocalSynchronizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalSynchronizer.cpp; sourceTree = "<group>"; };
+		FE69BC791354A1AB001F00E6 /* FSWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSWatcher.h; sourceTree = "<group>"; };
+		FE69BC7A1354A1AB001F00E6 /* FSWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FSWatcher.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
+				FE69BC6E1354A064001F00E6 /* LocalSynchronizer.h */,
+				FE69BC6F1354A064001F00E6 /* LocalSynchronizer.cpp */,
+				FE69BC791354A1AB001F00E6 /* FSWatcher.h */,
+				FE69BC7A1354A1AB001F00E6 /* FSWatcher.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -144,6 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
+				FE69BC701354A064001F00E6 /* LocalSynchronizer.cpp in Sources */,
+				FE69BC7B1354A1AB001F00E6 /* FSWatcher.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

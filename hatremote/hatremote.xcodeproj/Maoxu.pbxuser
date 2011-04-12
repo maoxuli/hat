@@ -4,6 +4,9 @@
 		activeBuildConfigurationName = Debug;
 		activeExecutable = FE02513E1350CD6400E89344 /* hatremote */;
 		activeTarget = 8DD76F620486A84900D96B5E /* hatremote */;
+		addToTargets = (
+			8DD76F620486A84900D96B5E /* hatremote */,
+		);
 		codeSenseManager = FE0251481350CD6700E89344 /* Code sense */;
 		executables = (
 			FE02513E1350CD6400E89344 /* hatremote */,
@@ -14,7 +17,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					833,
 					20,
 					48,
 					43,
@@ -36,10 +39,10 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					301,
+					793,
 					60,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 				);
@@ -53,11 +56,26 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 324068625;
-			PBXWorkspaceStateSaveDate = 324068625;
+			PBXPerProjectTemplateStateSaveDate = 324311655;
+			PBXWorkspaceStateSaveDate = 324311655;
+		};
+		perUserProjectItems = {
+			FE69BC2113549923001F00E6 /* PBXTextBookmark */ = FE69BC2113549923001F00E6 /* PBXTextBookmark */;
+			FE69BC6013549F85001F00E6 /* PBXTextBookmark */ = FE69BC6013549F85001F00E6 /* PBXTextBookmark */;
+			FE69BC6113549F85001F00E6 /* PBXTextBookmark */ = FE69BC6113549F85001F00E6 /* PBXTextBookmark */;
+			FE69BC6213549F85001F00E6 /* PBXTextBookmark */ = FE69BC6213549F85001F00E6 /* PBXTextBookmark */;
+			FE69BC6313549F85001F00E6 /* PBXTextBookmark */ = FE69BC6313549F85001F00E6 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FE0251471350CD6700E89344 /* Source Control */;
 		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 331}}";
+			sepNavSelRange = "{430, 0}";
+			sepNavVisRange = "{0, 432}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 706}}";
 		};
 	};
 	8DD76F620486A84900D96B5E /* hatremote */ = {
@@ -106,5 +124,77 @@
 	FE0251481350CD6700E89344 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	FE69BC2113549923001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BC2213549923001F00E6 /* main.cpp */;
+		name = "main.cpp: 1";
+		rLen = 418;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 418;
+		vrLoc = 0;
+	};
+	FE69BC2213549923001F00E6 /* main.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = main.cpp;
+		path = "/Users/Maoxu/Desktop/LIM-Labs/hat/hatlocal/main.cpp";
+		sourceTree = "<absolute>";
+	};
+	FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 331}}";
+			sepNavSelRange = "{172, 0}";
+			sepNavVisRange = "{0, 309}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 706}}";
+		};
+	};
+	FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 331}}";
+			sepNavSelRange = "{214, 0}";
+			sepNavVisRange = "{0, 335}";
+		};
+	};
+	FE69BC6013549F85001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 21";
+		rLen = 0;
+		rLoc = 430;
+		rType = 0;
+		vrLen = 432;
+		vrLoc = 0;
+	};
+	FE69BC6113549F85001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */;
+		name = "RemoteSynchronizer.cpp: 14";
+		rLen = 0;
+		rLoc = 214;
+		rType = 0;
+		vrLen = 335;
+		vrLoc = 0;
+	};
+	FE69BC6213549F85001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */;
+		name = "RemoteSynchronizer.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	FE69BC6313549F85001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */;
+		name = "RemoteSynchronizer.h: 11";
+		rLen = 0;
+		rLoc = 172;
+		rType = 0;
+		vrLen = 309;
+		vrLoc = 0;
 	};
 }

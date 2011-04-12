@@ -1,9 +1,12 @@
 // !$*UTF8*$!
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = FE0251271350CC4300E89344 /* hatlocal */;
 		activeTarget = 8DD76F620486A84900D96B5E /* hatlocal */;
+		addToTargets = (
+			8DD76F620486A84900D96B5E /* hatlocal */,
+		);
 		codeSenseManager = FE0251351350CC5D00E89344 /* Code sense */;
 		executables = (
 			FE0251271350CC4300E89344 /* hatlocal */,
@@ -81,13 +84,20 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 324069700;
-			PBXWorkspaceStateSaveDate = 324069700;
+			PBXPerProjectTemplateStateSaveDate = 324312972;
+			PBXWorkspaceStateSaveDate = 324312972;
 		};
 		perUserProjectItems = {
-			FE02519B1350DF6900E89344 /* PBXTextBookmark */ = FE02519B1350DF6900E89344 /* PBXTextBookmark */;
-			FE02524B1350E50D00E89344 /* PBXTextBookmark */ = FE02524B1350E50D00E89344 /* PBXTextBookmark */;
-			FE02527A1350E95B00E89344 /* PBXTextBookmark */ = FE02527A1350E95B00E89344 /* PBXTextBookmark */;
+			FE02519B1350DF6900E89344 = FE02519B1350DF6900E89344 /* PBXTextBookmark */;
+			FE69BBFC13549831001F00E6 = FE69BBFC13549831001F00E6 /* PBXTextBookmark */;
+			FE69BC4713549A62001F00E6 = FE69BC4713549A62001F00E6 /* PBXTextBookmark */;
+			FE69BC4813549A62001F00E6 = FE69BC4813549A62001F00E6 /* PBXTextBookmark */;
+			FE69BC4913549A62001F00E6 = FE69BC4913549A62001F00E6 /* PBXTextBookmark */;
+			FE69BC4A13549A62001F00E6 = FE69BC4A13549A62001F00E6 /* PBXTextBookmark */;
+			FE69BC4B13549A62001F00E6 = FE69BC4B13549A62001F00E6 /* PBXTextBookmark */;
+			FE69BC4C13549A62001F00E6 = FE69BC4C13549A62001F00E6 /* PBXTextBookmark */;
+			FE69BC741354A0FE001F00E6 /* XCBuildMessageTextBookmark */ = FE69BC741354A0FE001F00E6 /* XCBuildMessageTextBookmark */;
+			FE69BC751354A0FE001F00E6 /* PBXTextBookmark */ = FE69BC751354A0FE001F00E6 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FE0251341350CC5D00E89344 /* Source Control */;
 		userBuildSettings = {
@@ -95,9 +105,9 @@
 	};
 	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 273}}";
-			sepNavSelRange = "{20, 0}";
-			sepNavVisRange = "{0, 318}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 524}}";
+			sepNavSelRange = "{421, 0}";
+			sepNavVisRange = "{0, 421}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 706}}";
 		};
 	};
@@ -166,24 +176,169 @@
 		vrLen = 327;
 		vrLoc = 0;
 	};
-	FE02524B1350E50D00E89344 /* PBXTextBookmark */ = {
+	FE69BBED13548EC5001F00E6 /* fswatcher.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = fswatcher.h;
+		path = "/Users/Maoxu/Desktop/LIM-Labs/hat/hatlocal/fswatcher.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 524}}";
+			sepNavSelRange = "{293, 0}";
+			sepNavVisRange = "{0, 293}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 706}}";
+		};
+	};
+	FE69BBEE13548EC5001F00E6 /* fswatcher.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = fswatcher.cpp;
+		path = "/Users/Maoxu/Desktop/LIM-Labs/hat/hatlocal/fswatcher.cpp";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {780, 286}}";
+			sepNavSelRange = "{212, 0}";
+			sepNavVisRange = "{118, 144}";
+		};
+	};
+	FE69BBF413549574001F00E6 /* fsscaner.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = fsscaner.h;
+		path = "/Users/Maoxu/Desktop/LIM-Labs/hat/hatlocal/fsscaner.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 524}}";
+			sepNavSelRange = "{212, 0}";
+			sepNavVisRange = "{0, 259}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 706}}";
+		};
+	};
+	FE69BBF513549574001F00E6 /* fsscaner.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = fsscaner.cpp;
+		path = "/Users/Maoxu/Desktop/LIM-Labs/hat/hatlocal/fsscaner.cpp";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 522}}";
+			sepNavSelRange = "{257, 0}";
+			sepNavVisRange = "{0, 257}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 706}}";
+		};
+	};
+	FE69BBFC13549831001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BBFD13549831001F00E6 /* Watcher.c */;
+		name = "Watcher.c: 206";
+		rLen = 0;
+		rLoc = 7268;
+		rType = 0;
+		vrLen = 905;
+		vrLoc = 6827;
+	};
+	FE69BBFD13549831001F00E6 /* Watcher.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = Watcher.c;
+		path = "/Users/Maoxu/Desktop/LIM-Labs/codes/Watcher/Watcher.c";
+		sourceTree = "<absolute>";
+	};
+	FE69BC4713549A62001F00E6 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		name = "main.cpp: 2";
+		name = "main.cpp: 22";
 		rLen = 0;
-		rLoc = 20;
+		rLoc = 421;
 		rType = 0;
-		vrLen = 319;
+		vrLen = 421;
 		vrLoc = 0;
 	};
-	FE02527A1350E95B00E89344 /* PBXTextBookmark */ = {
+	FE69BC4813549A62001F00E6 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		name = "main.cpp: 2";
+		fRef = FE69BBEE13548EC5001F00E6 /* fswatcher.cpp */;
+		name = "fswatcher.cpp: 22";
 		rLen = 0;
-		rLoc = 20;
+		rLoc = 262;
 		rType = 0;
-		vrLen = 318;
+		vrLen = 262;
 		vrLoc = 0;
+	};
+	FE69BC4913549A62001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BBED13548EC5001F00E6 /* fswatcher.h */;
+		name = "fswatcher.h: 19";
+		rLen = 0;
+		rLoc = 293;
+		rType = 0;
+		vrLen = 293;
+		vrLoc = 0;
+	};
+	FE69BC4A13549A62001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BBF413549574001F00E6 /* fsscaner.h */;
+		name = "fsscaner.h: 16";
+		rLen = 0;
+		rLoc = 212;
+		rType = 0;
+		vrLen = 259;
+		vrLoc = 0;
+	};
+	FE69BC4B13549A62001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BBF513549574001F00E6 /* fsscaner.cpp */;
+		name = "fsscaner.cpp: 19";
+		rLen = 0;
+		rLoc = 257;
+		rType = 0;
+		vrLen = 244;
+		vrLoc = 0;
+	};
+	FE69BC4C13549A62001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BBF513549574001F00E6 /* fsscaner.cpp */;
+		name = "fsscaner.cpp: 20";
+		rLen = 0;
+		rLoc = 257;
+		rType = 0;
+		vrLen = 257;
+		vrLoc = 0;
+	};
+	FE69BC6E1354A064001F00E6 /* LocalSynchronizer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 522}}";
+			sepNavSelRange = "{302, 0}";
+			sepNavVisRange = "{0, 302}";
+		};
+	};
+	FE69BC6F1354A064001F00E6 /* LocalSynchronizer.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 522}}";
+			sepNavSelRange = "{325, 0}";
+			sepNavVisRange = "{0, 327}";
+		};
+	};
+	FE69BC741354A0FE001F00E6 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Control reaches end of non-void function";
+		fRef = FE69BC6F1354A064001F00E6 /* LocalSynchronizer.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 19;
+		rType = 1;
+	};
+	FE69BC751354A0FE001F00E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE69BC6F1354A064001F00E6 /* LocalSynchronizer.cpp */;
+		name = "LocalSynchronizer.cpp: 19";
+		rLen = 0;
+		rLoc = 326;
+		rType = 0;
+		vrLen = 271;
+		vrLoc = 42;
 	};
 }

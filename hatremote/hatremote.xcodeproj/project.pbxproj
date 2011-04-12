@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* hatremote.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hatremote.1 */; };
+		FE69BC1C135498F8001F00E6 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE69BC1B135498F8001F00E6 /* libIce.34.dylib */; };
+		FE69BC1E13549907001F00E6 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE69BC1D13549907001F00E6 /* libIceUtil.34.dylib */; };
+		FE69BC5A13549E05001F00E6 /* RemoteSynchronizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,10 @@
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* hatremote */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatremote; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hatremote.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatremote.1; sourceTree = "<group>"; };
+		FE69BC1B135498F8001F00E6 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
+		FE69BC1D13549907001F00E6 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
+		FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteSynchronizer.h; sourceTree = "<group>"; };
+		FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteSynchronizer.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE69BC1C135498F8001F00E6 /* libIce.34.dylib in Frameworks */,
+				FE69BC1E13549907001F00E6 /* libIceUtil.34.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +56,8 @@
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				FE69BC1B135498F8001F00E6 /* libIce.34.dylib */,
+				FE69BC1D13549907001F00E6 /* libIceUtil.34.dylib */,
 			);
 			name = hatremote;
 			sourceTree = "<group>";
@@ -55,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
+				FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */,
+				FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -136,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
+				FE69BC5A13549E05001F00E6 /* RemoteSynchronizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +166,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/opt/Ice-3.4/lib\"",
+				);
 				PRODUCT_NAME = hatremote;
 			};
 			name = Debug;
@@ -163,6 +181,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/opt/Ice-3.4/lib\"",
+				);
 				PRODUCT_NAME = hatremote;
 			};
 			name = Release;
