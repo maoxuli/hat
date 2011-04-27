@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50149BDA09E781A5002DEE6A /* hatcore.h in Headers */ = {isa = PBXBuildFile; fileRef = 50149BD909E781A5002DEE6A /* hatcore.h */; };
-		5073E0CB09E734E500EC74B6 /* hatcore.cp in Sources */ = {isa = PBXBuildFile; fileRef = 5073E0C409E734A800EC74B6 /* hatcore.cp */; };
+		50149BDA09E781A5002DEE6A /* hatutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 50149BD909E781A5002DEE6A /* hatutil.h */; };
+		5073E0CB09E734E500EC74B6 /* hatutil.cp in Sources */ = {isa = PBXBuildFile; fileRef = 5073E0C409E734A800EC74B6 /* hatutil.cp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32BAE0B70371A74B00C91783 /* hatcore_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hatcore_Prefix.pch; sourceTree = "<group>"; };
-		50149BD909E781A5002DEE6A /* hatcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hatcore.h; sourceTree = "<group>"; };
-		5073E0C409E734A800EC74B6 /* hatcore.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = hatcore.cp; sourceTree = "<group>"; };
-		5073E0C609E734A800EC74B6 /* hatcoreProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = hatcoreProj.xcconfig; sourceTree = "<group>"; };
-		5073E0C709E734A800EC74B6 /* hatcoreTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = hatcoreTarget.xcconfig; sourceTree = "<group>"; };
-		50B2938909F016FC00694E55 /* hatcorePriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hatcorePriv.h; sourceTree = "<group>"; };
-		D2AAC09D05546B4700DB518D /* libhatcore.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libhatcore.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BAE0B70371A74B00C91783 /* hatutil_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hatutil_Prefix.pch; sourceTree = "<group>"; };
+		50149BD909E781A5002DEE6A /* hatutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hatutil.h; sourceTree = "<group>"; };
+		5073E0C409E734A800EC74B6 /* hatutil.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = hatutil.cp; sourceTree = "<group>"; };
+		5073E0C609E734A800EC74B6 /* hatutilProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = hatutilProj.xcconfig; sourceTree = "<group>"; };
+		5073E0C709E734A800EC74B6 /* hatutilTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = hatutilTarget.xcconfig; sourceTree = "<group>"; };
+		50B2938909F016FC00694E55 /* hatutilPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hatutilPriv.h; sourceTree = "<group>"; };
+		D2AAC09D05546B4700DB518D /* libhatutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libhatutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,12 +35,12 @@
 		034768DDFF38A45A11DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC09D05546B4700DB518D /* libhatcore.dylib */,
+				D2AAC09D05546B4700DB518D /* libhatutil.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0867D691FE84028FC02AAC07 /* hatcore */ = {
+		0867D691FE84028FC02AAC07 /* hatutil */ = {
 			isa = PBXGroup;
 			children = (
 				5073E0CA09E734BC00EC74B6 /* Configuration Files */,
@@ -48,7 +48,7 @@
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 			);
-			name = hatcore;
+			name = hatutil;
 			sourceTree = "<group>";
 		};
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
@@ -61,10 +61,10 @@
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				32BAE0B70371A74B00C91783 /* hatcore_Prefix.pch */,
-				50149BD909E781A5002DEE6A /* hatcore.h */,
-				50B2938909F016FC00694E55 /* hatcorePriv.h */,
-				5073E0C409E734A800EC74B6 /* hatcore.cp */,
+				32BAE0B70371A74B00C91783 /* hatutil_Prefix.pch */,
+				50149BD909E781A5002DEE6A /* hatutil.h */,
+				50B2938909F016FC00694E55 /* hatutilPriv.h */,
+				5073E0C409E734A800EC74B6 /* hatutil.cp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -72,8 +72,8 @@
 		5073E0CA09E734BC00EC74B6 /* Configuration Files */ = {
 			isa = PBXGroup;
 			children = (
-				5073E0C609E734A800EC74B6 /* hatcoreProj.xcconfig */,
-				5073E0C709E734A800EC74B6 /* hatcoreTarget.xcconfig */,
+				5073E0C609E734A800EC74B6 /* hatutilProj.xcconfig */,
+				5073E0C709E734A800EC74B6 /* hatutilTarget.xcconfig */,
 			);
 			name = "Configuration Files";
 			sourceTree = "<group>";
@@ -85,29 +85,29 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50149BDA09E781A5002DEE6A /* hatcore.h in Headers */,
+				50149BDA09E781A5002DEE6A /* hatutil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC09C05546B4700DB518D /* hatcore */ = {
+		D2AAC09C05546B4700DB518D /* hatutil */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB916008733D950010E9CD /* Build configuration list for PBXNativeTarget "hatcore" */;
+			buildConfigurationList = 1DEB916008733D950010E9CD /* Build configuration list for PBXNativeTarget "hatutil" */;
 			buildPhases = (
 				D2AAC09905546B4700DB518D /* Headers */,
 				D2AAC09B05546B4700DB518D /* Frameworks */,
 				D2AAC09A05546B4700DB518D /* Sources */,
-				FE0252D11350F91900E89344 /* ShellScript */,
+				FEBA0DD61368ADD100540F83 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = hatcore;
-			productName = libhatcore;
-			productReference = D2AAC09D05546B4700DB518D /* libhatcore.dylib */;
+			name = hatutil;
+			productName = libhatutil;
+			productReference = D2AAC09D05546B4700DB518D /* libhatutil.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -115,21 +115,21 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "hatcore" */;
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "hatutil" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 0867D691FE84028FC02AAC07 /* hatcore */;
+			mainGroup = 0867D691FE84028FC02AAC07 /* hatutil */;
 			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC09C05546B4700DB518D /* hatcore */,
+				D2AAC09C05546B4700DB518D /* hatutil */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FE0252D11350F91900E89344 /* ShellScript */ = {
+		FEBA0DD61368ADD100540F83 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -140,7 +140,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == \"Debug\" ]\nthen \ncp $CONFIGURATION_BUILD_DIR/libhatcore.dylib $PROJECT_DIR/../bin/libhatcored.dylib\nelse\ncp $CONFIGURATION_BUILD_DIR/libhatcore.dylib $PROJECT_DIR/../bin/libhatcore.dylib\nfi";
+			shellScript = "cp $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH $PROJECT_DIR/../bin/$EXECUTABLE_PATH\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5073E0CB09E734E500EC74B6 /* hatcore.cp in Sources */,
+				5073E0CB09E734E500EC74B6 /* hatutil.cp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +158,7 @@
 /* Begin XCBuildConfiguration section */
 		1DEB916108733D950010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5073E0C709E734A800EC74B6 /* hatcoreTarget.xcconfig */;
+			baseConfigurationReference = 5073E0C709E734A800EC74B6 /* hatutilTarget.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -167,19 +167,24 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = hatcore_Prefix.pch;
+				GCC_PREFIX_HEADER = hatutil_Prefix.pch;
+				INSTALL_PATH = "@rpath";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = libhatutild;
 			};
 			name = Debug;
 		};
 		1DEB916208733D950010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5073E0C709E734A800EC74B6 /* hatcoreTarget.xcconfig */;
+			baseConfigurationReference = 5073E0C709E734A800EC74B6 /* hatutilTarget.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = hatcore_Prefix.pch;
+				GCC_PREFIX_HEADER = hatutil_Prefix.pch;
+				INSTALL_PATH = "@rpath";
+				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = YES;
 				STRIP_STYLE = "non-global";
 			};
@@ -187,7 +192,7 @@
 		};
 		1DEB916508733D950010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* hatcoreProj.xcconfig */;
+			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* hatutilProj.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -202,13 +207,12 @@
 		};
 		1DEB916608733D950010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* hatcoreProj.xcconfig */;
+			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* hatutilProj.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
@@ -217,7 +221,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB916008733D950010E9CD /* Build configuration list for PBXNativeTarget "hatcore" */ = {
+		1DEB916008733D950010E9CD /* Build configuration list for PBXNativeTarget "hatutil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB916108733D950010E9CD /* Debug */,
@@ -226,7 +230,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "hatcore" */ = {
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "hatutil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB916508733D950010E9CD /* Debug */,

@@ -2,11 +2,14 @@
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
-		activeExecutable = FE02514C1350CD9200E89344 /* hat */;
-		activeTarget = 8DD76F620486A84900D96B5E /* hat */;
-		codeSenseManager = FE0251561350CD9600E89344 /* Code sense */;
+		activeExecutable = FEBA0D4B1368A7B400540F83 /* hatfile */;
+		activeTarget = 8DD76F620486A84900D96B5E /* hatfile */;
+		addToTargets = (
+			8DD76F620486A84900D96B5E /* hatfile */,
+		);
+		codeSenseManager = FEBA0D581368A7D300540F83 /* Code sense */;
 		executables = (
-			FE02514C1350CD9200E89344 /* hat */,
+			FEBA0D4B1368A7B400540F83 /* hatfile */,
 		);
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
@@ -53,20 +56,32 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325606319;
-			PBXWorkspaceStateSaveDate = 325606319;
+			PBXPerProjectTemplateStateSaveDate = 325626254;
+			PBXWorkspaceStateSaveDate = 325626254;
 		};
-		sourceControlManager = FE0251551350CD9600E89344 /* Source Control */;
+		perUserProjectItems = {
+			FEBA0DEC1368AE3600540F83 /* XCBuildMessageTextBookmark */ = FEBA0DEC1368AE3600540F83 /* XCBuildMessageTextBookmark */;
+			FEBA0DED1368AE3600540F83 /* PBXTextBookmark */ = FEBA0DED1368AE3600540F83 /* PBXTextBookmark */;
+		};
+		sourceControlManager = FEBA0D571368A7D300540F83 /* Source Control */;
 		userBuildSettings = {
 		};
 	};
-	8DD76F620486A84900D96B5E /* hat */ = {
+	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {446, 286}}";
+			sepNavSelRange = "{20, 0}";
+			sepNavVisRange = "{0, 323}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	8DD76F620486A84900D96B5E /* hatfile */ = {
 		activeExec = 0;
 		executables = (
-			FE02514C1350CD9200E89344 /* hat */,
+			FEBA0D4B1368A7B400540F83 /* hatfile */,
 		);
 	};
-	FE02514C1350CD9200E89344 /* hat */ = {
+	FEBA0D4B1368A7B400540F83 /* hatfile */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
 		);
@@ -88,12 +103,12 @@
 		executableSystemSymbolLevel = 0;
 		executableUserSymbolLevel = 0;
 		libgmallocEnabled = 0;
-		name = hat;
+		name = hatfile;
 		showTypeColumn = 0;
 		sourceDirectories = (
 		);
 	};
-	FE0251551350CD9600E89344 /* Source Control */ = {
+	FEBA0D571368A7D300540F83 /* Source Control */ = {
 		isa = PBXSourceControlManager;
 		fallbackIsa = XCSourceControlManager;
 		isSCMEnabled = 0;
@@ -103,8 +118,27 @@
 			};
 		};
 	};
-	FE0251561350CD9600E89344 /* Code sense */ = {
+	FEBA0D581368A7D300540F83 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	FEBA0DEC1368AE3600540F83 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Ice/Service.h: No such file or directory";
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 1;
+		rType = 1;
+	};
+	FEBA0DED1368AE3600540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 9";
+		rLen = 0;
+		rLoc = 191;
+		rType = 0;
+		vrLen = 389;
+		vrLoc = 0;
 	};
 }

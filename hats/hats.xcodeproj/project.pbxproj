@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
-		8DD76F6A0486A84900D96B5E /* hatremote.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hatremote.1 */; };
-		FE69BC1C135498F8001F00E6 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE69BC1B135498F8001F00E6 /* libIce.34.dylib */; };
-		FE69BC1E13549907001F00E6 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE69BC1D13549907001F00E6 /* libIceUtil.34.dylib */; };
-		FE69BC5A13549E05001F00E6 /* RemoteSynchronizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */; };
+		8DD76F6A0486A84900D96B5E /* hats.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hats.1 */; };
+		FEBA0DC51368ACD700540F83 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0DC41368ACD700540F83 /* libIce.34.dylib */; };
+		FEBA0DC71368ACE400540F83 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0DC61368ACE400540F83 /* libIceUtil.34.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,7 +20,7 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8DD76F6A0486A84900D96B5E /* hatremote.1 in CopyFiles */,
+				8DD76F6A0486A84900D96B5E /* hats.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -29,12 +28,10 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8DD76F6C0486A84900D96B5E /* hatremote */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatremote; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6859E8B029090EE04C91782 /* hatremote.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatremote.1; sourceTree = "<group>"; };
-		FE69BC1B135498F8001F00E6 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
-		FE69BC1D13549907001F00E6 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
-		FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteSynchronizer.h; sourceTree = "<group>"; };
-		FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteSynchronizer.cpp; sourceTree = "<group>"; };
+		8DD76F6C0486A84900D96B5E /* hatsd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatsd; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6859E8B029090EE04C91782 /* hats.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hats.1; sourceTree = "<group>"; };
+		FEBA0DC41368ACD700540F83 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
+		FEBA0DC61368ACE400540F83 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,32 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE69BC1C135498F8001F00E6 /* libIce.34.dylib in Frameworks */,
-				FE69BC1E13549907001F00E6 /* libIceUtil.34.dylib in Frameworks */,
+				FEBA0DC51368ACD700540F83 /* libIce.34.dylib in Frameworks */,
+				FEBA0DC71368ACE400540F83 /* libIceUtil.34.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08FB7794FE84155DC02AAC07 /* hatremote */ = {
+		08FB7794FE84155DC02AAC07 /* hats */ = {
 			isa = PBXGroup;
 			children = (
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
-				FE69BC1B135498F8001F00E6 /* libIce.34.dylib */,
-				FE69BC1D13549907001F00E6 /* libIceUtil.34.dylib */,
+				FEBA0DC41368ACD700540F83 /* libIce.34.dylib */,
+				FEBA0DC61368ACE400540F83 /* libIceUtil.34.dylib */,
 			);
-			name = hatremote;
+			name = hats;
 			sourceTree = "<group>";
 		};
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
-				FE69BC5813549E05001F00E6 /* RemoteSynchronizer.h */,
-				FE69BC5913549E05001F00E6 /* RemoteSynchronizer.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -75,7 +70,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76F6C0486A84900D96B5E /* hatremote */,
+				8DD76F6C0486A84900D96B5E /* hatsd */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,7 +78,7 @@
 		C6859E8C029090F304C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				C6859E8B029090EE04C91782 /* hatremote.1 */,
+				C6859E8B029090EE04C91782 /* hats.1 */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -91,23 +86,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8DD76F620486A84900D96B5E /* hatremote */ = {
+		8DD76F620486A84900D96B5E /* hats */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "hatremote" */;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "hats" */;
 			buildPhases = (
 				8DD76F640486A84900D96B5E /* Sources */,
 				8DD76F660486A84900D96B5E /* Frameworks */,
 				8DD76F690486A84900D96B5E /* CopyFiles */,
-				FE0252571350E51D00E89344 /* ShellScript */,
+				FEBA0DBC1368AB8C00540F83 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = hatremote;
+			name = hats;
 			productInstallPath = "$(HOME)/bin";
-			productName = hatremote;
-			productReference = 8DD76F6C0486A84900D96B5E /* hatremote */;
+			productName = hats;
+			productReference = 8DD76F6C0486A84900D96B5E /* hatsd */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -115,20 +110,20 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "hatremote" */;
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "hats" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 08FB7794FE84155DC02AAC07 /* hatremote */;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* hats */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DD76F620486A84900D96B5E /* hatremote */,
+				8DD76F620486A84900D96B5E /* hats */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FE0252571350E51D00E89344 /* ShellScript */ = {
+		FEBA0DBC1368AB8C00540F83 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -139,7 +134,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == \"Debug\" ]\nthen \ncp $CONFIGURATION_BUILD_DIR/hatremote $PROJECT_DIR/../bin/hatremoted\nelse\ncp $CONFIGURATION_BUILD_DIR/hatremote $PROJECT_DIR/../bin/hatremote\nfi\n";
+			shellScript = "cp $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH $PROJECT_DIR/../bin/$EXECUTABLE_PATH\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -149,7 +144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
-				FE69BC5A13549E05001F00E6 /* RemoteSynchronizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,12 +159,13 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				INSTALL_PATH = /usr/local/bin;
+				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/opt/Ice-3.4/lib\"",
 				);
-				PRODUCT_NAME = hatremote;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = hatsd;
 			};
 			name = Debug;
 		};
@@ -180,12 +175,13 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
+				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/opt/Ice-3.4/lib\"",
 				);
-				PRODUCT_NAME = hatremote;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = hats;
 			};
 			name = Release;
 		};
@@ -212,7 +208,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/opt/Ice-3.4/include";
-				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
@@ -221,7 +216,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "hatremote" */ = {
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "hats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB923208733DC60010E9CD /* Debug */,
@@ -230,7 +225,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "hatremote" */ = {
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "hats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB923608733DC60010E9CD /* Debug */,

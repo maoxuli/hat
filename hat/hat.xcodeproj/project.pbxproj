@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8DD76F6C0486A84900D96B5E /* hat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hat; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76F6C0486A84900D96B5E /* hatd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatd; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hat.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +62,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76F6C0486A84900D96B5E /* hat */,
+				8DD76F6C0486A84900D96B5E /* hatd */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,7 +94,7 @@
 			name = hat;
 			productInstallPath = "$(HOME)/bin";
 			productName = hat;
-			productReference = 8DD76F6C0486A84900D96B5E /* hat */;
+			productReference = 8DD76F6C0486A84900D96B5E /* hatd */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -126,7 +126,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == \"Debug\" ]\nthen \ncp $CONFIGURATION_BUILD_DIR/hat $PROJECT_DIR/../bin/hatd\nelse\ncp $CONFIGURATION_BUILD_DIR/hat $PROJECT_DIR/../bin/hat\nfi";
+			shellScript = "cp $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH $PROJECT_DIR/../bin/$EXECUTABLE_PATH\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -151,8 +151,8 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = hat;
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = hatd;
 			};
 			name = Debug;
 		};
@@ -162,7 +162,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = hat;
 			};
 			name = Release;
