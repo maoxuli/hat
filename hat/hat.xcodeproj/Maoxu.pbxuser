@@ -4,6 +4,9 @@
 		activeBuildConfigurationName = Debug;
 		activeExecutable = FE02514C1350CD9200E89344 /* hat */;
 		activeTarget = 8DD76F620486A84900D96B5E /* hat */;
+		addToTargets = (
+			8DD76F620486A84900D96B5E /* hat */,
+		);
 		codeSenseManager = FE0251561350CD9600E89344 /* Code sense */;
 		executables = (
 			FE02514C1350CD9200E89344 /* hat */,
@@ -14,7 +17,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					833,
 					20,
 					48,
 					43,
@@ -22,6 +25,46 @@
 					20,
 				);
 				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					281,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					317,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_SCM_ColumnID,
 					PBXFileDataSource_FiletypeID,
 					PBXFileDataSource_Filename_ColumnID,
 					PBXFileDataSource_Built_ColumnID,
@@ -53,11 +96,24 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325606319;
-			PBXWorkspaceStateSaveDate = 325606319;
+			PBXPerProjectTemplateStateSaveDate = 325704412;
+			PBXWorkspaceStateSaveDate = 325704412;
+		};
+		perUserProjectItems = {
+			FEBA10851369DAF400540F83 /* PBXTextBookmark */ = FEBA10851369DAF400540F83 /* PBXTextBookmark */;
+			FEBA109D1369DE1400540F83 /* PBXTextBookmark */ = FEBA109D1369DE1400540F83 /* PBXTextBookmark */;
+			FEBA109E1369DE1400540F83 /* PBXTextBookmark */ = FEBA109E1369DE1400540F83 /* PBXTextBookmark */;
+			FEBA109F1369DE1400540F83 /* PBXTextBookmark */ = FEBA109F1369DE1400540F83 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FE0251551350CD9600E89344 /* Source Control */;
 		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1222}}";
+			sepNavSelRange = "{352, 0}";
+			sepNavVisRange = "{126, 640}";
 		};
 	};
 	8DD76F620486A84900D96B5E /* hat */ = {
@@ -106,5 +162,65 @@
 	FE0251561350CD9600E89344 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	FEBA0FF01369D30400540F83 /* Filter.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 7592}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{11277, 724}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA10851369DAF400540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA0FF01369D30400540F83 /* Filter.h */;
+		name = "Filter.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 341;
+		vrLoc = 0;
+	};
+	FEBA108C1369DC0700540F83 /* Client.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = Client.cpp;
+		path = "/Users/Maoxu/Desktop/Ice-3.4.1-demos/demo/Ice/hello/Client.cpp";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 2938}}";
+			sepNavSelRange = "{852, 4802}";
+			sepNavVisRange = "{547, 940}";
+		};
+	};
+	FEBA109D1369DE1400540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA108C1369DC0700540F83 /* Client.cpp */;
+		name = "Client.cpp: 45";
+		rLen = 4802;
+		rLoc = 852;
+		rType = 0;
+		vrLen = 940;
+		vrLoc = 547;
+	};
+	FEBA109E1369DE1400540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 37";
+		rLen = 0;
+		rLoc = 641;
+		rType = 0;
+		vrLen = 674;
+		vrLoc = 126;
+	};
+	FEBA109F1369DE1400540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 29";
+		rLen = 0;
+		rLoc = 352;
+		rType = 0;
+		vrLen = 640;
+		vrLoc = 126;
 	};
 }

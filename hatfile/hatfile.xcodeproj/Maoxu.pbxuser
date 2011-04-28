@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = FEBA0D4B1368A7B400540F83 /* hatfile */;
 		activeTarget = 8DD76F620486A84900D96B5E /* hatfile */;
 		addToTargets = (
@@ -17,7 +17,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					833,
 					20,
 					48,
 					43,
@@ -34,12 +34,36 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
+			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					317,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_SCM_ColumnID,
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
 			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					301,
+					793,
 					60,
 					20,
 					48,
@@ -56,12 +80,16 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325626254;
-			PBXWorkspaceStateSaveDate = 325626254;
+			PBXPerProjectTemplateStateSaveDate = 325702594;
+			PBXWorkspaceStateSaveDate = 325702594;
 		};
 		perUserProjectItems = {
-			FEBA0DEC1368AE3600540F83 /* XCBuildMessageTextBookmark */ = FEBA0DEC1368AE3600540F83 /* XCBuildMessageTextBookmark */;
-			FEBA0DED1368AE3600540F83 /* PBXTextBookmark */ = FEBA0DED1368AE3600540F83 /* PBXTextBookmark */;
+			FEBA10701369DAD600540F83 /* PBXTextBookmark */ = FEBA10701369DAD600540F83 /* PBXTextBookmark */;
+			FEBA10721369DAD600540F83 /* PBXTextBookmark */ = FEBA10721369DAD600540F83 /* PBXTextBookmark */;
+			FEBA10731369DAD600540F83 /* PBXTextBookmark */ = FEBA10731369DAD600540F83 /* PBXTextBookmark */;
+			FEBA10741369DAD600540F83 /* PBXTextBookmark */ = FEBA10741369DAD600540F83 /* PBXTextBookmark */;
+			FEBA10751369DAD600540F83 /* PBXTextBookmark */ = FEBA10751369DAD600540F83 /* PBXTextBookmark */;
+			FEBA10761369DAD600540F83 /* PBXTextBookmark */ = FEBA10761369DAD600540F83 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FEBA0D571368A7D300540F83 /* Source Control */;
 		userBuildSettings = {
@@ -69,9 +97,9 @@
 	};
 	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {446, 286}}";
-			sepNavSelRange = "{20, 0}";
-			sepNavVisRange = "{0, 323}";
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 580}}";
+			sepNavSelRange = "{71, 0}";
+			sepNavVisRange = "{0, 753}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
@@ -122,23 +150,110 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	FEBA0DEC1368AE3600540F83 /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "Ice/Service.h: No such file or directory";
-		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 1;
-		rType = 1;
+	FEBA102A1369D3DB00540F83 /* Profile.ice */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 580}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 250}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
 	};
-	FEBA0DED1368AE3600540F83 /* PBXTextBookmark */ = {
+	FEBA10381369D70100540F83 /* Synchronizer.ice */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 580}}";
+			sepNavSelRange = "{153, 0}";
+			sepNavVisRange = "{0, 225}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA103E1369D79E00540F83 /* Synchronizer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 7501}}";
+			sepNavSelRange = "{13714, 98}";
+			sepNavVisRange = "{13166, 1532}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 377}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 285}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA10411369D7FB00540F83 /* SynchronizerI.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 377}}";
+			sepNavSelRange = "{266, 0}";
+			sepNavVisRange = "{0, 522}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA10701369DAD600540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA10711369DAD600540F83 /* Client.cpp */;
+		name = "Client.cpp: 54";
+		rLen = 151;
+		rLoc = 1019;
+		rType = 0;
+		vrLen = 848;
+		vrLoc = 2720;
+	};
+	FEBA10711369DAD600540F83 /* Client.cpp */ = {
+		isa = PBXFileReference;
+		name = Client.cpp;
+		path = "/Users/Maoxu/Desktop/Ice-3.4.1-demos/demo/Ice/hello/Client.cpp";
+		sourceTree = "<absolute>";
+	};
+	FEBA10721369DAD600540F83 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		name = "main.cpp: 9";
+		name = "main.cpp: 4";
 		rLen = 0;
-		rLoc = 191;
+		rLoc = 90;
 		rType = 0;
-		vrLen = 389;
+		vrLen = 422;
+		vrLoc = 0;
+	};
+	FEBA10731369DAD600540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA103E1369D79E00540F83 /* Synchronizer.h */;
+		name = "Synchronizer.h: 430";
+		rLen = 98;
+		rLoc = 13714;
+		rType = 0;
+		vrLen = 1273;
+		vrLoc = 13247;
+	};
+	FEBA10741369DAD600540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */;
+		name = "SynchronizerI.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 433;
+		vrLoc = 0;
+	};
+	FEBA10751369DAD600540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA10411369D7FB00540F83 /* SynchronizerI.h */;
+		name = "SynchronizerI.h: 10";
+		rLen = 0;
+		rLoc = 167;
+		rType = 0;
+		vrLen = 529;
+		vrLoc = 0;
+	};
+	FEBA10761369DAD600540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA10411369D7FB00540F83 /* SynchronizerI.h */;
+		name = "SynchronizerI.h: 14";
+		rLen = 0;
+		rLoc = 266;
+		rType = 0;
+		vrLen = 522;
 		vrLoc = 0;
 	};
 }

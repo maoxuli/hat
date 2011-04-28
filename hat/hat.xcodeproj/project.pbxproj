@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* hat.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hat.1 */; };
+		FEBA0FE91369D2AB00540F83 /* Filter.ice in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0FE71369D2AB00540F83 /* Filter.ice */; };
+		FEBA0FF11369D30400540F83 /* Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0FEF1369D30400540F83 /* Filter.cpp */; };
+		FEBA0FF91369D34400540F83 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0FF81369D34400540F83 /* libIce.34.dylib */; };
+		FEBA0FFB1369D34400540F83 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0FFA1369D34400540F83 /* libIceUtil.34.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +32,11 @@
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* hatd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatd; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hat.1; sourceTree = "<group>"; };
+		FEBA0FE71369D2AB00540F83 /* Filter.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.slice; name = Filter.ice; path = ../slice/Filter.ice; sourceTree = SOURCE_ROOT; };
+		FEBA0FEF1369D30400540F83 /* Filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Filter.cpp; sourceTree = "<group>"; };
+		FEBA0FF01369D30400540F83 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = "<group>"; };
+		FEBA0FF81369D34400540F83 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
+		FEBA0FFA1369D34400540F83 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEBA0FF91369D34400540F83 /* libIce.34.dylib in Frameworks */,
+				FEBA0FFB1369D34400540F83 /* libIceUtil.34.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,9 +55,12 @@
 		08FB7794FE84155DC02AAC07 /* hat */ = {
 			isa = PBXGroup;
 			children = (
+				FEBA0FE61369D29600540F83 /* Slice */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				FEBA0FF81369D34400540F83 /* libIce.34.dylib */,
+				FEBA0FFA1369D34400540F83 /* libIceUtil.34.dylib */,
 			);
 			name = hat;
 			sourceTree = "<group>";
@@ -54,6 +68,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FEBA0FEF1369D30400540F83 /* Filter.cpp */,
+				FEBA0FF01369D30400540F83 /* Filter.h */,
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
 			);
 			name = Source;
@@ -75,6 +91,14 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
+		FEBA0FE61369D29600540F83 /* Slice */ = {
+			isa = PBXGroup;
+			children = (
+				FEBA0FE71369D2AB00540F83 /* Filter.ice */,
+			);
+			name = Slice;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "hat" */;
 			buildPhases = (
+				FEBA0FEC1369D2BC00540F83 /* ShellScript */,
 				8DD76F640486A84900D96B5E /* Sources */,
 				8DD76F660486A84900D96B5E /* Frameworks */,
 				8DD76F690486A84900D96B5E /* CopyFiles */,
@@ -128,6 +153,19 @@
 			shellPath = /bin/sh;
 			shellScript = "cp $CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH $PROJECT_DIR/../bin/$EXECUTABLE_PATH\n";
 		};
+		FEBA0FEC1369D2BC00540F83 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/Ice-3.4/bin/slice2cpp -I/opt/Ice-3.4/slice ../slice/Filter.ice\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -136,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
+				FEBA0FE91369D2AB00540F83 /* Filter.ice in Sources */,
+				FEBA0FF11369D30400540F83 /* Filter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +192,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/opt/Ice-3.4/lib\"",
+				);
 				PRODUCT_NAME = hatd;
 			};
 			name = Debug;
@@ -163,6 +207,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/opt/Ice-3.4/lib\"",
+				);
 				PRODUCT_NAME = hat;
 			};
 			name = Release;
@@ -175,7 +223,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/opt/Ice-3.4/include";
+				HEADER_SEARCH_PATHS = (
+					"/opt/Ice-3.4/include",
+					.,
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -189,7 +240,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/opt/Ice-3.4/include";
+				HEADER_SEARCH_PATHS = (
+					"/opt/Ice-3.4/include",
+					.,
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
