@@ -1,5 +1,6 @@
 #include <Ice/Ice.h>
-#include "filter.h"
+#include "Filter.h"
+#include "Synchronizer.h"
 #include <iostream>
 
 
@@ -39,7 +40,14 @@ int HatApp::run(int argc, char* argv[])
 	hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
     if(!filter)
     {
-        cerr << argv[0] << ": invalid proxy" << endl;
+        cerr << argv[0] << ": invalid proxy Filter" << endl;
+        return EXIT_FAILURE;
+    }
+	
+	hat::SynchronizerPrx synchronizer = hat::SynchronizerPrx::checkedCast(communicator()->propertyToProxy("Synchronizer.Proxy"));
+    if(!synchronizer)
+    {
+        cerr << argv[0] << ": invalid proxy Synchronizer" << endl;
         return EXIT_FAILURE;
     }
 	
@@ -52,9 +60,13 @@ int HatApp::run(int argc, char* argv[])
         {
             cout << "==> ";
             cin >> c;
-            if(c == 't')
+            if(c == 'f')
             {
                 filter->getFile();
+            }
+			if(c == 's')
+            {
+                synchronizer->refresh("testpath");
             }
             else if(c == 'x')
             {
@@ -84,7 +96,8 @@ void HatApp::menu()
 {
     cout <<
 	"usage:\n"
-	"t: test\n"
+	"f: filter\n"
+	"s: synchronizer\n"
 	"x: exit\n"
 	"?: help\n";
 }

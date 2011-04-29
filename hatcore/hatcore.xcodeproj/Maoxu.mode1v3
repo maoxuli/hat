@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>FEBA10681369DAA300540F83</string>
+						<string>FEBA1276136A639100540F83</string>
 						<key>history</key>
 						<array>
-							<string>FEBA105F1369DA9000540F83</string>
+							<string>FEBA1201136A4D0300540F83</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -270,8 +270,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -309,13 +307,11 @@
 								<string>08FB7794FE84155DC02AAC07</string>
 								<string>08FB7795FE84155DC02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>FEBA0F471369BFB600540F83</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
 									<integer>2</integer>
 									<integer>0</integer>
 								</array>
@@ -351,12 +347,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.cpp</string>
+								<string>ProfileI.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -364,33 +362,36 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>main.cpp</string>
+										<string>ProfileI.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FEBA10651369DAA300540F83</string>
+										<string>FEBA1275136A639100540F83</string>
 										<key>history</key>
 										<array>
 											<string>FEBA0ED61369BB7D00540F83</string>
-											<string>FEBA0ED81369BB7D00540F83</string>
 											<string>FEBA0EDB1369BB7D00540F83</string>
 											<string>FEBA0EEF1369BC5F00540F83</string>
-											<string>FEBA0F861369C4A000540F83</string>
 											<string>FEBA0F891369C4A000540F83</string>
-											<string>FEBA0F8A1369C4A000540F83</string>
-											<string>FEBA0FB61369CD9000540F83</string>
 											<string>FEBA0FB71369CD9000540F83</string>
-											<string>FEBA0FB81369CD9000540F83</string>
-											<string>FEBA0FB91369CD9000540F83</string>
-											<string>FEBA0FBA1369CD9000540F83</string>
 											<string>FEBA0FBB1369CD9000540F83</string>
 											<string>FEBA0FBD1369CD9000540F83</string>
 											<string>FEBA0FBF1369CD9000540F83</string>
 											<string>FEBA0FC11369CD9000540F83</string>
-											<string>FEBA0FC31369CD9000540F83</string>
 											<string>FEBA0FC51369CD9000540F83</string>
 											<string>FEBA0FC71369CD9000540F83</string>
-											<string>FEBA10641369DAA300540F83</string>
+											<string>FEBA10CC1369F40000540F83</string>
+											<string>FEBA10CD1369F40000540F83</string>
+											<string>FEBA11D7136A412000540F83</string>
+											<string>FEBA11D8136A412000540F83</string>
+											<string>FEBA11DA136A412000540F83</string>
+											<string>FEBA11DB136A412000540F83</string>
+											<string>FEBA11DC136A412000540F83</string>
+											<string>FEBA11DD136A412000540F83</string>
+											<string>FEBA11DE136A412000540F83</string>
+											<string>FEBA11DF136A412000540F83</string>
+											<string>FEBA11E0136A412000540F83</string>
+											<string>FEBA1200136A4D0300540F83</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -402,14 +403,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 404}}</string>
+								<string>{{0, 0}, {1072, 561}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>404pt</string>
+							<string>561pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -422,14 +423,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 409}, {1072, 203}}</string>
+								<string>{{0, 566}, {1072, 46}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>203pt</string>
+							<string>46pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -448,9 +449,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>FEBA0F8E1369C4A000540F83</string>
+				<string>FEBA126C136A61FE00540F83</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>FEBA0F8F1369C4A000540F83</string>
+				<string>FEBA126D136A61FE00540F83</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -588,7 +589,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FEBA0E4E1369AE5F00540F83</string>
 		<string>FEBA10661369DAA300540F83</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hatcore/hatcore.xcodeproj</string>
@@ -615,7 +615,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.cpp</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -632,8 +632,6 @@
 							<string>163pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -673,7 +671,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>FEBA0E4E1369AE5F00540F83</string>
-				<string>FEBA0F571369BFF600540F83</string>
+				<string>FEBA126F136A61FE00540F83</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -717,8 +715,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 194}}</string>
-											<string>{{316, 0}, {378, 194}}</string>
+											<string>{{0, 0}, {316, 201}}</string>
+											<string>{{316, 0}, {378, 201}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -733,8 +731,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 194}}</string>
-											<string>{{0, 194}, {694, 187}}</string>
+											<string>{{0, 0}, {694, 201}}</string>
+											<string>{{0, 201}, {694, 180}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -767,7 +765,7 @@
 										<real>148</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 194}}</string>
+									<string>{{316, 0}, {378, 201}}</string>
 									<key>RubberWindowFrame</key>
 									<string>21 333 694 422 0 0 1280 778 </string>
 								</dict>
@@ -795,13 +793,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>FEBA0FDF1369D23600540F83</string>
+				<string>FEBA11BF136A38FE00540F83</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>FEBA0FE01369D23600540F83</string>
-				<string>FEBA0FE11369D23600540F83</string>
-				<string>FEBA0FE21369D23600540F83</string>
-				<string>FEBA0FE31369D23600540F83</string>
-				<string>FEBA0FE41369D23600540F83</string>
+				<string>FEBA11C0136A38FE00540F83</string>
+				<string>FEBA11C1136A38FE00540F83</string>
+				<string>FEBA11C2136A38FE00540F83</string>
+				<string>FEBA11C3136A38FE00540F83</string>
+				<string>FEBA11C4136A38FE00540F83</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>

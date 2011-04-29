@@ -3,6 +3,7 @@
 #include <IceUtil/IceUtil.h>
 #include <Ice/Ice.h>
 #include "Profile.h"
+#include "Persistence.h"
 
 namespace hat
 {
@@ -24,6 +25,7 @@ namespace hat
 		::Ice::LoggerPtr _logger;
 		
 	private:
+		Persistence* _persistence;
 		
 	};
 }  

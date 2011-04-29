@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8DD76F6C0486A84900D96B5E /* hatfile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatfile; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76F6C0486A84900D96B5E /* hatfiled */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatfiled; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hatfile.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatfile.1; sourceTree = "<group>"; };
 		FEBA0D701368A90100540F83 /* FSWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FSWatcher.cpp; sourceTree = "<group>"; };
 		FEBA0D711368A90100540F83 /* FSWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSWatcher.h; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76F6C0486A84900D96B5E /* hatfile */,
+				8DD76F6C0486A84900D96B5E /* hatfiled */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 			name = hatfile;
 			productInstallPath = "$(HOME)/bin";
 			productName = hatfile;
-			productReference = 8DD76F6C0486A84900D96B5E /* hatfile */;
+			productReference = 8DD76F6C0486A84900D96B5E /* hatfiled */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */

@@ -17,6 +17,8 @@
 		FEBA0FD91369D20800540F83 /* Profile.ice in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0FD71369D20800540F83 /* Profile.ice */; };
 		FEBA10051369D39F00540F83 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA10041369D39F00540F83 /* libIce.34.dylib */; };
 		FEBA10071369D39F00540F83 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA10061369D39F00540F83 /* libIceUtil.34.dylib */; };
+		FEBA119E136A0DF700540F83 /* Persistence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA119C136A0DF700540F83 /* Persistence.cpp */; };
+		FEBA11C9136A3A5400540F83 /* libiodbc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA11C8136A3A5400540F83 /* libiodbc.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +50,10 @@
 		FEBA0FD71369D20800540F83 /* Profile.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.slice; name = Profile.ice; path = ../slice/Profile.ice; sourceTree = SOURCE_ROOT; };
 		FEBA10041369D39F00540F83 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
 		FEBA10061369D39F00540F83 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
+		FEBA119C136A0DF700540F83 /* Persistence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Persistence.cpp; sourceTree = "<group>"; };
+		FEBA119D136A0DF700540F83 /* Persistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persistence.h; sourceTree = "<group>"; };
+		FEBA11A0136A0E7300540F83 /* otlv4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otlv4.h; sourceTree = "<group>"; };
+		FEBA11C8136A3A5400540F83 /* libiodbc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiodbc.dylib; path = usr/lib/libiodbc.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			files = (
 				FEBA10051369D39F00540F83 /* libIce.34.dylib in Frameworks */,
 				FEBA10071369D39F00540F83 /* libIceUtil.34.dylib in Frameworks */,
+				FEBA11C9136A3A5400540F83 /* libiodbc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +79,7 @@
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				FEBA10041369D39F00540F83 /* libIce.34.dylib */,
 				FEBA10061369D39F00540F83 /* libIceUtil.34.dylib */,
+				FEBA11C8136A3A5400540F83 /* libiodbc.dylib */,
 			);
 			name = hatcore;
 			sourceTree = "<group>";
@@ -79,6 +87,9 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FEBA11A0136A0E7300540F83 /* otlv4.h */,
+				FEBA119C136A0DF700540F83 /* Persistence.cpp */,
+				FEBA119D136A0DF700540F83 /* Persistence.h */,
 				FEBA0FAB1369C74600540F83 /* FilterI.cpp */,
 				FEBA0FAC1369C74600540F83 /* FilterI.h */,
 				FEBA0FA61369C6F300540F83 /* Filter.cpp */,
@@ -198,6 +209,7 @@
 				FEBA0FAD1369C74600540F83 /* FilterI.cpp in Sources */,
 				FEBA0FD81369D20800540F83 /* Filter.ice in Sources */,
 				FEBA0FD91369D20800540F83 /* Profile.ice in Sources */,
+				FEBA119E136A0DF700540F83 /* Persistence.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

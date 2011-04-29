@@ -12,9 +12,13 @@
 FSWatcher _fswatcher;
 
 FSWatcher::FSWatcher() {
+	
+	_callback = NULL;
+	_context = NULL;
 }
 
 FSWatcher::~FSWatcher() {
+	
 }
 
 /*
@@ -54,10 +58,18 @@ FSWatcher::~FSWatcher() {
 
 bool FSWatcher::start() {
 	settings_t _settings, *settings = &_settings;
+	settings->fullpath = "/Users/Maoxu/Desktop/LIM-Labs/hat/bin/testpath/";
 	watch_dir_hierarchy(settings);
 	return true;
 }
 
 void FSWatcher::stop() {
 	
+}
+
+void FSWatcher::pathChange(const string& path) {
+
+	if (!_callback) {
+		_callback(_context, path);
+	}
 }

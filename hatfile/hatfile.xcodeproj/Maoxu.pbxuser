@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = FEBA0D4B1368A7B400540F83 /* hatfile */;
 		activeTarget = 8DD76F620486A84900D96B5E /* hatfile */;
 		addToTargets = (
@@ -80,16 +80,22 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325702594;
-			PBXWorkspaceStateSaveDate = 325702594;
+			PBXPerProjectTemplateStateSaveDate = 325781299;
+			PBXWorkspaceStateSaveDate = 325781299;
 		};
 		perUserProjectItems = {
-			FEBA10701369DAD600540F83 /* PBXTextBookmark */ = FEBA10701369DAD600540F83 /* PBXTextBookmark */;
-			FEBA10721369DAD600540F83 /* PBXTextBookmark */ = FEBA10721369DAD600540F83 /* PBXTextBookmark */;
-			FEBA10731369DAD600540F83 /* PBXTextBookmark */ = FEBA10731369DAD600540F83 /* PBXTextBookmark */;
-			FEBA10741369DAD600540F83 /* PBXTextBookmark */ = FEBA10741369DAD600540F83 /* PBXTextBookmark */;
-			FEBA10751369DAD600540F83 /* PBXTextBookmark */ = FEBA10751369DAD600540F83 /* PBXTextBookmark */;
-			FEBA10761369DAD600540F83 /* PBXTextBookmark */ = FEBA10761369DAD600540F83 /* PBXTextBookmark */;
+			FE86DDA8136A662A00683FD2 = FE86DDA8136A662A00683FD2 /* PBXTextBookmark */;
+			FE86DDA9136A662A00683FD2 = FE86DDA9136A662A00683FD2 /* PBXTextBookmark */;
+			FE86DDAA136A662A00683FD2 = FE86DDAA136A662A00683FD2 /* PBXTextBookmark */;
+			FEA8F528136B109A00B379C5 /* XCBuildMessageTextBookmark */ = FEA8F528136B109A00B379C5 /* XCBuildMessageTextBookmark */;
+			FEA8F529136B109A00B379C5 /* PBXTextBookmark */ = FEA8F529136B109A00B379C5 /* PBXTextBookmark */;
+			FEBA10701369DAD600540F83 = FEBA10701369DAD600540F83 /* PBXTextBookmark */;
+			FEBA10731369DAD600540F83 = FEBA10731369DAD600540F83 /* PBXTextBookmark */;
+			FEBA1159136A0AEF00540F83 = FEBA1159136A0AEF00540F83 /* PBXTextBookmark */;
+			FEBA124A136A61C400540F83 = FEBA124A136A61C400540F83 /* PBXTextBookmark */;
+			FEBA124B136A61C400540F83 = FEBA124B136A61C400540F83 /* PBXTextBookmark */;
+			FEBA124C136A61C400540F83 = FEBA124C136A61C400540F83 /* PBXTextBookmark */;
+			FEBA124D136A61C400540F83 = FEBA124D136A61C400540F83 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FEBA0D571368A7D300540F83 /* Source Control */;
 		userBuildSettings = {
@@ -97,9 +103,9 @@
 	};
 	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1181, 580}}";
-			sepNavSelRange = "{71, 0}";
-			sepNavVisRange = "{0, 753}";
+			sepNavIntBoundsRect = "{{0, 0}, {1219, 416}}";
+			sepNavSelRange = "{541, 0}";
+			sepNavVisRange = "{336, 483}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
@@ -108,6 +114,55 @@
 		executables = (
 			FEBA0D4B1368A7B400540F83 /* hatfile */,
 		);
+	};
+	FE86DDA8136A662A00683FD2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */;
+		name = "SynchronizerI.cpp: 34";
+		rLen = 0;
+		rLoc = 801;
+		rType = 0;
+		vrLen = 622;
+		vrLoc = 409;
+	};
+	FE86DDA9136A662A00683FD2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA0D721368A90100540F83 /* Watcher.cpp */;
+		name = "Watcher.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 864;
+		vrLoc = 2282;
+	};
+	FE86DDAA136A662A00683FD2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA0D721368A90100540F83 /* Watcher.cpp */;
+		name = "Watcher.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 768;
+		vrLoc = 7598;
+	};
+	FEA8F528136B109A00B379C5 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Return-statement with a value, in function returning 'void'";
+		fRef = FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 82;
+		rType = 1;
+	};
+	FEA8F529136B109A00B379C5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */;
+		name = "SynchronizerI.cpp: 83";
+		rLen = 0;
+		rLoc = 1757;
+		rType = 0;
+		vrLen = 353;
+		vrLoc = 1379;
 	};
 	FEBA0D4B1368A7B400540F83 /* hatfile */ = {
 		isa = PBXExecutable;
@@ -150,6 +205,30 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
+	FEBA0D701368A90100540F83 /* FSWatcher.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1219, 897}}";
+			sepNavSelRange = "{1028, 0}";
+			sepNavVisRange = "{902, 277}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA0D711368A90100540F83 /* FSWatcher.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 923}}";
+			sepNavSelRange = "{647, 0}";
+			sepNavVisRange = "{899, 461}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
+	FEBA0D721368A90100540F83 /* Watcher.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 14001}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{7598, 712}";
+			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
+		};
+	};
 	FEBA102A1369D3DB00540F83 /* Profile.ice */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1181, 580}}";
@@ -166,6 +245,13 @@
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
+	FEBA103D1369D79E00540F83 /* Synchronizer.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 5057}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 739}";
+		};
+	};
 	FEBA103E1369D79E00540F83 /* Synchronizer.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1181, 7501}}";
@@ -176,17 +262,17 @@
 	};
 	FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {439, 377}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 285}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1144}}";
+			sepNavSelRange = "{1757, 0}";
+			sepNavVisRange = "{1271, 523}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
 	FEBA10411369D7FB00540F83 /* SynchronizerI.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 377}}";
-			sepNavSelRange = "{266, 0}";
-			sepNavVisRange = "{0, 522}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 468}}";
+			sepNavSelRange = "{152, 0}";
+			sepNavVisRange = "{16, 683}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
@@ -202,19 +288,10 @@
 	};
 	FEBA10711369DAD600540F83 /* Client.cpp */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
 		name = Client.cpp;
 		path = "/Users/Maoxu/Desktop/Ice-3.4.1-demos/demo/Ice/hello/Client.cpp";
 		sourceTree = "<absolute>";
-	};
-	FEBA10721369DAD600540F83 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		name = "main.cpp: 4";
-		rLen = 0;
-		rLoc = 90;
-		rType = 0;
-		vrLen = 422;
-		vrLoc = 0;
 	};
 	FEBA10731369DAD600540F83 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -226,34 +303,54 @@
 		vrLen = 1273;
 		vrLoc = 13247;
 	};
-	FEBA10741369DAD600540F83 /* PBXTextBookmark */ = {
+	FEBA1159136A0AEF00540F83 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = FEBA10401369D7FB00540F83 /* SynchronizerI.cpp */;
-		name = "SynchronizerI.cpp: 1";
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 17";
+		rLen = 0;
+		rLoc = 394;
+		rType = 0;
+		vrLen = 716;
+		vrLoc = 20;
+	};
+	FEBA124A136A61C400540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA103D1369D79E00540F83 /* Synchronizer.cpp */;
+		name = "Synchronizer.cpp: 1";
 		rLen = 0;
 		rLoc = 0;
 		rType = 0;
-		vrLen = 433;
+		vrLen = 739;
 		vrLoc = 0;
 	};
-	FEBA10751369DAD600540F83 /* PBXTextBookmark */ = {
+	FEBA124B136A61C400540F83 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = FEBA10411369D7FB00540F83 /* SynchronizerI.h */;
-		name = "SynchronizerI.h: 10";
+		name = "SynchronizerI.h: 25";
 		rLen = 0;
-		rLoc = 167;
+		rLoc = 528;
 		rType = 0;
-		vrLen = 529;
+		vrLen = 631;
 		vrLoc = 0;
 	};
-	FEBA10761369DAD600540F83 /* PBXTextBookmark */ = {
+	FEBA124C136A61C400540F83 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = FEBA10411369D7FB00540F83 /* SynchronizerI.h */;
-		name = "SynchronizerI.h: 14";
+		fRef = FEBA0D711368A90100540F83 /* FSWatcher.h */;
+		name = "FSWatcher.h: 36";
 		rLen = 0;
-		rLoc = 266;
+		rLoc = 647;
 		rType = 0;
-		vrLen = 522;
-		vrLoc = 0;
+		vrLen = 461;
+		vrLoc = 899;
+	};
+	FEBA124D136A61C400540F83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FEBA0D701368A90100540F83 /* FSWatcher.cpp */;
+		name = "FSWatcher.cpp: 71";
+		rLen = 0;
+		rLoc = 1229;
+		rType = 0;
+		vrLen = 420;
+		vrLoc = 863;
 	};
 }

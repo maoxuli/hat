@@ -12,9 +12,9 @@ private:
 
 bool CoreService::start(int argc, char* argv[], int& status) {
 	
-	std::cout << "Core service start" << std::endl;
+	std::cout << "Core service start..." << std::endl;
 	
-	_adapter = communicator()->createObjectAdapter("hatcore");
+	_adapter = communicator()->createObjectAdapter("HatCore");
 	
     hat::ProfilePtr profile = new hat::ProfileI(communicator()->getProperties(), communicator()->getLogger());
     _adapter->add(profile, communicator()->stringToIdentity("profile"));
@@ -23,6 +23,8 @@ bool CoreService::start(int argc, char* argv[], int& status) {
 	_adapter->add(filter, communicator()->stringToIdentity("filter"));	
 	
     _adapter->activate();
+	
+	std::cout << "Succeed! Wait for request..." << std::endl;
 	
 	return true;
 }

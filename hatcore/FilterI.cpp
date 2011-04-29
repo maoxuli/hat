@@ -6,7 +6,7 @@ FilterI::FilterI(const Ice::PropertiesPtr& properties, const Ice::LoggerPtr& log
 : _properties(properties)
 , _logger(logger)
 {
-	
+	_persistence = NULL;
 }
 
 FilterI::~FilterI()

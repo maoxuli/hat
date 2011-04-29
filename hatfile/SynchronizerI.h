@@ -3,6 +3,11 @@
 #include <IceUtil/IceUtil.h>
 #include <Ice/Ice.h>
 #include "Synchronizer.h"
+#include "Profile.h"
+#include <string>
+#include <ftw.h>
+
+using namespace std;
 
 namespace hat
 {
@@ -10,7 +15,7 @@ namespace hat
 	{
 	public:
 	    
-		SynchronizerI(const Ice::PropertiesPtr&, const Ice::LoggerPtr&);
+		SynchronizerI(const Ice::CommunicatorPtr&, const Ice::PropertiesPtr&, const Ice::LoggerPtr&);
 		virtual ~SynchronizerI();
 		
 		bool initialize();
@@ -18,11 +23,16 @@ namespace hat
 	public:
 		virtual void refresh(const ::std::string&, const ::Ice::Current& = ::Ice::Current());
 		
+		static int _checkFile(const char *pathname, const struct stat *statptr, int type);		
+		int checkFile(const char *pathname, const struct stat *statptr, int type);
+		
 	private:
+		::Ice::CommunicatorPtr _communicator;
 		::Ice::PropertiesPtr _properties;
 		::Ice::LoggerPtr _logger;
 		
-	private:
+		hat::ProfilePrx _profile;
 		
 	};
+	
 }  

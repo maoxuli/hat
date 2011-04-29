@@ -27,6 +27,10 @@
 #include <CoreServices/CoreServices.h>
 #include <pthread.h>
 
+#include <string>
+
+using namespace std;
+
 typedef struct _settings_t {
     dev_t                dev;
     FSEventStreamEventId since_when;
@@ -38,6 +42,8 @@ typedef struct _settings_t {
 
 void watch_dir_hierarchy(settings_t *settings);
 
+typedef void fCallback(void*, const string&);
+
 class FSWatcher {
 public:
 	FSWatcher();
@@ -46,6 +52,17 @@ public:
 public:
 	bool start();	//Start monitor file system events
 	void stop();	//Stop monitor file system events
+	
+	void pathChange(const string& path);
+	
+	void setCallback(void* context, fCallback* callback)
+	{
+		_context = context;
+		_callback = callback;
+	}
+	
+	void* _context;
+	fCallback* _callback;
 	
 };
 

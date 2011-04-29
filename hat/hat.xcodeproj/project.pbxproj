@@ -13,6 +13,8 @@
 		FEBA0FF11369D30400540F83 /* Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0FEF1369D30400540F83 /* Filter.cpp */; };
 		FEBA0FF91369D34400540F83 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0FF81369D34400540F83 /* libIce.34.dylib */; };
 		FEBA0FFB1369D34400540F83 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0FFA1369D34400540F83 /* libIceUtil.34.dylib */; };
+		FEBA1135136A09A100540F83 /* Synchronizer.ice in Sources */ = {isa = PBXBuildFile; fileRef = FEBA1134136A09A100540F83 /* Synchronizer.ice */; };
+		FEBA113A136A09D300540F83 /* Synchronizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA1138136A09D300540F83 /* Synchronizer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,13 +32,16 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8DD76F6C0486A84900D96B5E /* hatd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatd; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76F6C0486A84900D96B5E /* hat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hat; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hat.1; sourceTree = "<group>"; };
 		FEBA0FE71369D2AB00540F83 /* Filter.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.slice; name = Filter.ice; path = ../slice/Filter.ice; sourceTree = SOURCE_ROOT; };
 		FEBA0FEF1369D30400540F83 /* Filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Filter.cpp; sourceTree = "<group>"; };
 		FEBA0FF01369D30400540F83 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = "<group>"; };
 		FEBA0FF81369D34400540F83 /* libIce.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIce.34.dylib; path = "/opt/Ice-3.4/lib/libIce.34.dylib"; sourceTree = "<absolute>"; };
 		FEBA0FFA1369D34400540F83 /* libIceUtil.34.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIceUtil.34.dylib; path = "/opt/Ice-3.4/lib/libIceUtil.34.dylib"; sourceTree = "<absolute>"; };
+		FEBA1134136A09A100540F83 /* Synchronizer.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.slice; name = Synchronizer.ice; path = ../slice/Synchronizer.ice; sourceTree = SOURCE_ROOT; };
+		FEBA1138136A09D300540F83 /* Synchronizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Synchronizer.cpp; sourceTree = "<group>"; };
+		FEBA1139136A09D300540F83 /* Synchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synchronizer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FEBA1138136A09D300540F83 /* Synchronizer.cpp */,
+				FEBA1139136A09D300540F83 /* Synchronizer.h */,
 				FEBA0FEF1369D30400540F83 /* Filter.cpp */,
 				FEBA0FF01369D30400540F83 /* Filter.h */,
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
@@ -78,7 +85,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76F6C0486A84900D96B5E /* hatd */,
+				8DD76F6C0486A84900D96B5E /* hat */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 		FEBA0FE61369D29600540F83 /* Slice */ = {
 			isa = PBXGroup;
 			children = (
+				FEBA1134136A09A100540F83 /* Synchronizer.ice */,
 				FEBA0FE71369D2AB00540F83 /* Filter.ice */,
 			);
 			name = Slice;
@@ -119,7 +127,7 @@
 			name = hat;
 			productInstallPath = "$(HOME)/bin";
 			productName = hat;
-			productReference = 8DD76F6C0486A84900D96B5E /* hatd */;
+			productReference = 8DD76F6C0486A84900D96B5E /* hat */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/Ice-3.4/bin/slice2cpp -I/opt/Ice-3.4/slice ../slice/Filter.ice\n";
+			shellScript = "/opt/Ice-3.4/bin/slice2cpp -I/opt/Ice-3.4/slice ../slice/Filter.ice\n/opt/Ice-3.4/bin/slice2cpp -I/opt/Ice-3.4/slice ../slice/Synchronizer.ice\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -176,6 +184,8 @@
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
 				FEBA0FE91369D2AB00540F83 /* Filter.ice in Sources */,
 				FEBA0FF11369D30400540F83 /* Filter.cpp in Sources */,
+				FEBA1135136A09A100540F83 /* Synchronizer.ice in Sources */,
+				FEBA113A136A09D300540F83 /* Synchronizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

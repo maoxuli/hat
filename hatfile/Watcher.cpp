@@ -203,7 +203,7 @@ fsevents_callback(FSEventStreamRef streamRef, void *clientCallBackInfo,
 		get_total_size(), path_buff, full_path);
     }
 	
-	_fswatcher.stop();
+	_fswatcher.pathChange(path_buff);
 }
 
 
