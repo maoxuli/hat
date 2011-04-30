@@ -11,43 +11,61 @@ ProfileI::ProfileI(const Ice::PropertiesPtr& properties, const Ice::LoggerPtr& l
 
 ProfileI::~ProfileI()
 {
-	
+	if(!_persistence) {
+		delete _persistence;
+	}
 }
 
-bool ProfileI::initialize()
+::Ice::Int ProfileI::updateFile(const ::hat::FileStat& stat, const ::Ice::Current&)
 {
-	printf("ProfileI::initialize\n");
-	return true;
-}
+	cout << stat.fid << stat.host << stat.path << stat.name << stat.stamp << stat.size << stat.hash << endl;
 
-void ProfileI::setHash(const ::std::string& name, const ::std::string& hash, const ::Ice::Current&)
-{
-	printf("ProfileI::setHash(%s,%s)\n",name.c_str(),hash.c_str());
-	
-	if(_persistence == NULL)
+	int fid = -1;
+	if(persistence())
 	{
-		_persistence = new Persistence("hatcore");
+		try {
+			FSTAT fs(stat);
+			fid = _persistence->insertFile(fs);
+		}
+		catch (const Ice::Exception& ex) {
+			cerr << ex << endl;
+		}
+		_persistence->shutdown();			
 	}
 	
-	if(_persistence->initialize())
+	return fid;
+}
+
+void ProfileI::updateMeta(const ::hat::FileMeta& meta, const ::Ice::Current&)
+{
+	printf("ProfileI::updateMeta(%d)\n", meta.fid);
+	
+	if(persistence())
 	{
-		_persistence->insertFile(name);
+		try {
+			FMETA fm;
+			_persistence->updateMeta(meta.fid, fm);
+		}
+		catch (const Ice::Exception& ex) {
+			cerr << ex << endl;
+		}
+		_persistence->shutdown();
+	}	
+}
+
+void ProfileI::updateFeature(const ::hat::FileFeature& feature, const ::Ice::Current&)
+{
+	printf("ProfileI::updateFeature(%d)\n", feature.fid);
+		
+	if(persistence())
+	{
+		try {
+			FFEATURE ff;
+			_persistence->updateFeature(feature.fid, ff);
+		}
+		catch (const Ice::Exception& ex) {
+			cerr << ex << endl;
+		}
 		_persistence->shutdown();
 	}
-}
-
-::std::string ProfileI::getHash(const ::std::string& name, const ::Ice::Current&)
-{
-	printf("ProfileI::getHash(%s)\n",name.c_str());
-	if(_persistence == NULL)
-	{
-		_persistence = new Persistence("hatcore");
-	}
-	
-	if(_persistence->initialize())
-	{
-		_persistence->insertFile(name);
-		_persistence->shutdown();
-	}
-	return "";
 }

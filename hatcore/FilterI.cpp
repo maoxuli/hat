@@ -11,17 +11,27 @@ FilterI::FilterI(const Ice::PropertiesPtr& properties, const Ice::LoggerPtr& log
 
 FilterI::~FilterI()
 {
+	if (!_persistence) {
+		delete _persistence;
+	}
+}
+
+::Ice::StringSeq FilterI::select(const ::std::string& where, const ::Ice::Current&)
+{
+	printf("FilterI::select(%s)\n", where.c_str());
 	
-}
-
-bool FilterI::initialize()
-{
-	printf("FilterI::initialize\n");
-	return true;
-}
-
-::std::string FilterI::getFile(const ::Ice::Current&)
-{
-	printf("FilterI::getFile()\n");
-	return "";
+	Ice::StringSeq files;
+	
+	if(persistence())
+	{
+		try {
+			files = _persistence->selectFiles(where);
+		}
+		catch (const Ice::Exception& ex) {
+			cerr << ex << endl;
+		}
+		_persistence->shutdown();
+	}
+	
+	return files;
 }

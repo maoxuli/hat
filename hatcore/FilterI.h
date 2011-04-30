@@ -13,11 +13,9 @@ namespace hat
 	    
 		FilterI(const Ice::PropertiesPtr&, const Ice::LoggerPtr&);
 		virtual ~FilterI();
-		
-		bool initialize();
-		
+				
 	public:
-		virtual ::std::string getFile(const ::Ice::Current& = ::Ice::Current());
+		virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Current& = ::Ice::Current());
 		
 	private:
 		::Ice::PropertiesPtr _properties;
@@ -25,6 +23,12 @@ namespace hat
 		
 	private:
 		Persistence* _persistence;
-		
+		inline bool persistence()
+		{
+			if(!_persistence)
+				_persistence = new Persistence("hatcore");
+			
+			return _persistence->activate();
+		}
 	};
 }  

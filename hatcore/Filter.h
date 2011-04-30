@@ -91,8 +91,8 @@ void __patch__FilterPtr(void*, ::Ice::ObjectPtr&);
 namespace hat
 {
 
-class Callback_Filter_getFile_Base : virtual public ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Filter_getFile_Base> Callback_Filter_getFilePtr;
+class Callback_Filter_select_Base : virtual public ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_Filter_select_Base> Callback_Filter_selectPtr;
 
 }
 
@@ -106,51 +106,51 @@ class Filter : virtual public ::IceProxy::Ice::Object
 {
 public:
 
-    ::std::string getFile()
+    ::Ice::StringSeq select(const ::std::string& where)
     {
-        return getFile(0);
+        return select(where, 0);
     }
-    ::std::string getFile(const ::Ice::Context& __ctx)
+    ::Ice::StringSeq select(const ::std::string& where, const ::Ice::Context& __ctx)
     {
-        return getFile(&__ctx);
-    }
-
-    ::Ice::AsyncResultPtr begin_getFile()
-    {
-        return begin_getFile(0, ::IceInternal::__dummyCallback, 0);
+        return select(where, &__ctx);
     }
 
-    ::Ice::AsyncResultPtr begin_getFile(const ::Ice::Context& __ctx)
+    ::Ice::AsyncResultPtr begin_select(const ::std::string& where)
     {
-        return begin_getFile(&__ctx, ::IceInternal::__dummyCallback, 0);
+        return begin_select(where, 0, ::IceInternal::__dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_getFile(const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_select(const ::std::string& where, const ::Ice::Context& __ctx)
     {
-        return begin_getFile(0, __del, __cookie);
+        return begin_select(where, &__ctx, ::IceInternal::__dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_getFile(const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_select(const ::std::string& where, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_getFile(&__ctx, __del, __cookie);
+        return begin_select(where, 0, __del, __cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_getFile(const ::hat::Callback_Filter_getFilePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_select(const ::std::string& where, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_getFile(0, __del, __cookie);
+        return begin_select(where, &__ctx, __del, __cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_getFile(const ::Ice::Context& __ctx, const ::hat::Callback_Filter_getFilePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_select(const ::std::string& where, const ::hat::Callback_Filter_selectPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_getFile(&__ctx, __del, __cookie);
+        return begin_select(where, 0, __del, __cookie);
     }
 
-    ::std::string end_getFile(const ::Ice::AsyncResultPtr&);
+    ::Ice::AsyncResultPtr begin_select(const ::std::string& where, const ::Ice::Context& __ctx, const ::hat::Callback_Filter_selectPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_select(where, &__ctx, __del, __cookie);
+    }
+
+    ::Ice::StringSeq end_select(const ::Ice::AsyncResultPtr&);
     
 private:
 
-    ::std::string getFile(const ::Ice::Context*);
-    ::Ice::AsyncResultPtr begin_getFile(const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
+    ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*);
+    ::Ice::AsyncResultPtr begin_select(const ::std::string&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
     
 public:
     
@@ -367,7 +367,7 @@ class Filter : virtual public ::IceDelegate::Ice::Object
 {
 public:
 
-    virtual ::std::string getFile(const ::Ice::Context*) = 0;
+    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*) = 0;
 };
 
 }
@@ -385,7 +385,7 @@ class Filter : virtual public ::IceDelegate::hat::Filter,
 {
 public:
 
-    virtual ::std::string getFile(const ::Ice::Context*);
+    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*);
 };
 
 }
@@ -403,7 +403,7 @@ class Filter : virtual public ::IceDelegate::hat::Filter,
 {
 public:
 
-    virtual ::std::string getFile(const ::Ice::Context*);
+    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*);
 };
 
 }
@@ -427,8 +427,8 @@ public:
     virtual const ::std::string& ice_id(const ::Ice::Current& = ::Ice::Current()) const;
     static const ::std::string& ice_staticId();
 
-    virtual ::std::string getFile(const ::Ice::Current& = ::Ice::Current()) = 0;
-    ::Ice::DispatchStatus ___getFile(::IceInternal::Incoming&, const ::Ice::Current&);
+    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Current& = ::Ice::Current()) = 0;
+    ::Ice::DispatchStatus ___select(::IceInternal::Incoming&, const ::Ice::Current&);
 
     virtual ::Ice::DispatchStatus __dispatch(::IceInternal::Incoming&, const ::Ice::Current&);
 
@@ -457,7 +457,7 @@ namespace hat
 {
 
 template<class T>
-class CallbackNC_Filter_getFile : public Callback_Filter_getFile_Base, public ::IceInternal::TwowayCallbackNC<T>
+class CallbackNC_Filter_select : public Callback_Filter_select_Base, public ::IceInternal::TwowayCallbackNC<T>
 {
 public:
 
@@ -465,9 +465,9 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::std::string&);
+    typedef void (T::*Response)(const ::Ice::StringSeq&);
 
-    CallbackNC_Filter_getFile(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+    CallbackNC_Filter_select(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), response(cb)
     {
     }
@@ -475,10 +475,10 @@ public:
     virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
     {
         ::hat::FilterPrx __proxy = ::hat::FilterPrx::uncheckedCast(__result->getProxy());
-        ::std::string __ret;
+        ::Ice::StringSeq __ret;
         try
         {
-            __ret = __proxy->end_getFile(__result);
+            __ret = __proxy->end_select(__result);
         }
         catch(::Ice::Exception& ex)
         {
@@ -502,20 +502,20 @@ public:
     Response response;
 };
 
-template<class T> Callback_Filter_getFilePtr
-newCallback_Filter_getFile(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+template<class T> Callback_Filter_selectPtr
+newCallback_Filter_select(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::StringSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
-    return new CallbackNC_Filter_getFile<T>(instance, cb, excb, sentcb);
+    return new CallbackNC_Filter_select<T>(instance, cb, excb, sentcb);
 }
 
-template<class T> Callback_Filter_getFilePtr
-newCallback_Filter_getFile(T* instance, void (T::*cb)(const ::std::string&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+template<class T> Callback_Filter_selectPtr
+newCallback_Filter_select(T* instance, void (T::*cb)(const ::Ice::StringSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
-    return new CallbackNC_Filter_getFile<T>(instance, cb, excb, sentcb);
+    return new CallbackNC_Filter_select<T>(instance, cb, excb, sentcb);
 }
 
 template<class T, typename CT>
-class Callback_Filter_getFile : public Callback_Filter_getFile_Base, public ::IceInternal::TwowayCallback<T, CT>
+class Callback_Filter_select : public Callback_Filter_select_Base, public ::IceInternal::TwowayCallback<T, CT>
 {
 public:
 
@@ -523,9 +523,9 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::std::string&, const CT&);
+    typedef void (T::*Response)(const ::Ice::StringSeq&, const CT&);
 
-    Callback_Filter_getFile(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+    Callback_Filter_select(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), response(cb)
     {
     }
@@ -533,10 +533,10 @@ public:
     virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
     {
         ::hat::FilterPrx __proxy = ::hat::FilterPrx::uncheckedCast(__result->getProxy());
-        ::std::string __ret;
+        ::Ice::StringSeq __ret;
         try
         {
-            __ret = __proxy->end_getFile(__result);
+            __ret = __proxy->end_select(__result);
         }
         catch(::Ice::Exception& ex)
         {
@@ -560,16 +560,16 @@ public:
     Response response;
 };
 
-template<class T, typename CT> Callback_Filter_getFilePtr
-newCallback_Filter_getFile(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+template<class T, typename CT> Callback_Filter_selectPtr
+newCallback_Filter_select(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::StringSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
-    return new Callback_Filter_getFile<T, CT>(instance, cb, excb, sentcb);
+    return new Callback_Filter_select<T, CT>(instance, cb, excb, sentcb);
 }
 
-template<class T, typename CT> Callback_Filter_getFilePtr
-newCallback_Filter_getFile(T* instance, void (T::*cb)(const ::std::string&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+template<class T, typename CT> Callback_Filter_selectPtr
+newCallback_Filter_select(T* instance, void (T::*cb)(const ::Ice::StringSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
-    return new Callback_Filter_getFile<T, CT>(instance, cb, excb, sentcb);
+    return new Callback_Filter_select<T, CT>(instance, cb, excb, sentcb);
 }
 
 }

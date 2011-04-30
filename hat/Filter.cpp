@@ -35,7 +35,7 @@
 #   endif
 #endif
 
-static const ::std::string __hat__Filter__getFile_name = "getFile";
+static const ::std::string __hat__Filter__select_name = "select";
 
 ::Ice::Object* IceInternal::upCast(::hat::Filter* p) { return p; }
 ::IceProxy::Ice::Object* IceInternal::upCast(::IceProxy::hat::Filter* p) { return p; }
@@ -56,8 +56,8 @@ hat::__read(::IceInternal::BasicStream* __is, ::hat::FilterPrx& v)
     }
 }
 
-::std::string
-IceProxy::hat::Filter::getFile(const ::Ice::Context* __ctx)
+::Ice::StringSeq
+IceProxy::hat::Filter::select(const ::std::string& where, const ::Ice::Context* __ctx)
 {
     int __cnt = 0;
     while(true)
@@ -65,10 +65,10 @@ IceProxy::hat::Filter::getFile(const ::Ice::Context* __ctx)
         ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
         try
         {
-            __checkTwowayOnly(__hat__Filter__getFile_name);
+            __checkTwowayOnly(__hat__Filter__select_name);
             __delBase = __getDelegate(false);
             ::IceDelegate::hat::Filter* __del = dynamic_cast< ::IceDelegate::hat::Filter*>(__delBase.get());
-            return __del->getFile(__ctx);
+            return __del->select(where, __ctx);
         }
         catch(const ::IceInternal::LocalExceptionWrapper& __ex)
         {
@@ -82,14 +82,15 @@ IceProxy::hat::Filter::getFile(const ::Ice::Context* __ctx)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::hat::Filter::begin_getFile(const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+IceProxy::hat::Filter::begin_select(const ::std::string& where, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
 {
-    __checkAsyncTwowayOnly(__hat__Filter__getFile_name);
-    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Filter__getFile_name, __del, __cookie);
+    __checkAsyncTwowayOnly(__hat__Filter__select_name);
+    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Filter__select_name, __del, __cookie);
     try
     {
-        __result->__prepare(__hat__Filter__getFile_name, ::Ice::Normal, __ctx);
+        __result->__prepare(__hat__Filter__select_name, ::Ice::Normal, __ctx);
         ::IceInternal::BasicStream* __os = __result->__getOs();
+        __os->write(where);
         __os->endWriteEncaps();
         __result->__send(true);
     }
@@ -100,11 +101,11 @@ IceProxy::hat::Filter::begin_getFile(const ::Ice::Context* __ctx, const ::IceInt
     return __result;
 }
 
-::std::string
-IceProxy::hat::Filter::end_getFile(const ::Ice::AsyncResultPtr& __result)
+::Ice::StringSeq
+IceProxy::hat::Filter::end_select(const ::Ice::AsyncResultPtr& __result)
 {
-    ::Ice::AsyncResult::__check(__result, this, __hat__Filter__getFile_name);
-    ::std::string __ret;
+    ::Ice::AsyncResult::__check(__result, this, __hat__Filter__select_name);
+    ::Ice::StringSeq __ret;
     if(!__result->__wait())
     {
         try
@@ -147,12 +148,21 @@ IceProxy::hat::Filter::__newInstance() const
     return new Filter;
 }
 
-::std::string
-IceDelegateM::hat::Filter::getFile(const ::Ice::Context* __context)
+::Ice::StringSeq
+IceDelegateM::hat::Filter::select(const ::std::string& where, const ::Ice::Context* __context)
 {
-    ::IceInternal::Outgoing __og(__handler.get(), __hat__Filter__getFile_name, ::Ice::Normal, __context);
+    ::IceInternal::Outgoing __og(__handler.get(), __hat__Filter__select_name, ::Ice::Normal, __context);
+    try
+    {
+        ::IceInternal::BasicStream* __os = __og.os();
+        __os->write(where);
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        __og.abort(__ex);
+    }
     bool __ok = __og.invoke();
-    ::std::string __ret;
+    ::Ice::StringSeq __ret;
     try
     {
         if(!__ok)
@@ -179,16 +189,17 @@ IceDelegateM::hat::Filter::getFile(const ::Ice::Context* __context)
     }
 }
 
-::std::string
-IceDelegateD::hat::Filter::getFile(const ::Ice::Context* __context)
+::Ice::StringSeq
+IceDelegateD::hat::Filter::select(const ::std::string& where, const ::Ice::Context* __context)
 {
     class _DirectI : public ::IceInternal::Direct
     {
     public:
 
-        _DirectI(::std::string& __result, const ::Ice::Current& __current) : 
+        _DirectI(::Ice::StringSeq& __result, const ::std::string& where, const ::Ice::Current& __current) : 
             ::IceInternal::Direct(__current),
-            _result(__result)
+            _result(__result),
+            _m_where(where)
         {
         }
         
@@ -200,21 +211,22 @@ IceDelegateD::hat::Filter::getFile(const ::Ice::Context* __context)
             {
                 throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
             }
-            _result = servant->getFile(_current);
+            _result = servant->select(_m_where, _current);
             return ::Ice::DispatchOK;
         }
         
     private:
         
-        ::std::string& _result;
+        ::Ice::StringSeq& _result;
+        const ::std::string& _m_where;
     };
     
     ::Ice::Current __current;
-    __initCurrent(__current, __hat__Filter__getFile_name, ::Ice::Normal, __context);
-    ::std::string __result;
+    __initCurrent(__current, __hat__Filter__select_name, ::Ice::Normal, __context);
+    ::Ice::StringSeq __result;
     try
     {
-        _DirectI __direct(__result, __current);
+        _DirectI __direct(__result, where, __current);
         try
         {
             __direct.servant()->__collocDispatch(__direct);
@@ -283,23 +295,34 @@ hat::Filter::ice_staticId()
 }
 
 ::Ice::DispatchStatus
-hat::Filter::___getFile(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
+hat::Filter::___select(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
 {
     __checkMode(::Ice::Normal, __current.mode);
-    __inS.is()->skipEmptyEncaps();
+    ::IceInternal::BasicStream* __is = __inS.is();
+    __is->startReadEncaps();
+    ::std::string where;
+    __is->read(where);
+    __is->endReadEncaps();
     ::IceInternal::BasicStream* __os = __inS.os();
-    ::std::string __ret = getFile(__current);
-    __os->write(__ret);
+    ::Ice::StringSeq __ret = select(where, __current);
+    if(__ret.size() == 0)
+    {
+        __os->writeSize(0);
+    }
+    else
+    {
+        __os->write(&__ret[0], &__ret[0] + __ret.size());
+    }
     return ::Ice::DispatchOK;
 }
 
 static ::std::string __hat__Filter_all[] =
 {
-    "getFile",
     "ice_id",
     "ice_ids",
     "ice_isA",
-    "ice_ping"
+    "ice_ping",
+    "select"
 };
 
 ::Ice::DispatchStatus
@@ -315,23 +338,23 @@ hat::Filter::__dispatch(::IceInternal::Incoming& in, const ::Ice::Current& curre
     {
         case 0:
         {
-            return ___getFile(in, current);
+            return ___ice_id(in, current);
         }
         case 1:
         {
-            return ___ice_id(in, current);
+            return ___ice_ids(in, current);
         }
         case 2:
         {
-            return ___ice_ids(in, current);
+            return ___ice_isA(in, current);
         }
         case 3:
         {
-            return ___ice_isA(in, current);
+            return ___ice_ping(in, current);
         }
         case 4:
         {
-            return ___ice_ping(in, current);
+            return ___select(in, current);
         }
     }
 

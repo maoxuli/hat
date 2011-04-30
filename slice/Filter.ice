@@ -7,7 +7,8 @@ module hat
 {
 	interface Filter
 	{
-		string getFile();
+		Ice::StringSeq select(string where);
 	};
 }; 
+
 #endif  //#ifndef HAT_FILTER_ICE

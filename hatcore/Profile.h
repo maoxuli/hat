@@ -91,11 +91,301 @@ void __patch__ProfilePtr(void*, ::Ice::ObjectPtr&);
 namespace hat
 {
 
-class Callback_Profile_setHash_Base : virtual public ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Profile_setHash_Base> Callback_Profile_setHashPtr;
+struct FileStat
+{
+    ::Ice::Int fid;
+    ::std::string host;
+    ::std::string path;
+    ::std::string name;
+    ::Ice::Long stamp;
+    ::Ice::Int size;
+    ::std::string hash;
 
-class Callback_Profile_getHash_Base : virtual public ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Profile_getHash_Base> Callback_Profile_getHashPtr;
+    bool operator==(const FileStat& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return true;
+        }
+        if(fid != __rhs.fid)
+        {
+            return false;
+        }
+        if(host != __rhs.host)
+        {
+            return false;
+        }
+        if(path != __rhs.path)
+        {
+            return false;
+        }
+        if(name != __rhs.name)
+        {
+            return false;
+        }
+        if(stamp != __rhs.stamp)
+        {
+            return false;
+        }
+        if(size != __rhs.size)
+        {
+            return false;
+        }
+        if(hash != __rhs.hash)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    bool operator<(const FileStat& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return false;
+        }
+        if(fid < __rhs.fid)
+        {
+            return true;
+        }
+        else if(__rhs.fid < fid)
+        {
+            return false;
+        }
+        if(host < __rhs.host)
+        {
+            return true;
+        }
+        else if(__rhs.host < host)
+        {
+            return false;
+        }
+        if(path < __rhs.path)
+        {
+            return true;
+        }
+        else if(__rhs.path < path)
+        {
+            return false;
+        }
+        if(name < __rhs.name)
+        {
+            return true;
+        }
+        else if(__rhs.name < name)
+        {
+            return false;
+        }
+        if(stamp < __rhs.stamp)
+        {
+            return true;
+        }
+        else if(__rhs.stamp < stamp)
+        {
+            return false;
+        }
+        if(size < __rhs.size)
+        {
+            return true;
+        }
+        else if(__rhs.size < size)
+        {
+            return false;
+        }
+        if(hash < __rhs.hash)
+        {
+            return true;
+        }
+        else if(__rhs.hash < hash)
+        {
+            return false;
+        }
+        return false;
+    }
+
+    bool operator!=(const FileStat& __rhs) const
+    {
+        return !operator==(__rhs);
+    }
+    bool operator<=(const FileStat& __rhs) const
+    {
+        return operator<(__rhs) || operator==(__rhs);
+    }
+    bool operator>(const FileStat& __rhs) const
+    {
+        return !operator<(__rhs) && !operator==(__rhs);
+    }
+    bool operator>=(const FileStat& __rhs) const
+    {
+        return !operator<(__rhs);
+    }
+
+    void __write(::IceInternal::BasicStream*) const;
+    void __read(::IceInternal::BasicStream*);
+};
+
+struct FileMeta
+{
+    ::Ice::Int fid;
+    ::Ice::Int width;
+    ::Ice::Int height;
+    ::Ice::Long origin;
+
+    bool operator==(const FileMeta& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return true;
+        }
+        if(fid != __rhs.fid)
+        {
+            return false;
+        }
+        if(width != __rhs.width)
+        {
+            return false;
+        }
+        if(height != __rhs.height)
+        {
+            return false;
+        }
+        if(origin != __rhs.origin)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    bool operator<(const FileMeta& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return false;
+        }
+        if(fid < __rhs.fid)
+        {
+            return true;
+        }
+        else if(__rhs.fid < fid)
+        {
+            return false;
+        }
+        if(width < __rhs.width)
+        {
+            return true;
+        }
+        else if(__rhs.width < width)
+        {
+            return false;
+        }
+        if(height < __rhs.height)
+        {
+            return true;
+        }
+        else if(__rhs.height < height)
+        {
+            return false;
+        }
+        if(origin < __rhs.origin)
+        {
+            return true;
+        }
+        else if(__rhs.origin < origin)
+        {
+            return false;
+        }
+        return false;
+    }
+
+    bool operator!=(const FileMeta& __rhs) const
+    {
+        return !operator==(__rhs);
+    }
+    bool operator<=(const FileMeta& __rhs) const
+    {
+        return operator<(__rhs) || operator==(__rhs);
+    }
+    bool operator>(const FileMeta& __rhs) const
+    {
+        return !operator<(__rhs) && !operator==(__rhs);
+    }
+    bool operator>=(const FileMeta& __rhs) const
+    {
+        return !operator<(__rhs);
+    }
+
+    void __write(::IceInternal::BasicStream*) const;
+    void __read(::IceInternal::BasicStream*);
+};
+
+struct FileFeature
+{
+    ::Ice::Int fid;
+
+    bool operator==(const FileFeature& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return true;
+        }
+        if(fid != __rhs.fid)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    bool operator<(const FileFeature& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return false;
+        }
+        if(fid < __rhs.fid)
+        {
+            return true;
+        }
+        else if(__rhs.fid < fid)
+        {
+            return false;
+        }
+        return false;
+    }
+
+    bool operator!=(const FileFeature& __rhs) const
+    {
+        return !operator==(__rhs);
+    }
+    bool operator<=(const FileFeature& __rhs) const
+    {
+        return operator<(__rhs) || operator==(__rhs);
+    }
+    bool operator>(const FileFeature& __rhs) const
+    {
+        return !operator<(__rhs) && !operator==(__rhs);
+    }
+    bool operator>=(const FileFeature& __rhs) const
+    {
+        return !operator<(__rhs);
+    }
+
+    void __write(::IceInternal::BasicStream*) const;
+    void __read(::IceInternal::BasicStream*);
+};
+
+}
+
+namespace hat
+{
+
+class Callback_Profile_updateFile_Base : virtual public ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_Profile_updateFile_Base> Callback_Profile_updateFilePtr;
+
+class Callback_Profile_updateMeta_Base : virtual public ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_Profile_updateMeta_Base> Callback_Profile_updateMetaPtr;
+
+class Callback_Profile_updateFeature_Base : virtual public ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_Profile_updateFeature_Base> Callback_Profile_updateFeaturePtr;
 
 }
 
@@ -109,99 +399,147 @@ class Profile : virtual public ::IceProxy::Ice::Object
 {
 public:
 
-    void setHash(const ::std::string& name, const ::std::string& hash)
+    ::Ice::Int updateFile(const ::hat::FileStat& stat)
     {
-        setHash(name, hash, 0);
+        return updateFile(stat, 0);
     }
-    void setHash(const ::std::string& name, const ::std::string& hash, const ::Ice::Context& __ctx)
+    ::Ice::Int updateFile(const ::hat::FileStat& stat, const ::Ice::Context& __ctx)
     {
-        setHash(name, hash, &__ctx);
-    }
-
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string& name, const ::std::string& hash)
-    {
-        return begin_setHash(name, hash, 0, ::IceInternal::__dummyCallback, 0);
+        return updateFile(stat, &__ctx);
     }
 
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string& name, const ::std::string& hash, const ::Ice::Context& __ctx)
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat& stat)
     {
-        return begin_setHash(name, hash, &__ctx, ::IceInternal::__dummyCallback, 0);
+        return begin_updateFile(stat, 0, ::IceInternal::__dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string& name, const ::std::string& hash, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat& stat, const ::Ice::Context& __ctx)
     {
-        return begin_setHash(name, hash, 0, __del, __cookie);
+        return begin_updateFile(stat, &__ctx, ::IceInternal::__dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string& name, const ::std::string& hash, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat& stat, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_setHash(name, hash, &__ctx, __del, __cookie);
+        return begin_updateFile(stat, 0, __del, __cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string& name, const ::std::string& hash, const ::hat::Callback_Profile_setHashPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat& stat, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_setHash(name, hash, 0, __del, __cookie);
+        return begin_updateFile(stat, &__ctx, __del, __cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string& name, const ::std::string& hash, const ::Ice::Context& __ctx, const ::hat::Callback_Profile_setHashPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat& stat, const ::hat::Callback_Profile_updateFilePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_setHash(name, hash, &__ctx, __del, __cookie);
+        return begin_updateFile(stat, 0, __del, __cookie);
     }
 
-    void end_setHash(const ::Ice::AsyncResultPtr&);
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat& stat, const ::Ice::Context& __ctx, const ::hat::Callback_Profile_updateFilePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_updateFile(stat, &__ctx, __del, __cookie);
+    }
+
+    ::Ice::Int end_updateFile(const ::Ice::AsyncResultPtr&);
     
 private:
 
-    void setHash(const ::std::string&, const ::std::string&, const ::Ice::Context*);
-    ::Ice::AsyncResultPtr begin_setHash(const ::std::string&, const ::std::string&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
+    ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Context*);
+    ::Ice::AsyncResultPtr begin_updateFile(const ::hat::FileStat&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
     
 public:
 
-    ::std::string getHash(const ::std::string& name)
+    void updateMeta(const ::hat::FileMeta& meta)
     {
-        return getHash(name, 0);
+        updateMeta(meta, 0);
     }
-    ::std::string getHash(const ::std::string& name, const ::Ice::Context& __ctx)
+    void updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context& __ctx)
     {
-        return getHash(name, &__ctx);
-    }
-
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string& name)
-    {
-        return begin_getHash(name, 0, ::IceInternal::__dummyCallback, 0);
+        updateMeta(meta, &__ctx);
     }
 
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string& name, const ::Ice::Context& __ctx)
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta& meta)
     {
-        return begin_getHash(name, &__ctx, ::IceInternal::__dummyCallback, 0);
+        return begin_updateMeta(meta, 0, ::IceInternal::__dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string& name, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context& __ctx)
     {
-        return begin_getHash(name, 0, __del, __cookie);
+        return begin_updateMeta(meta, &__ctx, ::IceInternal::__dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string& name, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta& meta, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_getHash(name, &__ctx, __del, __cookie);
+        return begin_updateMeta(meta, 0, __del, __cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string& name, const ::hat::Callback_Profile_getHashPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_getHash(name, 0, __del, __cookie);
+        return begin_updateMeta(meta, &__ctx, __del, __cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string& name, const ::Ice::Context& __ctx, const ::hat::Callback_Profile_getHashPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta& meta, const ::hat::Callback_Profile_updateMetaPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
     {
-        return begin_getHash(name, &__ctx, __del, __cookie);
+        return begin_updateMeta(meta, 0, __del, __cookie);
     }
 
-    ::std::string end_getHash(const ::Ice::AsyncResultPtr&);
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context& __ctx, const ::hat::Callback_Profile_updateMetaPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_updateMeta(meta, &__ctx, __del, __cookie);
+    }
+
+    void end_updateMeta(const ::Ice::AsyncResultPtr&);
     
 private:
 
-    ::std::string getHash(const ::std::string&, const ::Ice::Context*);
-    ::Ice::AsyncResultPtr begin_getHash(const ::std::string&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
+    void updateMeta(const ::hat::FileMeta&, const ::Ice::Context*);
+    ::Ice::AsyncResultPtr begin_updateMeta(const ::hat::FileMeta&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
+    
+public:
+
+    void updateFeature(const ::hat::FileFeature& feature)
+    {
+        updateFeature(feature, 0);
+    }
+    void updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context& __ctx)
+    {
+        updateFeature(feature, &__ctx);
+    }
+
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature& feature)
+    {
+        return begin_updateFeature(feature, 0, ::IceInternal::__dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context& __ctx)
+    {
+        return begin_updateFeature(feature, &__ctx, ::IceInternal::__dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature& feature, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_updateFeature(feature, 0, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_updateFeature(feature, &__ctx, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature& feature, const ::hat::Callback_Profile_updateFeaturePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_updateFeature(feature, 0, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context& __ctx, const ::hat::Callback_Profile_updateFeaturePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_updateFeature(feature, &__ctx, __del, __cookie);
+    }
+
+    void end_updateFeature(const ::Ice::AsyncResultPtr&);
+    
+private:
+
+    void updateFeature(const ::hat::FileFeature&, const ::Ice::Context*);
+    ::Ice::AsyncResultPtr begin_updateFeature(const ::hat::FileFeature&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
     
 public:
     
@@ -418,9 +756,11 @@ class Profile : virtual public ::IceDelegate::Ice::Object
 {
 public:
 
-    virtual void setHash(const ::std::string&, const ::std::string&, const ::Ice::Context*) = 0;
+    virtual ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Context*) = 0;
 
-    virtual ::std::string getHash(const ::std::string&, const ::Ice::Context*) = 0;
+    virtual void updateMeta(const ::hat::FileMeta&, const ::Ice::Context*) = 0;
+
+    virtual void updateFeature(const ::hat::FileFeature&, const ::Ice::Context*) = 0;
 };
 
 }
@@ -438,9 +778,11 @@ class Profile : virtual public ::IceDelegate::hat::Profile,
 {
 public:
 
-    virtual void setHash(const ::std::string&, const ::std::string&, const ::Ice::Context*);
+    virtual ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Context*);
 
-    virtual ::std::string getHash(const ::std::string&, const ::Ice::Context*);
+    virtual void updateMeta(const ::hat::FileMeta&, const ::Ice::Context*);
+
+    virtual void updateFeature(const ::hat::FileFeature&, const ::Ice::Context*);
 };
 
 }
@@ -458,9 +800,11 @@ class Profile : virtual public ::IceDelegate::hat::Profile,
 {
 public:
 
-    virtual void setHash(const ::std::string&, const ::std::string&, const ::Ice::Context*);
+    virtual ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Context*);
 
-    virtual ::std::string getHash(const ::std::string&, const ::Ice::Context*);
+    virtual void updateMeta(const ::hat::FileMeta&, const ::Ice::Context*);
+
+    virtual void updateFeature(const ::hat::FileFeature&, const ::Ice::Context*);
 };
 
 }
@@ -484,11 +828,14 @@ public:
     virtual const ::std::string& ice_id(const ::Ice::Current& = ::Ice::Current()) const;
     static const ::std::string& ice_staticId();
 
-    virtual void setHash(const ::std::string&, const ::std::string&, const ::Ice::Current& = ::Ice::Current()) = 0;
-    ::Ice::DispatchStatus ___setHash(::IceInternal::Incoming&, const ::Ice::Current&);
+    virtual ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Current& = ::Ice::Current()) = 0;
+    ::Ice::DispatchStatus ___updateFile(::IceInternal::Incoming&, const ::Ice::Current&);
 
-    virtual ::std::string getHash(const ::std::string&, const ::Ice::Current& = ::Ice::Current()) = 0;
-    ::Ice::DispatchStatus ___getHash(::IceInternal::Incoming&, const ::Ice::Current&);
+    virtual void updateMeta(const ::hat::FileMeta&, const ::Ice::Current& = ::Ice::Current()) = 0;
+    ::Ice::DispatchStatus ___updateMeta(::IceInternal::Incoming&, const ::Ice::Current&);
+
+    virtual void updateFeature(const ::hat::FileFeature&, const ::Ice::Current& = ::Ice::Current()) = 0;
+    ::Ice::DispatchStatus ___updateFeature(::IceInternal::Incoming&, const ::Ice::Current&);
 
     virtual ::Ice::DispatchStatus __dispatch(::IceInternal::Incoming&, const ::Ice::Current&);
 
@@ -517,7 +864,7 @@ namespace hat
 {
 
 template<class T>
-class CallbackNC_Profile_setHash : public Callback_Profile_setHash_Base, public ::IceInternal::OnewayCallbackNC<T>
+class CallbackNC_Profile_updateFile : public Callback_Profile_updateFile_Base, public ::IceInternal::TwowayCallbackNC<T>
 {
 public:
 
@@ -525,91 +872,9 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)();
+    typedef void (T::*Response)(::Ice::Int);
 
-    CallbackNC_Profile_setHash(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
-    {
-    }
-};
-
-template<class T> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Profile_setHash<T>(instance, cb, excb, sentcb);
-}
-
-template<class T> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Profile_setHash<T>(instance, 0, excb, sentcb);
-}
-
-template<class T> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Profile_setHash<T>(instance, cb, excb, sentcb);
-}
-
-template<class T> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Profile_setHash<T>(instance, 0, excb, sentcb);
-}
-
-template<class T, typename CT>
-class Callback_Profile_setHash : public Callback_Profile_setHash_Base, public ::IceInternal::OnewayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const CT&);
-
-    Callback_Profile_setHash(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
-    {
-    }
-};
-
-template<class T, typename CT> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Profile_setHash<T, CT>(instance, cb, excb, sentcb);
-}
-
-template<class T, typename CT> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Profile_setHash<T, CT>(instance, 0, excb, sentcb);
-}
-
-template<class T, typename CT> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Profile_setHash<T, CT>(instance, cb, excb, sentcb);
-}
-
-template<class T, typename CT> Callback_Profile_setHashPtr
-newCallback_Profile_setHash(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Profile_setHash<T, CT>(instance, 0, excb, sentcb);
-}
-
-template<class T>
-class CallbackNC_Profile_getHash : public Callback_Profile_getHash_Base, public ::IceInternal::TwowayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::std::string&);
-
-    CallbackNC_Profile_getHash(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+    CallbackNC_Profile_updateFile(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), response(cb)
     {
     }
@@ -617,10 +882,10 @@ public:
     virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
     {
         ::hat::ProfilePrx __proxy = ::hat::ProfilePrx::uncheckedCast(__result->getProxy());
-        ::std::string __ret;
+        ::Ice::Int __ret;
         try
         {
-            __ret = __proxy->end_getHash(__result);
+            __ret = __proxy->end_updateFile(__result);
         }
         catch(::Ice::Exception& ex)
         {
@@ -644,20 +909,20 @@ public:
     Response response;
 };
 
-template<class T> Callback_Profile_getHashPtr
-newCallback_Profile_getHash(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+template<class T> Callback_Profile_updateFilePtr
+newCallback_Profile_updateFile(const IceUtil::Handle<T>& instance, void (T::*cb)(::Ice::Int), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
-    return new CallbackNC_Profile_getHash<T>(instance, cb, excb, sentcb);
+    return new CallbackNC_Profile_updateFile<T>(instance, cb, excb, sentcb);
 }
 
-template<class T> Callback_Profile_getHashPtr
-newCallback_Profile_getHash(T* instance, void (T::*cb)(const ::std::string&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+template<class T> Callback_Profile_updateFilePtr
+newCallback_Profile_updateFile(T* instance, void (T::*cb)(::Ice::Int), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
-    return new CallbackNC_Profile_getHash<T>(instance, cb, excb, sentcb);
+    return new CallbackNC_Profile_updateFile<T>(instance, cb, excb, sentcb);
 }
 
 template<class T, typename CT>
-class Callback_Profile_getHash : public Callback_Profile_getHash_Base, public ::IceInternal::TwowayCallback<T, CT>
+class Callback_Profile_updateFile : public Callback_Profile_updateFile_Base, public ::IceInternal::TwowayCallback<T, CT>
 {
 public:
 
@@ -665,9 +930,9 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::std::string&, const CT&);
+    typedef void (T::*Response)(::Ice::Int, const CT&);
 
-    Callback_Profile_getHash(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+    Callback_Profile_updateFile(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), response(cb)
     {
     }
@@ -675,10 +940,10 @@ public:
     virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
     {
         ::hat::ProfilePrx __proxy = ::hat::ProfilePrx::uncheckedCast(__result->getProxy());
-        ::std::string __ret;
+        ::Ice::Int __ret;
         try
         {
-            __ret = __proxy->end_getHash(__result);
+            __ret = __proxy->end_updateFile(__result);
         }
         catch(::Ice::Exception& ex)
         {
@@ -702,16 +967,180 @@ public:
     Response response;
 };
 
-template<class T, typename CT> Callback_Profile_getHashPtr
-newCallback_Profile_getHash(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+template<class T, typename CT> Callback_Profile_updateFilePtr
+newCallback_Profile_updateFile(const IceUtil::Handle<T>& instance, void (T::*cb)(::Ice::Int, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
-    return new Callback_Profile_getHash<T, CT>(instance, cb, excb, sentcb);
+    return new Callback_Profile_updateFile<T, CT>(instance, cb, excb, sentcb);
 }
 
-template<class T, typename CT> Callback_Profile_getHashPtr
-newCallback_Profile_getHash(T* instance, void (T::*cb)(const ::std::string&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+template<class T, typename CT> Callback_Profile_updateFilePtr
+newCallback_Profile_updateFile(T* instance, void (T::*cb)(::Ice::Int, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
-    return new Callback_Profile_getHash<T, CT>(instance, cb, excb, sentcb);
+    return new Callback_Profile_updateFile<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T>
+class CallbackNC_Profile_updateMeta : public Callback_Profile_updateMeta_Base, public ::IceInternal::OnewayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)();
+
+    CallbackNC_Profile_updateMeta(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+template<class T> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateMeta<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateMeta<T>(instance, 0, excb, sentcb);
+}
+
+template<class T> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateMeta<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateMeta<T>(instance, 0, excb, sentcb);
+}
+
+template<class T, typename CT>
+class Callback_Profile_updateMeta : public Callback_Profile_updateMeta_Base, public ::IceInternal::OnewayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(const CT&);
+
+    Callback_Profile_updateMeta(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+template<class T, typename CT> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateMeta<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateMeta<T, CT>(instance, 0, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateMeta<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Profile_updateMetaPtr
+newCallback_Profile_updateMeta(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateMeta<T, CT>(instance, 0, excb, sentcb);
+}
+
+template<class T>
+class CallbackNC_Profile_updateFeature : public Callback_Profile_updateFeature_Base, public ::IceInternal::OnewayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)();
+
+    CallbackNC_Profile_updateFeature(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+template<class T> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateFeature<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateFeature<T>(instance, 0, excb, sentcb);
+}
+
+template<class T> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateFeature<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Profile_updateFeature<T>(instance, 0, excb, sentcb);
+}
+
+template<class T, typename CT>
+class Callback_Profile_updateFeature : public Callback_Profile_updateFeature_Base, public ::IceInternal::OnewayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(const CT&);
+
+    Callback_Profile_updateFeature(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+template<class T, typename CT> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateFeature<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateFeature<T, CT>(instance, 0, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateFeature<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Profile_updateFeaturePtr
+newCallback_Profile_updateFeature(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Profile_updateFeature<T, CT>(instance, 0, excb, sentcb);
 }
 
 }

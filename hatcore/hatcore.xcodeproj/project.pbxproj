@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* hatcore.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hatcore.1 */; };
+		FE47F767136BADBE0029BC57 /* libiodbc.2.1.18.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE47F766136BADBE0029BC57 /* libiodbc.2.1.18.dylib */; };
 		FEBA0EA31369B5D500540F83 /* Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0EA11369B5D500540F83 /* Profile.cpp */; };
 		FEBA0F531369BFE700540F83 /* ProfileI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0F511369BFE700540F83 /* ProfileI.cpp */; };
 		FEBA0FA81369C6F300540F83 /* Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0FA61369C6F300540F83 /* Filter.cpp */; };
@@ -18,7 +19,6 @@
 		FEBA10051369D39F00540F83 /* libIce.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA10041369D39F00540F83 /* libIce.34.dylib */; };
 		FEBA10071369D39F00540F83 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA10061369D39F00540F83 /* libIceUtil.34.dylib */; };
 		FEBA119E136A0DF700540F83 /* Persistence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA119C136A0DF700540F83 /* Persistence.cpp */; };
-		FEBA11C9136A3A5400540F83 /* libiodbc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA11C8136A3A5400540F83 /* libiodbc.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,8 +36,9 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8DD76F6C0486A84900D96B5E /* hatcored */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatcored; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76F6C0486A84900D96B5E /* hatcore */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatcore; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hatcore.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatcore.1; sourceTree = "<group>"; };
+		FE47F766136BADBE0029BC57 /* libiodbc.2.1.18.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiodbc.2.1.18.dylib; path = usr/lib/libiodbc.2.1.18.dylib; sourceTree = SDKROOT; };
 		FEBA0EA11369B5D500540F83 /* Profile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Profile.cpp; sourceTree = "<group>"; };
 		FEBA0EA21369B5D500540F83 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		FEBA0F511369BFE700540F83 /* ProfileI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProfileI.cpp; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		FEBA119C136A0DF700540F83 /* Persistence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Persistence.cpp; sourceTree = "<group>"; };
 		FEBA119D136A0DF700540F83 /* Persistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persistence.h; sourceTree = "<group>"; };
 		FEBA11A0136A0E7300540F83 /* otlv4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otlv4.h; sourceTree = "<group>"; };
-		FEBA11C8136A3A5400540F83 /* libiodbc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiodbc.dylib; path = usr/lib/libiodbc.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			files = (
 				FEBA10051369D39F00540F83 /* libIce.34.dylib in Frameworks */,
 				FEBA10071369D39F00540F83 /* libIceUtil.34.dylib in Frameworks */,
-				FEBA11C9136A3A5400540F83 /* libiodbc.dylib in Frameworks */,
+				FE47F767136BADBE0029BC57 /* libiodbc.2.1.18.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +79,7 @@
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				FEBA10041369D39F00540F83 /* libIce.34.dylib */,
 				FEBA10061369D39F00540F83 /* libIceUtil.34.dylib */,
-				FEBA11C8136A3A5400540F83 /* libiodbc.dylib */,
+				FE47F766136BADBE0029BC57 /* libiodbc.2.1.18.dylib */,
 			);
 			name = hatcore;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76F6C0486A84900D96B5E /* hatcored */,
+				8DD76F6C0486A84900D96B5E /* hatcore */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 			name = hatcore;
 			productInstallPath = "$(HOME)/bin";
 			productName = hatcore;
-			productReference = 8DD76F6C0486A84900D96B5E /* hatcored */;
+			productReference = 8DD76F6C0486A84900D96B5E /* hatcore */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -254,7 +254,7 @@
 		1DEB923608733DC60010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -272,7 +272,7 @@
 		1DEB923708733DC60010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

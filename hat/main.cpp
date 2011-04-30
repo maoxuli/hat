@@ -31,13 +31,7 @@ HatApp::HatApp()
 
 int HatApp::run(int argc, char* argv[])
 {
-    if(argc > 1)
-    {
-        cerr << appName() << ": too many arguments" << endl;
-        return EXIT_FAILURE;
-    }
-	
-	hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
+	/*hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
     if(!filter)
     {
         cerr << argv[0] << ": invalid proxy Filter" << endl;
@@ -49,36 +43,68 @@ int HatApp::run(int argc, char* argv[])
     {
         cerr << argv[0] << ": invalid proxy Synchronizer" << endl;
         return EXIT_FAILURE;
-    }
+    }*/
 	
     menu();
 	
-    char c;
+    string cmd;
     do
     {
         try
         {
-            cout << "==> ";
-            cin >> c;
-            if(c == 'f')
+            cout << ">> ";
+            getline(cin, cmd);
+            if(cmd.size() >= 6 && cmd.substr(0, 6) == "select")
             {
-                filter->getFile();
-            }
-			if(c == 's')
+				string where = cmd.substr(6);
+				where.erase(where.find_last_not_of(' ')+1); 
+				where.erase(0,where.find_first_not_of(' ')); 
+				
+				hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
+				Ice::StringSeq files = filter->select(where);
+				int i=0;
+				for (Ice::StringSeq::iterator p=files.begin(); p!=files.end(); ++p) 
+				{
+					cout << ++i << ":\t" << *p << endl;
+				}
+				filter = NULL;           
+			}
+			else if(cmd.size() >= 5 && cmd.substr(0, 5) == "score")
             {
-                synchronizer->refresh("testpath");
-            }
-            else if(c == 'x')
+				hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
+				
+				filter = NULL;
+			}
+			else if(cmd.size() >= 7 && cmd.substr(0, 7) == "refresh")
+			{
+				string path = cmd.substr(7);
+				path.erase(path.find_last_not_of(' ')+1); 
+				path.erase(0,path.find_first_not_of(' ')); 
+				
+				string prefix = "/Users/Shared/Photos";
+				if(((path.size() >= prefix.size()) &&  (path.substr(0, prefix.size()) != prefix))
+					|| ((path.size() > 0) && (path.size() < prefix.size())))
+				{
+					cout << "Wrong path: " << path << endl;
+				}
+				else
+				{
+					hat::SynchronizerPrx synchronizer = hat::SynchronizerPrx::checkedCast(communicator()->propertyToProxy("Synchronizer.Proxy"));
+					synchronizer->refresh(path);
+					synchronizer = NULL;
+				}
+			}
+            else if(cmd == "exit")
             {
                 // Nothing to do
             }
-            else if(c == '?')
+            else if(cmd == "?")
             {
                 menu();
             }
             else
             {
-                cout << "unknown command `" << c << "'" << endl;
+                cout << "Unknown command: " << cmd << endl;
                 menu();
             }
         }
@@ -87,7 +113,7 @@ int HatApp::run(int argc, char* argv[])
             cerr << ex << endl;
         }
     }
-    while(cin.good() && c != 'x');
+    while(cin.good() && cmd != "exit");
 	
     return EXIT_SUCCESS;
 }
@@ -95,9 +121,13 @@ int HatApp::run(int argc, char* argv[])
 void HatApp::menu()
 {
     cout <<
-	"usage:\n"
-	"f: filter\n"
-	"s: synchronizer\n"
-	"x: exit\n"
-	"?: help\n";
+	"\n"
+	"Usage:\n"
+	"\n"
+	"select \t\t:Query photos with SQL syntax\n"
+	"score \t\t:Score to find duplicated and like photos\n"
+	"refresh \t:Refresh metadata of photos in a directory\n"
+	"exit \t\t:Exit the application\n"
+	"? \t\t:Display the menu\n"
+	"\n";
 }

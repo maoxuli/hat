@@ -13,19 +13,26 @@ namespace hat
 	    
 		ProfileI(const Ice::PropertiesPtr&, const Ice::LoggerPtr&);
 		virtual ~ProfileI();
-		
-		bool initialize();
-		
+				
 	public:
-		virtual void setHash(const ::std::string&, const ::std::string&, const ::Ice::Current& = ::Ice::Current());
-		virtual ::std::string getHash(const ::std::string&, const ::Ice::Current& = ::Ice::Current());
+		virtual ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Current& = ::Ice::Current());
 		
+		virtual void updateMeta(const ::hat::FileMeta&, const ::Ice::Current& = ::Ice::Current());
+		
+		virtual void updateFeature(const ::hat::FileFeature&, const ::Ice::Current& = ::Ice::Current());
+
 	private:
 		::Ice::PropertiesPtr _properties;
 		::Ice::LoggerPtr _logger;
 		
 	private:
 		Persistence* _persistence;
-		
+		inline bool persistence()
+		{
+			if(!_persistence)
+				_persistence = new Persistence("hatcore");
+			
+			return _persistence->activate();
+		}
 	};
 }  

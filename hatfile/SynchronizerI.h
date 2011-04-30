@@ -26,12 +26,15 @@ namespace hat
 		static int _checkFile(const char *pathname, const struct stat *statptr, int type);		
 		int checkFile(const char *pathname, const struct stat *statptr, int type);
 		
+		void updateFile(const string& pathname, const struct stat *statptr);		
+		string getDigest(const string& pathname);
+		
 	private:
 		::Ice::CommunicatorPtr _communicator;
 		::Ice::PropertiesPtr _properties;
 		::Ice::LoggerPtr _logger;
-		
-		hat::ProfilePrx _profile;
+				
+		string _filepath;
 		
 	};
 	

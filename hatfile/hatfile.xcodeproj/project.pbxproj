@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* hatfile.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* hatfile.1 */; };
+		FE47F5D0136B54970029BC57 /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE47F5CF136B54970029BC57 /* OpenCV.framework */; };
+		FEA8F6A7136B2D0500B379C5 /* libcrypto.0.9.8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA8F6A6136B2D0500B379C5 /* libcrypto.0.9.8.dylib */; };
+		FEA8F6E2136B3A8900B379C5 /* ImgFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEA8F6E1136B3A8900B379C5 /* ImgFile.cpp */; };
 		FEBA0D731368A90100540F83 /* FSWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0D701368A90100540F83 /* FSWatcher.cpp */; };
 		FEBA0D741368A90100540F83 /* Watcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA0D721368A90100540F83 /* Watcher.cpp */; };
 		FEBA0D761368A92E00540F83 /* libIceUtil.34.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBA0D751368A92E00540F83 /* libIceUtil.34.dylib */; };
@@ -38,6 +41,10 @@
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* hatfiled */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatfiled; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hatfile.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatfile.1; sourceTree = "<group>"; };
+		FE47F5CF136B54970029BC57 /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = /System/Library/Frameworks/OpenCV.framework; sourceTree = "<absolute>"; };
+		FEA8F6A6136B2D0500B379C5 /* libcrypto.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.8.dylib; path = usr/lib/libcrypto.0.9.8.dylib; sourceTree = SDKROOT; };
+		FEA8F6E0136B3A8900B379C5 /* ImgFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgFile.h; sourceTree = "<group>"; };
+		FEA8F6E1136B3A8900B379C5 /* ImgFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImgFile.cpp; sourceTree = "<group>"; };
 		FEBA0D701368A90100540F83 /* FSWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FSWatcher.cpp; sourceTree = "<group>"; };
 		FEBA0D711368A90100540F83 /* FSWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSWatcher.h; sourceTree = "<group>"; };
 		FEBA0D721368A90100540F83 /* Watcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Watcher.cpp; sourceTree = "<group>"; };
@@ -62,6 +69,8 @@
 				FEBA0D761368A92E00540F83 /* libIceUtil.34.dylib in Frameworks */,
 				FEBA0D781368A95200540F83 /* libIce.34.dylib in Frameworks */,
 				FEBA0D7A1368A95E00540F83 /* CoreServices.framework in Frameworks */,
+				FEA8F6A7136B2D0500B379C5 /* libcrypto.0.9.8.dylib in Frameworks */,
+				FE47F5D0136B54970029BC57 /* OpenCV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,8 @@
 				FEBA0D751368A92E00540F83 /* libIceUtil.34.dylib */,
 				FEBA0D771368A95200540F83 /* libIce.34.dylib */,
 				FEBA0D791368A95E00540F83 /* CoreServices.framework */,
+				FEA8F6A6136B2D0500B379C5 /* libcrypto.0.9.8.dylib */,
+				FE47F5CF136B54970029BC57 /* OpenCV.framework */,
 			);
 			name = hatfile;
 			sourceTree = "<group>";
@@ -95,6 +106,8 @@
 				FEBA0D711368A90100540F83 /* FSWatcher.h */,
 				FEBA0D721368A90100540F83 /* Watcher.cpp */,
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
+				FEA8F6E0136B3A8900B379C5 /* ImgFile.h */,
+				FEA8F6E1136B3A8900B379C5 /* ImgFile.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -206,6 +219,7 @@
 				FEBA10391369D70100540F83 /* Synchronizer.ice in Sources */,
 				FEBA103F1369D79E00540F83 /* Synchronizer.cpp in Sources */,
 				FEBA10421369D7FB00540F83 /* SynchronizerI.cpp in Sources */,
+				FEA8F6E2136B3A8900B379C5 /* ImgFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +264,8 @@
 		1DEB923608733DC60010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -258,26 +273,31 @@
 				HEADER_SEARCH_PATHS = (
 					"/opt/Ice-3.4/include",
 					.,
+					/System/Library/Frameworks/OpenCV.framework/Headers,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		1DEB923708733DC60010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"/opt/Ice-3.4/include",
 					.,
+					/System/Library/Frameworks/OpenCV.framework/Headers,
 				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
