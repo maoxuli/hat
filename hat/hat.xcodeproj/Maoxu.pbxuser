@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = FE02514C1350CD9200E89344 /* hat */;
 		activeTarget = 8DD76F620486A84900D96B5E /* hat */;
 		addToTargets = (
@@ -96,18 +96,19 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325834037;
-			PBXWorkspaceStateSaveDate = 325834037;
+			PBXPerProjectTemplateStateSaveDate = 325887183;
+			PBXWorkspaceStateSaveDate = 325887183;
 		};
 		perUserProjectItems = {
-			FE47F867136BD2430029BC57 /* PBXTextBookmark */ = FE47F867136BD2430029BC57 /* PBXTextBookmark */;
-			FE47F868136BD2430029BC57 /* PBXTextBookmark */ = FE47F868136BD2430029BC57 /* PBXTextBookmark */;
-			FE47F86A136BD2430029BC57 /* PBXTextBookmark */ = FE47F86A136BD2430029BC57 /* PBXTextBookmark */;
-			FE47F974136BF5390029BC57 /* PBXTextBookmark */ = FE47F974136BF5390029BC57 /* PBXTextBookmark */;
-			FEBA10DC1369F50300540F83 /* PBXTextBookmark */ = FEBA10DC1369F50300540F83 /* PBXTextBookmark */;
-			FEBA1174136A0CB500540F83 /* PBXTextBookmark */ = FEBA1174136A0CB500540F83 /* PBXTextBookmark */;
-			FEBA1175136A0CB500540F83 /* PBXTextBookmark */ = FEBA1175136A0CB500540F83 /* PBXTextBookmark */;
-			FEBA1176136A0CB500540F83 /* PBXTextBookmark */ = FEBA1176136A0CB500540F83 /* PBXTextBookmark */;
+			FE47F867136BD2430029BC57 = FE47F867136BD2430029BC57 /* PBXTextBookmark */;
+			FE47F868136BD2430029BC57 = FE47F868136BD2430029BC57 /* PBXTextBookmark */;
+			FE47F86A136BD2430029BC57 = FE47F86A136BD2430029BC57 /* PBXTextBookmark */;
+			FE47F974136BF5390029BC57 = FE47F974136BF5390029BC57 /* PBXTextBookmark */;
+			FE47FA3A136CA4EF0029BC57 /* PBXTextBookmark */ = FE47FA3A136CA4EF0029BC57 /* PBXTextBookmark */;
+			FEBA10DC1369F50300540F83 = FEBA10DC1369F50300540F83 /* PBXTextBookmark */;
+			FEBA1174136A0CB500540F83 = FEBA1174136A0CB500540F83 /* PBXTextBookmark */;
+			FEBA1175136A0CB500540F83 = FEBA1175136A0CB500540F83 /* PBXTextBookmark */;
+			FEBA1176136A0CB500540F83 = FEBA1176136A0CB500540F83 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FE0251551350CD9600E89344 /* Source Control */;
 		userBuildSettings = {
@@ -117,7 +118,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1027, 1742}}";
 			sepNavSelRange = "{1519, 0}";
-			sepNavVisRange = "{2450, 780}";
+			sepNavVisRange = "{2445, 785}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
@@ -214,6 +215,16 @@
 		rType = 0;
 		vrLen = 780;
 		vrLoc = 2450;
+	};
+	FE47FA3A136CA4EF0029BC57 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 68";
+		rLen = 0;
+		rLoc = 1519;
+		rType = 0;
+		vrLen = 785;
+		vrLoc = 2445;
 	};
 	FEBA0FE71369D2AB00540F83 /* Filter.ice */ = {
 		uiCtxt = {

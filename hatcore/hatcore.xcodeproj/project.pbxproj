@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8DD76F6C0486A84900D96B5E /* hatcore */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatcore; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76F6C0486A84900D96B5E /* hatcored */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hatcored; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* hatcore.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hatcore.1; sourceTree = "<group>"; };
 		FE47F766136BADBE0029BC57 /* libiodbc.2.1.18.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiodbc.2.1.18.dylib; path = usr/lib/libiodbc.2.1.18.dylib; sourceTree = SDKROOT; };
 		FEBA0EA11369B5D500540F83 /* Profile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Profile.cpp; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76F6C0486A84900D96B5E /* hatcore */,
+				8DD76F6C0486A84900D96B5E /* hatcored */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 			name = hatcore;
 			productInstallPath = "$(HOME)/bin";
 			productName = hatcore;
-			productReference = 8DD76F6C0486A84900D96B5E /* hatcore */;
+			productReference = 8DD76F6C0486A84900D96B5E /* hatcored */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */

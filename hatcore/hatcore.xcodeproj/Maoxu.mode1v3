@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Persistence.cpp</string>
+								<string>Filter.ice</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Persistence.cpp</string>
+										<string>Filter.ice</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47F973136BF5370029BC57</string>
+										<string>FE47FA30136CA4EF0029BC57</string>
 										<key>history</key>
 										<array>
 											<string>FEBA0ED61369BB7D00540F83</string>
@@ -355,7 +355,8 @@
 											<string>FE47F852136BCE810029BC57</string>
 											<string>FE47F8D4136BDD080029BC57</string>
 											<string>FE47F910136BE4500029BC57</string>
-											<string>FE47F911136BE4500029BC57</string>
+											<string>FE47FA2E136CA4EF0029BC57</string>
+											<string>FE47FA2F136CA4EF0029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -367,14 +368,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 553}}</string>
+								<string>{{0, 0}, {1072, 551}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>553pt</string>
+							<string>551pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -387,14 +388,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 558}, {1072, 54}}</string>
+								<string>{{0, 556}, {1072, 56}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>54pt</string>
+							<string>56pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -413,9 +414,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>FE47F6B0136B9F510029BC57</string>
+				<string>FE47FA31136CA4EF0029BC57</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>FE47F6B1136B9F510029BC57</string>
+				<string>FE47FA32136CA4EF0029BC57</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -579,7 +580,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Persistence.cpp</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -596,8 +597,6 @@
 							<string>163pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -637,7 +636,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>FEBA0E4E1369AE5F00540F83</string>
-				<string>FE47F6B5136B9F510029BC57</string>
+				<string>FE47FA33136CA4EF0029BC57</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -759,13 +758,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>FE47F6B6136B9F510029BC57</string>
+				<string>FE47FA34136CA4EF0029BC57</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>FE47F6B7136B9F510029BC57</string>
-				<string>FE47F6B8136B9F510029BC57</string>
-				<string>FE47F6B9136B9F510029BC57</string>
-				<string>FE47F6BA136B9F510029BC57</string>
-				<string>FE47F6BB136B9F510029BC57</string>
+				<string>FE47FA35136CA4EF0029BC57</string>
+				<string>FE47FA36136CA4EF0029BC57</string>
+				<string>FE47FA37136CA4EF0029BC57</string>
+				<string>FE47FA38136CA4EF0029BC57</string>
+				<string>FE47FA39136CA4EF0029BC57</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>

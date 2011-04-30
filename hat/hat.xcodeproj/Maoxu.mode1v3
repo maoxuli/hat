@@ -327,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47F974136BF5390029BC57</string>
+										<string>FE47FA3A136CA4EF0029BC57</string>
 										<key>history</key>
 										<array>
 											<string>FEBA10DC1369F50300540F83</string>
@@ -336,7 +336,7 @@
 											<string>FEBA1176136A0CB500540F83</string>
 											<string>FE47F867136BD2430029BC57</string>
 											<string>FE47F868136BD2430029BC57</string>
-											<string>FE47F86A136BD2430029BC57</string>
+											<string>FE47F974136BF5390029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -348,14 +348,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 522}}</string>
+								<string>{{0, 0}, {1072, 519}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>522pt</string>
+							<string>519pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -368,14 +368,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 527}, {1072, 85}}</string>
+								<string>{{0, 524}, {1072, 88}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>85pt</string>
+							<string>88pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -394,9 +394,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>FE47F896136BD5390029BC57</string>
+				<string>FE47FA3B136CA4EF0029BC57</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>FE47F897136BD5390029BC57</string>
+				<string>FE47FA3C136CA4EF0029BC57</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -534,7 +534,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FE0251531350CD9600E89344</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hat/hat.xcodeproj</string>
 	</array>
@@ -616,7 +615,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>FE0251531350CD9600E89344</string>
-				<string>FE47F898136BD5390029BC57</string>
+				<string>FE47FA3D136CA4EF0029BC57</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
