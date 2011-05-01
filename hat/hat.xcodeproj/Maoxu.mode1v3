@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -272,8 +274,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
-									<integer>4</integer>
+									<integer>3</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -308,8 +310,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -327,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47FA3A136CA4EF0029BC57</string>
+										<string>FE47FD5C136D46FA0029BC57</string>
 										<key>history</key>
 										<array>
 											<string>FEBA10DC1369F50300540F83</string>
@@ -336,7 +336,7 @@
 											<string>FEBA1176136A0CB500540F83</string>
 											<string>FE47F867136BD2430029BC57</string>
 											<string>FE47F868136BD2430029BC57</string>
-											<string>FE47F974136BF5390029BC57</string>
+											<string>FE47FD2F136D3D8E0029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -534,6 +534,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FE0251531350CD9600E89344</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hat/hat.xcodeproj</string>
 	</array>
@@ -559,7 +560,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>main.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -576,6 +577,8 @@
 							<string>370pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -628,7 +631,7 @@
 			<key>WindowToolGUID</key>
 			<string>FE0251531350CD9600E89344</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -659,8 +662,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 202}}</string>
-											<string>{{316, 0}, {378, 202}}</string>
+											<string>{{0, 0}, {316, 203}}</string>
+											<string>{{316, 0}, {378, 203}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -675,8 +678,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 202}}</string>
-											<string>{{0, 202}, {694, 179}}</string>
+											<string>{{0, 0}, {694, 203}}</string>
+											<string>{{0, 203}, {694, 178}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -709,7 +712,7 @@
 										<real>148</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 202}}</string>
+									<string>{{316, 0}, {378, 203}}</string>
 									<key>RubberWindowFrame</key>
 									<string>21 333 694 422 0 0 1280 778 </string>
 								</dict>
@@ -737,13 +740,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>FE47F969136BEFCA0029BC57</string>
+				<string>FE47FCF1136D31280029BC57</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>FE47F96A136BEFCA0029BC57</string>
-				<string>FE47F96B136BEFCA0029BC57</string>
-				<string>FE47F96C136BEFCA0029BC57</string>
-				<string>FE47F96D136BEFCA0029BC57</string>
-				<string>FE47F96E136BEFCA0029BC57</string>
+				<string>FE47FCF2136D31280029BC57</string>
+				<string>FE47FCF3136D31280029BC57</string>
+				<string>FE47FCF4136D31280029BC57</string>
+				<string>FE47FCF5136D31280029BC57</string>
+				<string>FE47FCF6136D31280029BC57</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>

@@ -16,22 +16,48 @@ FilterI::~FilterI()
 	}
 }
 
-::Ice::StringSeq FilterI::select(const ::std::string& where, const ::Ice::Current&)
+::hat::FileInfoSeq FilterI::select(const ::std::string& where, const ::Ice::Current&)
 {
 	printf("FilterI::select(%s)\n", where.c_str());
 	
-	Ice::StringSeq files;
+	FileInfoSeq files;
 	
 	if(persistence())
 	{
-		try {
-			files = _persistence->selectFiles(where);
+		vector<FILE_INFO> fis = _persistence->selectFiles(where);
+		
+		for(vector<FILE_INFO>::iterator p = fis.begin(); p != fis.end(); ++p)
+		{
+			FileInfo fi = p->toFileInfo();
+			files.push_back(fi);
 		}
-		catch (const Ice::Exception& ex) {
-			cerr << ex << endl;
-		}
+		
 		_persistence->shutdown();
 	}
 	
 	return files;
 }
+
+::hat::FileInfoSeq FilterI::score(::Ice::Int id, const ::Ice::Current&)
+{
+	printf("FilterI::score(%d)\n", id);
+	
+	FileInfoSeq files;
+	
+	if(persistence())
+	{
+		vector<FILE_INFO> fis = _persistence->likeFiles(id);
+		
+		for(vector<FILE_INFO>::iterator p = fis.begin(); p != fis.end(); ++p)
+		{
+			FileInfo fi = p->toFileInfo();
+			files.push_back(fi);
+		}
+		
+		_persistence->shutdown();
+	}
+	
+	return files;	
+}
+
+

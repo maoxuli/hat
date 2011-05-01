@@ -274,8 +274,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>2</integer>
-									<integer>1</integer>
+									<integer>6</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Filter.ice</string>
+								<string>FilterI.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Filter.ice</string>
+										<string>FilterI.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47FA30136CA4EF0029BC57</string>
+										<string>FE47FD5B136D46F90029BC57</string>
 										<key>history</key>
 										<array>
 											<string>FEBA0ED61369BB7D00540F83</string>
@@ -342,21 +342,21 @@
 											<string>FEBA10CC1369F40000540F83</string>
 											<string>FEBA10CD1369F40000540F83</string>
 											<string>FEBA11D7136A412000540F83</string>
-											<string>FEBA11DA136A412000540F83</string>
 											<string>FEBA11DC136A412000540F83</string>
 											<string>FE47F645136B91AB0029BC57</string>
 											<string>FE47F648136B91AB0029BC57</string>
 											<string>FE47F64A136B91AB0029BC57</string>
-											<string>FE47F6AE136B9F510029BC57</string>
-											<string>FE47F743136BAACE0029BC57</string>
 											<string>FE47F76E136BAE750029BC57</string>
-											<string>FE47F850136BCE810029BC57</string>
-											<string>FE47F851136BCE810029BC57</string>
-											<string>FE47F852136BCE810029BC57</string>
 											<string>FE47F8D4136BDD080029BC57</string>
-											<string>FE47F910136BE4500029BC57</string>
 											<string>FE47FA2E136CA4EF0029BC57</string>
-											<string>FE47FA2F136CA4EF0029BC57</string>
+											<string>FE47FA9B136CCC2E0029BC57</string>
+											<string>FE47FA9E136CCC2E0029BC57</string>
+											<string>FE47FB1D136CD6F50029BC57</string>
+											<string>FE47FB1F136CD6F50029BC57</string>
+											<string>FE47FBB8136CF8090029BC57</string>
+											<string>FE47FC49136D1D380029BC57</string>
+											<string>FE47FD27136D3D8E0029BC57</string>
+											<string>FE47FB39136CDCD10029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -554,6 +554,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>FE47FD52136D3ED70029BC57</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FEBA0E4E1369AE5F00540F83</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hatcore/hatcore.xcodeproj</string>
@@ -580,7 +581,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>FilterI.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -597,6 +598,8 @@
 							<string>163pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -649,7 +652,7 @@
 			<key>WindowToolGUID</key>
 			<string>FEBA0E4E1369AE5F00540F83</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

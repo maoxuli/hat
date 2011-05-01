@@ -33,6 +33,8 @@ SynchronizerI::~SynchronizerI()
 bool SynchronizerI::initialize()
 {
 	_filepath = _properties->getPropertyWithDefault("Files.Path","/Users/Shared/Photos");
+	_hostname = _properties->getPropertyWithDefault("Host.Name","maoxu");
+	
 	_synchronizer = this;
 	
 	//_fswatcher.setCallback(this, _pathChange); 
@@ -50,36 +52,42 @@ void SynchronizerI::refresh(const ::std::string& path, const ::Ice::Current&)
 		filepath = _filepath;
 	}
 	
+	_filestats.clear();
+	
 	if (ftw(filepath.c_str(), _checkFile, 3) == 1) 
 	{
-		printf("fts error\n");
-		return;
+		printf("ftw error\n");
 	} 
-}
-
-void SynchronizerI::updateFile(const string& pathname, const struct stat *statptr)
-{
-	printf("SynchronizerI::updateFile(%s)\n", pathname.c_str());
+	printf("Refresh files (%d)\n",_filestats.size());
 	
-	FileStat fs;
-	fs.fid = -1;
-	fs.host = "local";
-	fs.path = pathname.substr(0, pathname.rfind('/')+1);
-	fs.name = pathname.substr(pathname.rfind('/')+1);
-	fs.stamp = statptr->st_mtime;
-	fs.size = statptr->st_size;
-	fs.hash = getDigest(pathname);
-	cout << fs.fid << fs.host << fs.path << fs.name << fs.stamp << fs.size << fs.hash << endl;
-	
-	try {
+	try 
+	{
 		ProfilePrx profile = hat::ProfilePrx::checkedCast(_communicator->propertyToProxy("Profile.Proxy"));
-		int fid = profile->updateFile(fs);
+		
+		FileStatSeq files = profile->refreshPath(_hostname+filepath, _filestats);
+		printf("Refresh files return (%d)\n",files.size());
+		
+		for(FileStatSeq::iterator p = files.begin(); p != files.end(); ++p)
+		{
+			if(profile->updateFile(*p, getDigest(p->pathname)))
+			{
+				printf("Refresh hash return true (%d)\n",p->id);
+				
+				//Update image meta
+				//ImageMeta
+				
+				//Update image feature
+				//ImageFeature
+			}
+		}
+		
 		profile = NULL;
+		printf("Refresh done!");
 	}
 	catch(const Ice::Exception& ex)
 	{
 		cerr << ex << endl;
-	}	
+	}
 }
 
 int SynchronizerI::_checkFile(const char *pathname, const struct stat *statptr, int type)
@@ -98,12 +106,30 @@ int SynchronizerI::checkFile(const char *pathname, const struct stat *statptr, i
 
 	switch (type) {
 		case FTW_F:
-			updateFile(pathname, statptr);
+		{
+			//File, add to list
+			FileStat fs;
+			fs.id = -1;
+			fs.uri = _hostname;
+			fs.uri += pathname;
+			fs.pathname = pathname;
+			fs.stamp = statptr->st_mtime;
+			fs.size = statptr->st_size;
+			
+			_filestats.push_back(fs);
+			cout << fs.id << "\t" << fs.uri << "\t" << fs.stamp << "\t" << fs.size << endl;
 			break;
+		}
 		case FTW_D:
+		{
+			//Directory, do nothing
 			break;
+		}
 		default:
-			return -1;
+		{
+			//Other files, do nothing
+			//return -1;
+		}
 	}
 	
 	return 0;

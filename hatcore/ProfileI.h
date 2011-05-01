@@ -15,11 +15,13 @@ namespace hat
 		virtual ~ProfileI();
 				
 	public:
-		virtual ::Ice::Int updateFile(const ::hat::FileStat&, const ::Ice::Current& = ::Ice::Current());
+		virtual ::hat::FileStatSeq refreshPath(const ::std::string&, const ::hat::FileStatSeq&, const ::Ice::Current& = ::Ice::Current());
 		
-		virtual void updateMeta(const ::hat::FileMeta&, const ::Ice::Current& = ::Ice::Current());
+		virtual bool updateFile(const ::hat::FileStat&, const ::std::string&, const ::Ice::Current& = ::Ice::Current());
 		
-		virtual void updateFeature(const ::hat::FileFeature&, const ::Ice::Current& = ::Ice::Current());
+		virtual bool updateMeta(const ::hat::ImageMeta&, const ::Ice::Current& = ::Ice::Current());
+		
+		virtual bool updateFeature(const ::hat::ImageFeature&, const ::Ice::Current& = ::Ice::Current());
 
 	private:
 		::Ice::PropertiesPtr _properties;

@@ -37,6 +37,8 @@
 
 static const ::std::string __hat__Filter__select_name = "select";
 
+static const ::std::string __hat__Filter__score_name = "score";
+
 ::Ice::Object* IceInternal::upCast(::hat::Filter* p) { return p; }
 ::IceProxy::Ice::Object* IceInternal::upCast(::IceProxy::hat::Filter* p) { return p; }
 
@@ -56,7 +58,50 @@ hat::__read(::IceInternal::BasicStream* __is, ::hat::FilterPrx& v)
     }
 }
 
-::Ice::StringSeq
+void
+hat::FileInfo::__write(::IceInternal::BasicStream* __os) const
+{
+    __os->write(id);
+    __os->write(uri);
+    __os->write(stamp);
+    __os->write(size);
+    __os->write(hash);
+}
+
+void
+hat::FileInfo::__read(::IceInternal::BasicStream* __is)
+{
+    __is->read(id);
+    __is->read(uri);
+    __is->read(stamp);
+    __is->read(size);
+    __is->read(hash);
+}
+
+void
+hat::__writeFileInfoSeq(::IceInternal::BasicStream* __os, const ::hat::FileInfo* begin, const ::hat::FileInfo* end)
+{
+    ::Ice::Int size = static_cast< ::Ice::Int>(end - begin);
+    __os->writeSize(size);
+    for(int i = 0; i < size; ++i)
+    {
+        begin[i].__write(__os);
+    }
+}
+
+void
+hat::__readFileInfoSeq(::IceInternal::BasicStream* __is, ::hat::FileInfoSeq& v)
+{
+    ::Ice::Int sz;
+    __is->readAndCheckSeqSize(22, sz);
+    v.resize(sz);
+    for(int i = 0; i < sz; ++i)
+    {
+        v[i].__read(__is);
+    }
+}
+
+::hat::FileInfoSeq
 IceProxy::hat::Filter::select(const ::std::string& where, const ::Ice::Context* __ctx)
 {
     int __cnt = 0;
@@ -101,11 +146,11 @@ IceProxy::hat::Filter::begin_select(const ::std::string& where, const ::Ice::Con
     return __result;
 }
 
-::Ice::StringSeq
+::hat::FileInfoSeq
 IceProxy::hat::Filter::end_select(const ::Ice::AsyncResultPtr& __result)
 {
     ::Ice::AsyncResult::__check(__result, this, __hat__Filter__select_name);
-    ::Ice::StringSeq __ret;
+    ::hat::FileInfoSeq __ret;
     if(!__result->__wait())
     {
         try
@@ -119,7 +164,75 @@ IceProxy::hat::Filter::end_select(const ::Ice::AsyncResultPtr& __result)
     }
     ::IceInternal::BasicStream* __is = __result->__getIs();
     __is->startReadEncaps();
-    __is->read(__ret);
+    ::hat::__readFileInfoSeq(__is, __ret);
+    __is->endReadEncaps();
+    return __ret;
+}
+
+::hat::FileInfoSeq
+IceProxy::hat::Filter::score(::Ice::Int id, const ::Ice::Context* __ctx)
+{
+    int __cnt = 0;
+    while(true)
+    {
+        ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
+        try
+        {
+            __checkTwowayOnly(__hat__Filter__score_name);
+            __delBase = __getDelegate(false);
+            ::IceDelegate::hat::Filter* __del = dynamic_cast< ::IceDelegate::hat::Filter*>(__delBase.get());
+            return __del->score(id, __ctx);
+        }
+        catch(const ::IceInternal::LocalExceptionWrapper& __ex)
+        {
+            __handleExceptionWrapper(__delBase, __ex);
+        }
+        catch(const ::Ice::LocalException& __ex)
+        {
+            __handleException(__delBase, __ex, true, __cnt);
+        }
+    }
+}
+
+::Ice::AsyncResultPtr
+IceProxy::hat::Filter::begin_score(::Ice::Int id, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+{
+    __checkAsyncTwowayOnly(__hat__Filter__score_name);
+    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Filter__score_name, __del, __cookie);
+    try
+    {
+        __result->__prepare(__hat__Filter__score_name, ::Ice::Normal, __ctx);
+        ::IceInternal::BasicStream* __os = __result->__getOs();
+        __os->write(id);
+        __os->endWriteEncaps();
+        __result->__send(true);
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        __result->__exceptionAsync(__ex);
+    }
+    return __result;
+}
+
+::hat::FileInfoSeq
+IceProxy::hat::Filter::end_score(const ::Ice::AsyncResultPtr& __result)
+{
+    ::Ice::AsyncResult::__check(__result, this, __hat__Filter__score_name);
+    ::hat::FileInfoSeq __ret;
+    if(!__result->__wait())
+    {
+        try
+        {
+            __result->__throwUserException();
+        }
+        catch(const ::Ice::UserException& __ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, __ex.ice_name());
+        }
+    }
+    ::IceInternal::BasicStream* __is = __result->__getIs();
+    __is->startReadEncaps();
+    ::hat::__readFileInfoSeq(__is, __ret);
     __is->endReadEncaps();
     return __ret;
 }
@@ -148,7 +261,7 @@ IceProxy::hat::Filter::__newInstance() const
     return new Filter;
 }
 
-::Ice::StringSeq
+::hat::FileInfoSeq
 IceDelegateM::hat::Filter::select(const ::std::string& where, const ::Ice::Context* __context)
 {
     ::IceInternal::Outgoing __og(__handler.get(), __hat__Filter__select_name, ::Ice::Normal, __context);
@@ -162,7 +275,7 @@ IceDelegateM::hat::Filter::select(const ::std::string& where, const ::Ice::Conte
         __og.abort(__ex);
     }
     bool __ok = __og.invoke();
-    ::Ice::StringSeq __ret;
+    ::hat::FileInfoSeq __ret;
     try
     {
         if(!__ok)
@@ -179,7 +292,7 @@ IceDelegateM::hat::Filter::select(const ::std::string& where, const ::Ice::Conte
         }
         ::IceInternal::BasicStream* __is = __og.is();
         __is->startReadEncaps();
-        __is->read(__ret);
+        ::hat::__readFileInfoSeq(__is, __ret);
         __is->endReadEncaps();
         return __ret;
     }
@@ -189,14 +302,55 @@ IceDelegateM::hat::Filter::select(const ::std::string& where, const ::Ice::Conte
     }
 }
 
-::Ice::StringSeq
+::hat::FileInfoSeq
+IceDelegateM::hat::Filter::score(::Ice::Int id, const ::Ice::Context* __context)
+{
+    ::IceInternal::Outgoing __og(__handler.get(), __hat__Filter__score_name, ::Ice::Normal, __context);
+    try
+    {
+        ::IceInternal::BasicStream* __os = __og.os();
+        __os->write(id);
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        __og.abort(__ex);
+    }
+    bool __ok = __og.invoke();
+    ::hat::FileInfoSeq __ret;
+    try
+    {
+        if(!__ok)
+        {
+            try
+            {
+                __og.throwUserException();
+            }
+            catch(const ::Ice::UserException& __ex)
+            {
+                ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
+                throw __uue;
+            }
+        }
+        ::IceInternal::BasicStream* __is = __og.is();
+        __is->startReadEncaps();
+        ::hat::__readFileInfoSeq(__is, __ret);
+        __is->endReadEncaps();
+        return __ret;
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(__ex, false);
+    }
+}
+
+::hat::FileInfoSeq
 IceDelegateD::hat::Filter::select(const ::std::string& where, const ::Ice::Context* __context)
 {
     class _DirectI : public ::IceInternal::Direct
     {
     public:
 
-        _DirectI(::Ice::StringSeq& __result, const ::std::string& where, const ::Ice::Current& __current) : 
+        _DirectI(::hat::FileInfoSeq& __result, const ::std::string& where, const ::Ice::Current& __current) : 
             ::IceInternal::Direct(__current),
             _result(__result),
             _m_where(where)
@@ -217,16 +371,84 @@ IceDelegateD::hat::Filter::select(const ::std::string& where, const ::Ice::Conte
         
     private:
         
-        ::Ice::StringSeq& _result;
+        ::hat::FileInfoSeq& _result;
         const ::std::string& _m_where;
     };
     
     ::Ice::Current __current;
     __initCurrent(__current, __hat__Filter__select_name, ::Ice::Normal, __context);
-    ::Ice::StringSeq __result;
+    ::hat::FileInfoSeq __result;
     try
     {
         _DirectI __direct(__result, where, __current);
+        try
+        {
+            __direct.servant()->__collocDispatch(__direct);
+        }
+        catch(...)
+        {
+            __direct.destroy();
+            throw;
+        }
+        __direct.destroy();
+    }
+    catch(const ::Ice::SystemException&)
+    {
+        throw;
+    }
+    catch(const ::IceInternal::LocalExceptionWrapper&)
+    {
+        throw;
+    }
+    catch(const ::std::exception& __ex)
+    {
+        ::IceInternal::LocalExceptionWrapper::throwWrapper(__ex);
+    }
+    catch(...)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(::Ice::UnknownException(__FILE__, __LINE__, "unknown c++ exception"), false);
+    }
+    return __result;
+}
+
+::hat::FileInfoSeq
+IceDelegateD::hat::Filter::score(::Ice::Int id, const ::Ice::Context* __context)
+{
+    class _DirectI : public ::IceInternal::Direct
+    {
+    public:
+
+        _DirectI(::hat::FileInfoSeq& __result, ::Ice::Int id, const ::Ice::Current& __current) : 
+            ::IceInternal::Direct(__current),
+            _result(__result),
+            _m_id(id)
+        {
+        }
+        
+        virtual ::Ice::DispatchStatus
+        run(::Ice::Object* object)
+        {
+            ::hat::Filter* servant = dynamic_cast< ::hat::Filter*>(object);
+            if(!servant)
+            {
+                throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
+            }
+            _result = servant->score(_m_id, _current);
+            return ::Ice::DispatchOK;
+        }
+        
+    private:
+        
+        ::hat::FileInfoSeq& _result;
+        ::Ice::Int _m_id;
+    };
+    
+    ::Ice::Current __current;
+    __initCurrent(__current, __hat__Filter__score_name, ::Ice::Normal, __context);
+    ::hat::FileInfoSeq __result;
+    try
+    {
+        _DirectI __direct(__result, id, __current);
         try
         {
             __direct.servant()->__collocDispatch(__direct);
@@ -304,14 +526,36 @@ hat::Filter::___select(::IceInternal::Incoming& __inS, const ::Ice::Current& __c
     __is->read(where);
     __is->endReadEncaps();
     ::IceInternal::BasicStream* __os = __inS.os();
-    ::Ice::StringSeq __ret = select(where, __current);
+    ::hat::FileInfoSeq __ret = select(where, __current);
     if(__ret.size() == 0)
     {
         __os->writeSize(0);
     }
     else
     {
-        __os->write(&__ret[0], &__ret[0] + __ret.size());
+        ::hat::__writeFileInfoSeq(__os, &__ret[0], &__ret[0] + __ret.size());
+    }
+    return ::Ice::DispatchOK;
+}
+
+::Ice::DispatchStatus
+hat::Filter::___score(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
+{
+    __checkMode(::Ice::Normal, __current.mode);
+    ::IceInternal::BasicStream* __is = __inS.is();
+    __is->startReadEncaps();
+    ::Ice::Int id;
+    __is->read(id);
+    __is->endReadEncaps();
+    ::IceInternal::BasicStream* __os = __inS.os();
+    ::hat::FileInfoSeq __ret = score(id, __current);
+    if(__ret.size() == 0)
+    {
+        __os->writeSize(0);
+    }
+    else
+    {
+        ::hat::__writeFileInfoSeq(__os, &__ret[0], &__ret[0] + __ret.size());
     }
     return ::Ice::DispatchOK;
 }
@@ -322,13 +566,14 @@ static ::std::string __hat__Filter_all[] =
     "ice_ids",
     "ice_isA",
     "ice_ping",
+    "score",
     "select"
 };
 
 ::Ice::DispatchStatus
 hat::Filter::__dispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair< ::std::string*, ::std::string*> r = ::std::equal_range(__hat__Filter_all, __hat__Filter_all + 5, current.operation);
+    ::std::pair< ::std::string*, ::std::string*> r = ::std::equal_range(__hat__Filter_all, __hat__Filter_all + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -353,6 +598,10 @@ hat::Filter::__dispatch(::IceInternal::Incoming& in, const ::Ice::Current& curre
             return ___ice_ping(in, current);
         }
         case 4:
+        {
+            return ___score(in, current);
+        }
+        case 5:
         {
             return ___select(in, current);
         }

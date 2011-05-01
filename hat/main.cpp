@@ -61,19 +61,34 @@ int HatApp::run(int argc, char* argv[])
 				where.erase(0,where.find_first_not_of(' ')); 
 				
 				hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
-				Ice::StringSeq files = filter->select(where);
+				hat::FileInfoSeq files = filter->select(where);
 				int i=0;
-				for (Ice::StringSeq::iterator p=files.begin(); p!=files.end(); ++p) 
+				for (hat::FileInfoSeq::iterator p = files.begin(); p != files.end(); ++p) 
 				{
-					cout << ++i << ":\t" << *p << endl;
+					cout << ++i << ":\t" << p->id << "\t" << p->uri << "\t" << p->size << endl;
 				}
 				filter = NULL;           
 			}
 			else if(cmd.size() >= 5 && cmd.substr(0, 5) == "score")
             {
-				hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
+				string id = cmd.substr(5);
+				id.erase(id.find_last_not_of(' ')+1); 
+				id.erase(0,id.find_first_not_of(' ')); 
+				int nid = -1;
+				if(!id.empty())
+				{
+					istringstream iss(id);
+					iss >> nid;
+				}
 				
-				filter = NULL;
+				hat::FilterPrx filter = hat::FilterPrx::checkedCast(communicator()->propertyToProxy("Filter.Proxy"));
+				hat::FileInfoSeq files = filter->score(nid);
+				int i=0;
+				for (hat::FileInfoSeq::iterator p = files.begin(); p != files.end(); ++p) 
+				{
+					cout << ++i << ":\t" << p->id << "\t" << p->uri << "\t" << p->size << endl;
+				}
+				filter = NULL; 
 			}
 			else if(cmd.size() >= 7 && cmd.substr(0, 7) == "refresh")
 			{
@@ -124,9 +139,9 @@ void HatApp::menu()
 	"\n"
 	"Usage:\n"
 	"\n"
-	"select \t\t:Query photos with SQL syntax\n"
-	"score \t\t:Score to find duplicated and like photos\n"
-	"refresh \t:Refresh metadata of photos in a directory\n"
+	"select [where] \t\t:Query photos with SQL syntax\n"
+	"score [id] \t\t:Score to find duplicated and like photos\n"
+	"refresh [path] \t:Refresh metadata of photos in a directory\n"
 	"exit \t\t:Exit the application\n"
 	"? \t\t:Display the menu\n"
 	"\n";

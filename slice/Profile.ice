@@ -4,36 +4,37 @@
 #include <Ice/BuiltinSequences.ice>
 
 module hat
-{
+{	
 	struct FileStat
 	{
-		int		fid;
-		string	host;
-		string	path;
-		string	name;
-		long	stamp;
-		int		size;
-		string	hash;
+		int		id;
+		string	uri; //host/path/name
+		string	pathname; //local file system
+		long	stamp; //time_t
+		long	size;
 	};
+	sequence<FileStat> FileStatSeq;
 		
-	struct FileMeta
+	struct ImageMeta
 	{
-		int		fid;
+		int		id;
 		int		width;
 		int		height;
-		long	origin;
+		long	origin; //time_t
 	};
 		
-	struct FileFeature
+	struct ImageFeature
 	{
-		int		fid;
+		int		id;
 	};
 		
 	interface Profile
 	{
-		int updateFile(FileStat stat);
-		void updateMeta(FileMeta meta);
-		void updateFeature(FileFeature feature);
+		FileStatSeq refreshPath(string path, FileStatSeq fss);
+		
+		bool updateFile(FileStat stat, string hash);
+		bool updateMeta(ImageMeta meta);
+		bool updateFeature(ImageFeature feature);
 	};
 }; 
 #endif  //#ifndef HAT_PROFILE_ICE

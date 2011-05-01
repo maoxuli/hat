@@ -4,73 +4,106 @@
 #define OTL_IODBC_BSD // Compile OTL 4.0/ODBC
 #include <otlv4.h>
 #include "Profile.h"
+#include "Filter.h"
 
 #include <string>
+#include <vector>
+#include <map>
+
 using namespace std;
 
 namespace hat
 {
-	typedef struct _FSTAT
+	typedef struct _FILE_INFO
 	{
 	public:
-		_FSTAT()
+		_FILE_INFO()
 		{
-			fid = -1;
-			host = "";
-			path = "";
-			name = "";
+			id = -1;
+			uri = "";
 			stamp = 0;
 			size = 0;
 			hash = "";
 		}
 		
-		_FSTAT(const FileStat& fs)
+		_FILE_INFO(const FileStat& fs)
 		{
-			fid = fs.fid;
-			host = fs.host;
-			path = fs.path;
-			name = fs.name;
+			id = fs.id;
+			uri = fs.uri;
 			stamp = fs.stamp;
 			size = fs.size;
-			hash = fs.hash;
+			hash = "";
 		}
 		
-		FileStat fileStat()
+		_FILE_INFO(const FileStat& fs, const string& fh)
 		{
-			FileStat fs;
-			fs.fid = fid;
-			fs.host = host;
-			fs.path = path;
-			fs.name = name;
-			fs.stamp = stamp;
-			fs.size = size;
-			fs.hash = hash;
-			
-			return fs;
+			id = fs.id;
+			uri = fs.uri;
+			stamp = fs.stamp;
+			size = fs.size;
+			hash = fh;
 		}
 		
-		int		fid;
-		string	host;
-		string	path;
-		string	name;
+		hat::FileInfo toFileInfo()
+		{
+			FileInfo fi;
+			fi.id = id;
+			fi.uri = uri;
+			fi.stamp = stamp;
+			fi.size = size;
+			fi.hash = hash;
+			
+			return fi;
+		}
+		
+		int		id;
+		string	uri;
 		long	stamp;
-		int		size;
+		long	size;
 		string	hash;
 	
-	}FSTAT;
-	
-	typedef struct _FMETA
+	}FILE_INFO;
+		
+	typedef struct _IMAGE_META
 	{
-		int		fid;
+		_IMAGE_META()
+		{
+			id = -1;
+			width = 0;
+			height = 0;
+			origin = 0;
+		}
+		
+		_IMAGE_META(const ImageMeta& imm)
+		{
+			id = imm.id;
+			width = imm.width;
+			height = imm.height;
+			origin = imm.origin;
+		}
+		
+		int		id;
 		int		width;
 		int		height;
 		long	origin;
-	}FMETA;
+		
+	}IMAGE_META;
 	
-	typedef struct _FFEATURE
+	typedef struct _IMAGE_FEATURE
 	{
-		int		fid;
-	}FFEATURE;
+		_IMAGE_FEATURE()
+		{
+			id = -1;
+		}
+		
+		_IMAGE_FEATURE(const ImageFeature& imf)
+		{
+			id = imf.id;
+		}
+		
+		int		id;
+		
+	}IMAGE_FEATURE;
 	
 	class Persistence
 	{
@@ -81,20 +114,23 @@ namespace hat
 		bool activate();
 		void shutdown();
 		
-		FSTAT getStat(int fid);
-		FSTAT getStatByName(const string& pathname);
-		FSTAT getStatByHash(const string& hash);
+		bool deleteFile(int id);
+		int insertFile(const FILE_INFO& info);
 		
-		int  insertFile(FSTAT& stat);
-		bool updateStat(int fid, FSTAT& stat);
+		FILE_INFO getFile(int id);
+		bool markFile(int id);
+		bool updateFile(const FILE_INFO& info);
 		
-		FMETA getMeta(int fid);
-		bool  updateMeta(int fid, FMETA& meta);
 		
-		FFEATURE getFeature(int fid);
-		bool updateFeature(int fid, FFEATURE& feature);
+		IMAGE_META getMeta(int id);
+		bool  updateMeta(const IMAGE_META& meta);
 		
-		vector<string> selectFiles(const string& where);
+		IMAGE_FEATURE getFeature(int id);
+		bool updateFeature(const IMAGE_FEATURE& feature);
+		
+		map<string,FILE_INFO*> checkFiles(const string& path);
+		vector<FILE_INFO> selectFiles(const string& where);
+		vector<FILE_INFO> likeFiles(int id);
 		
 	private:
 		
@@ -102,6 +138,7 @@ namespace hat
 		otl_connect _db; //OTL database connection
 		
 		otl_datetime long2time(long t);
+		long time2long(otl_datetime odt);
 
 	}; 
 }

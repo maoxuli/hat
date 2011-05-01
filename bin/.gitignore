@@ -1,3 +1,4 @@
+hatcore.db
 libhatutild.dylib
 libhatutil.dylib
 hatcored
@@ -7,4 +8,3 @@ hatsync
 hatd
 hat
 
-hatcore.db

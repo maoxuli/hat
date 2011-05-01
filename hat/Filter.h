@@ -91,8 +91,127 @@ void __patch__FilterPtr(void*, ::Ice::ObjectPtr&);
 namespace hat
 {
 
+struct FileInfo
+{
+    ::Ice::Int id;
+    ::std::string uri;
+    ::Ice::Long stamp;
+    ::Ice::Long size;
+    ::std::string hash;
+
+    bool operator==(const FileInfo& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return true;
+        }
+        if(id != __rhs.id)
+        {
+            return false;
+        }
+        if(uri != __rhs.uri)
+        {
+            return false;
+        }
+        if(stamp != __rhs.stamp)
+        {
+            return false;
+        }
+        if(size != __rhs.size)
+        {
+            return false;
+        }
+        if(hash != __rhs.hash)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    bool operator<(const FileInfo& __rhs) const
+    {
+        if(this == &__rhs)
+        {
+            return false;
+        }
+        if(id < __rhs.id)
+        {
+            return true;
+        }
+        else if(__rhs.id < id)
+        {
+            return false;
+        }
+        if(uri < __rhs.uri)
+        {
+            return true;
+        }
+        else if(__rhs.uri < uri)
+        {
+            return false;
+        }
+        if(stamp < __rhs.stamp)
+        {
+            return true;
+        }
+        else if(__rhs.stamp < stamp)
+        {
+            return false;
+        }
+        if(size < __rhs.size)
+        {
+            return true;
+        }
+        else if(__rhs.size < size)
+        {
+            return false;
+        }
+        if(hash < __rhs.hash)
+        {
+            return true;
+        }
+        else if(__rhs.hash < hash)
+        {
+            return false;
+        }
+        return false;
+    }
+
+    bool operator!=(const FileInfo& __rhs) const
+    {
+        return !operator==(__rhs);
+    }
+    bool operator<=(const FileInfo& __rhs) const
+    {
+        return operator<(__rhs) || operator==(__rhs);
+    }
+    bool operator>(const FileInfo& __rhs) const
+    {
+        return !operator<(__rhs) && !operator==(__rhs);
+    }
+    bool operator>=(const FileInfo& __rhs) const
+    {
+        return !operator<(__rhs);
+    }
+
+    void __write(::IceInternal::BasicStream*) const;
+    void __read(::IceInternal::BasicStream*);
+};
+
+typedef ::std::vector< ::hat::FileInfo> FileInfoSeq;
+void __writeFileInfoSeq(::IceInternal::BasicStream*, const ::hat::FileInfo*, const ::hat::FileInfo*);
+void __readFileInfoSeq(::IceInternal::BasicStream*, FileInfoSeq&);
+
+}
+
+namespace hat
+{
+
 class Callback_Filter_select_Base : virtual public ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_Filter_select_Base> Callback_Filter_selectPtr;
+
+class Callback_Filter_score_Base : virtual public ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_Filter_score_Base> Callback_Filter_scorePtr;
 
 }
 
@@ -106,11 +225,11 @@ class Filter : virtual public ::IceProxy::Ice::Object
 {
 public:
 
-    ::Ice::StringSeq select(const ::std::string& where)
+    ::hat::FileInfoSeq select(const ::std::string& where)
     {
         return select(where, 0);
     }
-    ::Ice::StringSeq select(const ::std::string& where, const ::Ice::Context& __ctx)
+    ::hat::FileInfoSeq select(const ::std::string& where, const ::Ice::Context& __ctx)
     {
         return select(where, &__ctx);
     }
@@ -145,12 +264,60 @@ public:
         return begin_select(where, &__ctx, __del, __cookie);
     }
 
-    ::Ice::StringSeq end_select(const ::Ice::AsyncResultPtr&);
+    ::hat::FileInfoSeq end_select(const ::Ice::AsyncResultPtr&);
     
 private:
 
-    ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*);
+    ::hat::FileInfoSeq select(const ::std::string&, const ::Ice::Context*);
     ::Ice::AsyncResultPtr begin_select(const ::std::string&, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
+    
+public:
+
+    ::hat::FileInfoSeq score(::Ice::Int id)
+    {
+        return score(id, 0);
+    }
+    ::hat::FileInfoSeq score(::Ice::Int id, const ::Ice::Context& __ctx)
+    {
+        return score(id, &__ctx);
+    }
+
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int id)
+    {
+        return begin_score(id, 0, ::IceInternal::__dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int id, const ::Ice::Context& __ctx)
+    {
+        return begin_score(id, &__ctx, ::IceInternal::__dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int id, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_score(id, 0, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int id, const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_score(id, &__ctx, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int id, const ::hat::Callback_Filter_scorePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_score(id, 0, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int id, const ::Ice::Context& __ctx, const ::hat::Callback_Filter_scorePtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_score(id, &__ctx, __del, __cookie);
+    }
+
+    ::hat::FileInfoSeq end_score(const ::Ice::AsyncResultPtr&);
+    
+private:
+
+    ::hat::FileInfoSeq score(::Ice::Int, const ::Ice::Context*);
+    ::Ice::AsyncResultPtr begin_score(::Ice::Int, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
     
 public:
     
@@ -367,7 +534,9 @@ class Filter : virtual public ::IceDelegate::Ice::Object
 {
 public:
 
-    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*) = 0;
+    virtual ::hat::FileInfoSeq select(const ::std::string&, const ::Ice::Context*) = 0;
+
+    virtual ::hat::FileInfoSeq score(::Ice::Int, const ::Ice::Context*) = 0;
 };
 
 }
@@ -385,7 +554,9 @@ class Filter : virtual public ::IceDelegate::hat::Filter,
 {
 public:
 
-    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*);
+    virtual ::hat::FileInfoSeq select(const ::std::string&, const ::Ice::Context*);
+
+    virtual ::hat::FileInfoSeq score(::Ice::Int, const ::Ice::Context*);
 };
 
 }
@@ -403,7 +574,9 @@ class Filter : virtual public ::IceDelegate::hat::Filter,
 {
 public:
 
-    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Context*);
+    virtual ::hat::FileInfoSeq select(const ::std::string&, const ::Ice::Context*);
+
+    virtual ::hat::FileInfoSeq score(::Ice::Int, const ::Ice::Context*);
 };
 
 }
@@ -427,8 +600,11 @@ public:
     virtual const ::std::string& ice_id(const ::Ice::Current& = ::Ice::Current()) const;
     static const ::std::string& ice_staticId();
 
-    virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Current& = ::Ice::Current()) = 0;
+    virtual ::hat::FileInfoSeq select(const ::std::string&, const ::Ice::Current& = ::Ice::Current()) = 0;
     ::Ice::DispatchStatus ___select(::IceInternal::Incoming&, const ::Ice::Current&);
+
+    virtual ::hat::FileInfoSeq score(::Ice::Int, const ::Ice::Current& = ::Ice::Current()) = 0;
+    ::Ice::DispatchStatus ___score(::IceInternal::Incoming&, const ::Ice::Current&);
 
     virtual ::Ice::DispatchStatus __dispatch(::IceInternal::Incoming&, const ::Ice::Current&);
 
@@ -465,7 +641,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::Ice::StringSeq&);
+    typedef void (T::*Response)(const ::hat::FileInfoSeq&);
 
     CallbackNC_Filter_select(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), response(cb)
@@ -475,7 +651,7 @@ public:
     virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
     {
         ::hat::FilterPrx __proxy = ::hat::FilterPrx::uncheckedCast(__result->getProxy());
-        ::Ice::StringSeq __ret;
+        ::hat::FileInfoSeq __ret;
         try
         {
             __ret = __proxy->end_select(__result);
@@ -503,13 +679,13 @@ public:
 };
 
 template<class T> Callback_Filter_selectPtr
-newCallback_Filter_select(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::StringSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Filter_select(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::hat::FileInfoSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Filter_select<T>(instance, cb, excb, sentcb);
 }
 
 template<class T> Callback_Filter_selectPtr
-newCallback_Filter_select(T* instance, void (T::*cb)(const ::Ice::StringSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Filter_select(T* instance, void (T::*cb)(const ::hat::FileInfoSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Filter_select<T>(instance, cb, excb, sentcb);
 }
@@ -523,7 +699,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::Ice::StringSeq&, const CT&);
+    typedef void (T::*Response)(const ::hat::FileInfoSeq&, const CT&);
 
     Callback_Filter_select(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), response(cb)
@@ -533,7 +709,7 @@ public:
     virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
     {
         ::hat::FilterPrx __proxy = ::hat::FilterPrx::uncheckedCast(__result->getProxy());
-        ::Ice::StringSeq __ret;
+        ::hat::FileInfoSeq __ret;
         try
         {
             __ret = __proxy->end_select(__result);
@@ -561,15 +737,131 @@ public:
 };
 
 template<class T, typename CT> Callback_Filter_selectPtr
-newCallback_Filter_select(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::StringSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Filter_select(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::hat::FileInfoSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Filter_select<T, CT>(instance, cb, excb, sentcb);
 }
 
 template<class T, typename CT> Callback_Filter_selectPtr
-newCallback_Filter_select(T* instance, void (T::*cb)(const ::Ice::StringSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Filter_select(T* instance, void (T::*cb)(const ::hat::FileInfoSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Filter_select<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T>
+class CallbackNC_Filter_score : public Callback_Filter_score_Base, public ::IceInternal::TwowayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)(const ::hat::FileInfoSeq&);
+
+    CallbackNC_Filter_score(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), response(cb)
+    {
+    }
+
+    virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
+    {
+        ::hat::FilterPrx __proxy = ::hat::FilterPrx::uncheckedCast(__result->getProxy());
+        ::hat::FileInfoSeq __ret;
+        try
+        {
+            __ret = __proxy->end_score(__result);
+        }
+        catch(::Ice::Exception& ex)
+        {
+#if defined(_MSC_VER) && (_MSC_VER < 1300) // VC++ 6 compiler bug
+            __exception(__result, ex);
+#else
+            ::IceInternal::CallbackNC<T>::__exception(__result, ex);
+#endif
+            return;
+        }
+        if(response)
+        {
+#if defined(_MSC_VER) && (_MSC_VER < 1300) // VC++ 6 compiler bug
+            (callback.get()->*response)(__ret);
+#else
+            (::IceInternal::CallbackNC<T>::callback.get()->*response)(__ret);
+#endif
+        }
+    }
+
+    Response response;
+};
+
+template<class T> Callback_Filter_scorePtr
+newCallback_Filter_score(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::hat::FileInfoSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Filter_score<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_Filter_scorePtr
+newCallback_Filter_score(T* instance, void (T::*cb)(const ::hat::FileInfoSeq&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_Filter_score<T>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT>
+class Callback_Filter_score : public Callback_Filter_score_Base, public ::IceInternal::TwowayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(const ::hat::FileInfoSeq&, const CT&);
+
+    Callback_Filter_score(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), response(cb)
+    {
+    }
+
+    virtual void __completed(const ::Ice::AsyncResultPtr& __result) const
+    {
+        ::hat::FilterPrx __proxy = ::hat::FilterPrx::uncheckedCast(__result->getProxy());
+        ::hat::FileInfoSeq __ret;
+        try
+        {
+            __ret = __proxy->end_score(__result);
+        }
+        catch(::Ice::Exception& ex)
+        {
+#if defined(_MSC_VER) && (_MSC_VER < 1300) // VC++ 6 compiler bug
+            __exception(__result, ex);
+#else
+            ::IceInternal::Callback<T, CT>::__exception(__result, ex);
+#endif
+            return;
+        }
+        if(response)
+        {
+#if defined(_MSC_VER) && (_MSC_VER < 1300) // VC++ 6 compiler bug
+            (callback.get()->*response)(__ret, CT::dynamicCast(__result->getCookie()));
+#else
+            (::IceInternal::Callback<T, CT>::callback.get()->*response)(__ret, CT::dynamicCast(__result->getCookie()));
+#endif
+        }
+    }
+
+    Response response;
+};
+
+template<class T, typename CT> Callback_Filter_scorePtr
+newCallback_Filter_score(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::hat::FileInfoSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Filter_score<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_Filter_scorePtr
+newCallback_Filter_score(T* instance, void (T::*cb)(const ::hat::FileInfoSeq&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_Filter_score<T, CT>(instance, cb, excb, sentcb);
 }
 
 }

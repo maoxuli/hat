@@ -5,9 +5,20 @@
 
 module hat
 {
+	struct FileInfo
+	{
+		int		id;
+		string	uri;
+		long	stamp;
+		long	size;
+		string	hash;
+	};
+	sequence<FileInfo> FileInfoSeq;
+	
 	interface Filter
 	{
-		Ice::StringSeq select(string where);
+		FileInfoSeq select(string where);
+		FileInfoSeq score(int id);
 	};
 }; 
 

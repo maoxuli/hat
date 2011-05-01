@@ -35,6 +35,9 @@ namespace hat
 		::Ice::LoggerPtr _logger;
 				
 		string _filepath;
+		string _hostname;
+				
+		FileStatSeq _filestats;
 		
 	};
 	

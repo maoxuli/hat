@@ -35,6 +35,8 @@
 #   endif
 #endif
 
+static const ::std::string __hat__Profile__refreshPath_name = "refreshPath";
+
 static const ::std::string __hat__Profile__updateFile_name = "updateFile";
 
 static const ::std::string __hat__Profile__updateMeta_name = "updateMeta";
@@ -63,59 +65,78 @@ hat::__read(::IceInternal::BasicStream* __is, ::hat::ProfilePrx& v)
 void
 hat::FileStat::__write(::IceInternal::BasicStream* __os) const
 {
-    __os->write(fid);
-    __os->write(host);
-    __os->write(path);
-    __os->write(name);
+    __os->write(id);
+    __os->write(uri);
+    __os->write(pathname);
     __os->write(stamp);
     __os->write(size);
-    __os->write(hash);
 }
 
 void
 hat::FileStat::__read(::IceInternal::BasicStream* __is)
 {
-    __is->read(fid);
-    __is->read(host);
-    __is->read(path);
-    __is->read(name);
+    __is->read(id);
+    __is->read(uri);
+    __is->read(pathname);
     __is->read(stamp);
     __is->read(size);
-    __is->read(hash);
 }
 
 void
-hat::FileMeta::__write(::IceInternal::BasicStream* __os) const
+hat::__writeFileStatSeq(::IceInternal::BasicStream* __os, const ::hat::FileStat* begin, const ::hat::FileStat* end)
 {
-    __os->write(fid);
+    ::Ice::Int size = static_cast< ::Ice::Int>(end - begin);
+    __os->writeSize(size);
+    for(int i = 0; i < size; ++i)
+    {
+        begin[i].__write(__os);
+    }
+}
+
+void
+hat::__readFileStatSeq(::IceInternal::BasicStream* __is, ::hat::FileStatSeq& v)
+{
+    ::Ice::Int sz;
+    __is->readAndCheckSeqSize(22, sz);
+    v.resize(sz);
+    for(int i = 0; i < sz; ++i)
+    {
+        v[i].__read(__is);
+    }
+}
+
+void
+hat::ImageMeta::__write(::IceInternal::BasicStream* __os) const
+{
+    __os->write(id);
     __os->write(width);
     __os->write(height);
     __os->write(origin);
 }
 
 void
-hat::FileMeta::__read(::IceInternal::BasicStream* __is)
+hat::ImageMeta::__read(::IceInternal::BasicStream* __is)
 {
-    __is->read(fid);
+    __is->read(id);
     __is->read(width);
     __is->read(height);
     __is->read(origin);
 }
 
 void
-hat::FileFeature::__write(::IceInternal::BasicStream* __os) const
+hat::ImageFeature::__write(::IceInternal::BasicStream* __os) const
 {
-    __os->write(fid);
+    __os->write(id);
 }
 
 void
-hat::FileFeature::__read(::IceInternal::BasicStream* __is)
+hat::ImageFeature::__read(::IceInternal::BasicStream* __is)
 {
-    __is->read(fid);
+    __is->read(id);
 }
 
-::Ice::Int
-IceProxy::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice::Context* __ctx)
+::hat::FileStatSeq
+IceProxy::hat::Profile::refreshPath(const ::std::string& path, const ::hat::FileStatSeq& fss, const ::Ice::Context* __ctx)
 {
     int __cnt = 0;
     while(true)
@@ -123,10 +144,10 @@ IceProxy::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice::Con
         ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
         try
         {
-            __checkTwowayOnly(__hat__Profile__updateFile_name);
+            __checkTwowayOnly(__hat__Profile__refreshPath_name);
             __delBase = __getDelegate(false);
             ::IceDelegate::hat::Profile* __del = dynamic_cast< ::IceDelegate::hat::Profile*>(__delBase.get());
-            return __del->updateFile(stat, __ctx);
+            return __del->refreshPath(path, fss, __ctx);
         }
         catch(const ::IceInternal::LocalExceptionWrapper& __ex)
         {
@@ -140,15 +161,23 @@ IceProxy::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice::Con
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::hat::Profile::begin_updateFile(const ::hat::FileStat& stat, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+IceProxy::hat::Profile::begin_refreshPath(const ::std::string& path, const ::hat::FileStatSeq& fss, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
 {
-    __checkAsyncTwowayOnly(__hat__Profile__updateFile_name);
-    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Profile__updateFile_name, __del, __cookie);
+    __checkAsyncTwowayOnly(__hat__Profile__refreshPath_name);
+    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Profile__refreshPath_name, __del, __cookie);
     try
     {
-        __result->__prepare(__hat__Profile__updateFile_name, ::Ice::Normal, __ctx);
+        __result->__prepare(__hat__Profile__refreshPath_name, ::Ice::Normal, __ctx);
         ::IceInternal::BasicStream* __os = __result->__getOs();
-        stat.__write(__os);
+        __os->write(path);
+        if(fss.size() == 0)
+        {
+            __os->writeSize(0);
+        }
+        else
+        {
+            ::hat::__writeFileStatSeq(__os, &fss[0], &fss[0] + fss.size());
+        }
         __os->endWriteEncaps();
         __result->__send(true);
     }
@@ -159,11 +188,80 @@ IceProxy::hat::Profile::begin_updateFile(const ::hat::FileStat& stat, const ::Ic
     return __result;
 }
 
-::Ice::Int
+::hat::FileStatSeq
+IceProxy::hat::Profile::end_refreshPath(const ::Ice::AsyncResultPtr& __result)
+{
+    ::Ice::AsyncResult::__check(__result, this, __hat__Profile__refreshPath_name);
+    ::hat::FileStatSeq __ret;
+    if(!__result->__wait())
+    {
+        try
+        {
+            __result->__throwUserException();
+        }
+        catch(const ::Ice::UserException& __ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, __ex.ice_name());
+        }
+    }
+    ::IceInternal::BasicStream* __is = __result->__getIs();
+    __is->startReadEncaps();
+    ::hat::__readFileStatSeq(__is, __ret);
+    __is->endReadEncaps();
+    return __ret;
+}
+
+bool
+IceProxy::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::std::string& hash, const ::Ice::Context* __ctx)
+{
+    int __cnt = 0;
+    while(true)
+    {
+        ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
+        try
+        {
+            __checkTwowayOnly(__hat__Profile__updateFile_name);
+            __delBase = __getDelegate(false);
+            ::IceDelegate::hat::Profile* __del = dynamic_cast< ::IceDelegate::hat::Profile*>(__delBase.get());
+            return __del->updateFile(stat, hash, __ctx);
+        }
+        catch(const ::IceInternal::LocalExceptionWrapper& __ex)
+        {
+            __handleExceptionWrapper(__delBase, __ex);
+        }
+        catch(const ::Ice::LocalException& __ex)
+        {
+            __handleException(__delBase, __ex, true, __cnt);
+        }
+    }
+}
+
+::Ice::AsyncResultPtr
+IceProxy::hat::Profile::begin_updateFile(const ::hat::FileStat& stat, const ::std::string& hash, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+{
+    __checkAsyncTwowayOnly(__hat__Profile__updateFile_name);
+    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Profile__updateFile_name, __del, __cookie);
+    try
+    {
+        __result->__prepare(__hat__Profile__updateFile_name, ::Ice::Normal, __ctx);
+        ::IceInternal::BasicStream* __os = __result->__getOs();
+        stat.__write(__os);
+        __os->write(hash);
+        __os->endWriteEncaps();
+        __result->__send(true);
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        __result->__exceptionAsync(__ex);
+    }
+    return __result;
+}
+
+bool
 IceProxy::hat::Profile::end_updateFile(const ::Ice::AsyncResultPtr& __result)
 {
     ::Ice::AsyncResult::__check(__result, this, __hat__Profile__updateFile_name);
-    ::Ice::Int __ret;
+    bool __ret;
     if(!__result->__wait())
     {
         try
@@ -182,8 +280,8 @@ IceProxy::hat::Profile::end_updateFile(const ::Ice::AsyncResultPtr& __result)
     return __ret;
 }
 
-void
-IceProxy::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context* __ctx)
+bool
+IceProxy::hat::Profile::updateMeta(const ::hat::ImageMeta& meta, const ::Ice::Context* __ctx)
 {
     int __cnt = 0;
     while(true)
@@ -191,10 +289,10 @@ IceProxy::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice::Con
         ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
         try
         {
+            __checkTwowayOnly(__hat__Profile__updateMeta_name);
             __delBase = __getDelegate(false);
             ::IceDelegate::hat::Profile* __del = dynamic_cast< ::IceDelegate::hat::Profile*>(__delBase.get());
-            __del->updateMeta(meta, __ctx);
-            return;
+            return __del->updateMeta(meta, __ctx);
         }
         catch(const ::IceInternal::LocalExceptionWrapper& __ex)
         {
@@ -208,8 +306,9 @@ IceProxy::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice::Con
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::hat::Profile::begin_updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+IceProxy::hat::Profile::begin_updateMeta(const ::hat::ImageMeta& meta, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
 {
+    __checkAsyncTwowayOnly(__hat__Profile__updateMeta_name);
     ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Profile__updateMeta_name, __del, __cookie);
     try
     {
@@ -226,14 +325,31 @@ IceProxy::hat::Profile::begin_updateMeta(const ::hat::FileMeta& meta, const ::Ic
     return __result;
 }
 
-void
+bool
 IceProxy::hat::Profile::end_updateMeta(const ::Ice::AsyncResultPtr& __result)
 {
-    __end(__result, __hat__Profile__updateMeta_name);
+    ::Ice::AsyncResult::__check(__result, this, __hat__Profile__updateMeta_name);
+    bool __ret;
+    if(!__result->__wait())
+    {
+        try
+        {
+            __result->__throwUserException();
+        }
+        catch(const ::Ice::UserException& __ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, __ex.ice_name());
+        }
+    }
+    ::IceInternal::BasicStream* __is = __result->__getIs();
+    __is->startReadEncaps();
+    __is->read(__ret);
+    __is->endReadEncaps();
+    return __ret;
 }
 
-void
-IceProxy::hat::Profile::updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context* __ctx)
+bool
+IceProxy::hat::Profile::updateFeature(const ::hat::ImageFeature& feature, const ::Ice::Context* __ctx)
 {
     int __cnt = 0;
     while(true)
@@ -241,10 +357,10 @@ IceProxy::hat::Profile::updateFeature(const ::hat::FileFeature& feature, const :
         ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
         try
         {
+            __checkTwowayOnly(__hat__Profile__updateFeature_name);
             __delBase = __getDelegate(false);
             ::IceDelegate::hat::Profile* __del = dynamic_cast< ::IceDelegate::hat::Profile*>(__delBase.get());
-            __del->updateFeature(feature, __ctx);
-            return;
+            return __del->updateFeature(feature, __ctx);
         }
         catch(const ::IceInternal::LocalExceptionWrapper& __ex)
         {
@@ -258,8 +374,9 @@ IceProxy::hat::Profile::updateFeature(const ::hat::FileFeature& feature, const :
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::hat::Profile::begin_updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+IceProxy::hat::Profile::begin_updateFeature(const ::hat::ImageFeature& feature, const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
 {
+    __checkAsyncTwowayOnly(__hat__Profile__updateFeature_name);
     ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __hat__Profile__updateFeature_name, __del, __cookie);
     try
     {
@@ -276,10 +393,27 @@ IceProxy::hat::Profile::begin_updateFeature(const ::hat::FileFeature& feature, c
     return __result;
 }
 
-void
+bool
 IceProxy::hat::Profile::end_updateFeature(const ::Ice::AsyncResultPtr& __result)
 {
-    __end(__result, __hat__Profile__updateFeature_name);
+    ::Ice::AsyncResult::__check(__result, this, __hat__Profile__updateFeature_name);
+    bool __ret;
+    if(!__result->__wait())
+    {
+        try
+        {
+            __result->__throwUserException();
+        }
+        catch(const ::Ice::UserException& __ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, __ex.ice_name());
+        }
+    }
+    ::IceInternal::BasicStream* __is = __result->__getIs();
+    __is->startReadEncaps();
+    __is->read(__ret);
+    __is->endReadEncaps();
+    return __ret;
 }
 
 const ::std::string&
@@ -306,21 +440,71 @@ IceProxy::hat::Profile::__newInstance() const
     return new Profile;
 }
 
-::Ice::Int
-IceDelegateM::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice::Context* __context)
+::hat::FileStatSeq
+IceDelegateM::hat::Profile::refreshPath(const ::std::string& path, const ::hat::FileStatSeq& fss, const ::Ice::Context* __context)
 {
-    ::IceInternal::Outgoing __og(__handler.get(), __hat__Profile__updateFile_name, ::Ice::Normal, __context);
+    ::IceInternal::Outgoing __og(__handler.get(), __hat__Profile__refreshPath_name, ::Ice::Normal, __context);
     try
     {
         ::IceInternal::BasicStream* __os = __og.os();
-        stat.__write(__os);
+        __os->write(path);
+        if(fss.size() == 0)
+        {
+            __os->writeSize(0);
+        }
+        else
+        {
+            ::hat::__writeFileStatSeq(__os, &fss[0], &fss[0] + fss.size());
+        }
     }
     catch(const ::Ice::LocalException& __ex)
     {
         __og.abort(__ex);
     }
     bool __ok = __og.invoke();
-    ::Ice::Int __ret;
+    ::hat::FileStatSeq __ret;
+    try
+    {
+        if(!__ok)
+        {
+            try
+            {
+                __og.throwUserException();
+            }
+            catch(const ::Ice::UserException& __ex)
+            {
+                ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
+                throw __uue;
+            }
+        }
+        ::IceInternal::BasicStream* __is = __og.is();
+        __is->startReadEncaps();
+        ::hat::__readFileStatSeq(__is, __ret);
+        __is->endReadEncaps();
+        return __ret;
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(__ex, false);
+    }
+}
+
+bool
+IceDelegateM::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::std::string& hash, const ::Ice::Context* __context)
+{
+    ::IceInternal::Outgoing __og(__handler.get(), __hat__Profile__updateFile_name, ::Ice::Normal, __context);
+    try
+    {
+        ::IceInternal::BasicStream* __os = __og.os();
+        stat.__write(__os);
+        __os->write(hash);
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        __og.abort(__ex);
+    }
+    bool __ok = __og.invoke();
+    bool __ret;
     try
     {
         if(!__ok)
@@ -347,8 +531,8 @@ IceDelegateM::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice:
     }
 }
 
-void
-IceDelegateM::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context* __context)
+bool
+IceDelegateM::hat::Profile::updateMeta(const ::hat::ImageMeta& meta, const ::Ice::Context* __context)
 {
     ::IceInternal::Outgoing __og(__handler.get(), __hat__Profile__updateMeta_name, ::Ice::Normal, __context);
     try
@@ -361,33 +545,35 @@ IceDelegateM::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice:
         __og.abort(__ex);
     }
     bool __ok = __og.invoke();
-    if(!__og.is()->b.empty())
+    bool __ret;
+    try
     {
-        try
+        if(!__ok)
         {
-            if(!__ok)
+            try
             {
-                try
-                {
-                    __og.throwUserException();
-                }
-                catch(const ::Ice::UserException& __ex)
-                {
-                    ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
-                    throw __uue;
-                }
+                __og.throwUserException();
             }
-            __og.is()->skipEmptyEncaps();
+            catch(const ::Ice::UserException& __ex)
+            {
+                ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
+                throw __uue;
+            }
         }
-        catch(const ::Ice::LocalException& __ex)
-        {
-            throw ::IceInternal::LocalExceptionWrapper(__ex, false);
-        }
+        ::IceInternal::BasicStream* __is = __og.is();
+        __is->startReadEncaps();
+        __is->read(__ret);
+        __is->endReadEncaps();
+        return __ret;
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(__ex, false);
     }
 }
 
-void
-IceDelegateM::hat::Profile::updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context* __context)
+bool
+IceDelegateM::hat::Profile::updateFeature(const ::hat::ImageFeature& feature, const ::Ice::Context* __context)
 {
     ::IceInternal::Outgoing __og(__handler.get(), __hat__Profile__updateFeature_name, ::Ice::Normal, __context);
     try
@@ -400,42 +586,45 @@ IceDelegateM::hat::Profile::updateFeature(const ::hat::FileFeature& feature, con
         __og.abort(__ex);
     }
     bool __ok = __og.invoke();
-    if(!__og.is()->b.empty())
+    bool __ret;
+    try
     {
-        try
+        if(!__ok)
         {
-            if(!__ok)
+            try
             {
-                try
-                {
-                    __og.throwUserException();
-                }
-                catch(const ::Ice::UserException& __ex)
-                {
-                    ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
-                    throw __uue;
-                }
+                __og.throwUserException();
             }
-            __og.is()->skipEmptyEncaps();
+            catch(const ::Ice::UserException& __ex)
+            {
+                ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
+                throw __uue;
+            }
         }
-        catch(const ::Ice::LocalException& __ex)
-        {
-            throw ::IceInternal::LocalExceptionWrapper(__ex, false);
-        }
+        ::IceInternal::BasicStream* __is = __og.is();
+        __is->startReadEncaps();
+        __is->read(__ret);
+        __is->endReadEncaps();
+        return __ret;
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(__ex, false);
     }
 }
 
-::Ice::Int
-IceDelegateD::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice::Context* __context)
+::hat::FileStatSeq
+IceDelegateD::hat::Profile::refreshPath(const ::std::string& path, const ::hat::FileStatSeq& fss, const ::Ice::Context* __context)
 {
     class _DirectI : public ::IceInternal::Direct
     {
     public:
 
-        _DirectI(::Ice::Int& __result, const ::hat::FileStat& stat, const ::Ice::Current& __current) : 
+        _DirectI(::hat::FileStatSeq& __result, const ::std::string& path, const ::hat::FileStatSeq& fss, const ::Ice::Current& __current) : 
             ::IceInternal::Direct(__current),
             _result(__result),
-            _m_stat(stat)
+            _m_path(path),
+            _m_fss(fss)
         {
         }
         
@@ -447,22 +636,23 @@ IceDelegateD::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice:
             {
                 throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
             }
-            _result = servant->updateFile(_m_stat, _current);
+            _result = servant->refreshPath(_m_path, _m_fss, _current);
             return ::Ice::DispatchOK;
         }
         
     private:
         
-        ::Ice::Int& _result;
-        const ::hat::FileStat& _m_stat;
+        ::hat::FileStatSeq& _result;
+        const ::std::string& _m_path;
+        const ::hat::FileStatSeq& _m_fss;
     };
     
     ::Ice::Current __current;
-    __initCurrent(__current, __hat__Profile__updateFile_name, ::Ice::Normal, __context);
-    ::Ice::Int __result;
+    __initCurrent(__current, __hat__Profile__refreshPath_name, ::Ice::Normal, __context);
+    ::hat::FileStatSeq __result;
     try
     {
-        _DirectI __direct(__result, stat, __current);
+        _DirectI __direct(__result, path, fss, __current);
         try
         {
             __direct.servant()->__collocDispatch(__direct);
@@ -493,15 +683,86 @@ IceDelegateD::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::Ice:
     return __result;
 }
 
-void
-IceDelegateD::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice::Context* __context)
+bool
+IceDelegateD::hat::Profile::updateFile(const ::hat::FileStat& stat, const ::std::string& hash, const ::Ice::Context* __context)
 {
     class _DirectI : public ::IceInternal::Direct
     {
     public:
 
-        _DirectI(const ::hat::FileMeta& meta, const ::Ice::Current& __current) : 
+        _DirectI(bool& __result, const ::hat::FileStat& stat, const ::std::string& hash, const ::Ice::Current& __current) : 
             ::IceInternal::Direct(__current),
+            _result(__result),
+            _m_stat(stat),
+            _m_hash(hash)
+        {
+        }
+        
+        virtual ::Ice::DispatchStatus
+        run(::Ice::Object* object)
+        {
+            ::hat::Profile* servant = dynamic_cast< ::hat::Profile*>(object);
+            if(!servant)
+            {
+                throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
+            }
+            _result = servant->updateFile(_m_stat, _m_hash, _current);
+            return ::Ice::DispatchOK;
+        }
+        
+    private:
+        
+        bool& _result;
+        const ::hat::FileStat& _m_stat;
+        const ::std::string& _m_hash;
+    };
+    
+    ::Ice::Current __current;
+    __initCurrent(__current, __hat__Profile__updateFile_name, ::Ice::Normal, __context);
+    bool __result;
+    try
+    {
+        _DirectI __direct(__result, stat, hash, __current);
+        try
+        {
+            __direct.servant()->__collocDispatch(__direct);
+        }
+        catch(...)
+        {
+            __direct.destroy();
+            throw;
+        }
+        __direct.destroy();
+    }
+    catch(const ::Ice::SystemException&)
+    {
+        throw;
+    }
+    catch(const ::IceInternal::LocalExceptionWrapper&)
+    {
+        throw;
+    }
+    catch(const ::std::exception& __ex)
+    {
+        ::IceInternal::LocalExceptionWrapper::throwWrapper(__ex);
+    }
+    catch(...)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(::Ice::UnknownException(__FILE__, __LINE__, "unknown c++ exception"), false);
+    }
+    return __result;
+}
+
+bool
+IceDelegateD::hat::Profile::updateMeta(const ::hat::ImageMeta& meta, const ::Ice::Context* __context)
+{
+    class _DirectI : public ::IceInternal::Direct
+    {
+    public:
+
+        _DirectI(bool& __result, const ::hat::ImageMeta& meta, const ::Ice::Current& __current) : 
+            ::IceInternal::Direct(__current),
+            _result(__result),
             _m_meta(meta)
         {
         }
@@ -514,20 +775,22 @@ IceDelegateD::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice:
             {
                 throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
             }
-            servant->updateMeta(_m_meta, _current);
+            _result = servant->updateMeta(_m_meta, _current);
             return ::Ice::DispatchOK;
         }
         
     private:
         
-        const ::hat::FileMeta& _m_meta;
+        bool& _result;
+        const ::hat::ImageMeta& _m_meta;
     };
     
     ::Ice::Current __current;
     __initCurrent(__current, __hat__Profile__updateMeta_name, ::Ice::Normal, __context);
+    bool __result;
     try
     {
-        _DirectI __direct(meta, __current);
+        _DirectI __direct(__result, meta, __current);
         try
         {
             __direct.servant()->__collocDispatch(__direct);
@@ -555,17 +818,19 @@ IceDelegateD::hat::Profile::updateMeta(const ::hat::FileMeta& meta, const ::Ice:
     {
         throw ::IceInternal::LocalExceptionWrapper(::Ice::UnknownException(__FILE__, __LINE__, "unknown c++ exception"), false);
     }
+    return __result;
 }
 
-void
-IceDelegateD::hat::Profile::updateFeature(const ::hat::FileFeature& feature, const ::Ice::Context* __context)
+bool
+IceDelegateD::hat::Profile::updateFeature(const ::hat::ImageFeature& feature, const ::Ice::Context* __context)
 {
     class _DirectI : public ::IceInternal::Direct
     {
     public:
 
-        _DirectI(const ::hat::FileFeature& feature, const ::Ice::Current& __current) : 
+        _DirectI(bool& __result, const ::hat::ImageFeature& feature, const ::Ice::Current& __current) : 
             ::IceInternal::Direct(__current),
+            _result(__result),
             _m_feature(feature)
         {
         }
@@ -578,20 +843,22 @@ IceDelegateD::hat::Profile::updateFeature(const ::hat::FileFeature& feature, con
             {
                 throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
             }
-            servant->updateFeature(_m_feature, _current);
+            _result = servant->updateFeature(_m_feature, _current);
             return ::Ice::DispatchOK;
         }
         
     private:
         
-        const ::hat::FileFeature& _m_feature;
+        bool& _result;
+        const ::hat::ImageFeature& _m_feature;
     };
     
     ::Ice::Current __current;
     __initCurrent(__current, __hat__Profile__updateFeature_name, ::Ice::Normal, __context);
+    bool __result;
     try
     {
-        _DirectI __direct(feature, __current);
+        _DirectI __direct(__result, feature, __current);
         try
         {
             __direct.servant()->__collocDispatch(__direct);
@@ -619,6 +886,7 @@ IceDelegateD::hat::Profile::updateFeature(const ::hat::FileFeature& feature, con
     {
         throw ::IceInternal::LocalExceptionWrapper(::Ice::UnknownException(__FILE__, __LINE__, "unknown c++ exception"), false);
     }
+    return __result;
 }
 
 ::Ice::ObjectPtr
@@ -659,16 +927,42 @@ hat::Profile::ice_staticId()
 }
 
 ::Ice::DispatchStatus
+hat::Profile::___refreshPath(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
+{
+    __checkMode(::Ice::Normal, __current.mode);
+    ::IceInternal::BasicStream* __is = __inS.is();
+    __is->startReadEncaps();
+    ::std::string path;
+    ::hat::FileStatSeq fss;
+    __is->read(path);
+    ::hat::__readFileStatSeq(__is, fss);
+    __is->endReadEncaps();
+    ::IceInternal::BasicStream* __os = __inS.os();
+    ::hat::FileStatSeq __ret = refreshPath(path, fss, __current);
+    if(__ret.size() == 0)
+    {
+        __os->writeSize(0);
+    }
+    else
+    {
+        ::hat::__writeFileStatSeq(__os, &__ret[0], &__ret[0] + __ret.size());
+    }
+    return ::Ice::DispatchOK;
+}
+
+::Ice::DispatchStatus
 hat::Profile::___updateFile(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
 {
     __checkMode(::Ice::Normal, __current.mode);
     ::IceInternal::BasicStream* __is = __inS.is();
     __is->startReadEncaps();
     ::hat::FileStat stat;
+    ::std::string hash;
     stat.__read(__is);
+    __is->read(hash);
     __is->endReadEncaps();
     ::IceInternal::BasicStream* __os = __inS.os();
-    ::Ice::Int __ret = updateFile(stat, __current);
+    bool __ret = updateFile(stat, hash, __current);
     __os->write(__ret);
     return ::Ice::DispatchOK;
 }
@@ -679,10 +973,12 @@ hat::Profile::___updateMeta(::IceInternal::Incoming& __inS, const ::Ice::Current
     __checkMode(::Ice::Normal, __current.mode);
     ::IceInternal::BasicStream* __is = __inS.is();
     __is->startReadEncaps();
-    ::hat::FileMeta meta;
+    ::hat::ImageMeta meta;
     meta.__read(__is);
     __is->endReadEncaps();
-    updateMeta(meta, __current);
+    ::IceInternal::BasicStream* __os = __inS.os();
+    bool __ret = updateMeta(meta, __current);
+    __os->write(__ret);
     return ::Ice::DispatchOK;
 }
 
@@ -692,10 +988,12 @@ hat::Profile::___updateFeature(::IceInternal::Incoming& __inS, const ::Ice::Curr
     __checkMode(::Ice::Normal, __current.mode);
     ::IceInternal::BasicStream* __is = __inS.is();
     __is->startReadEncaps();
-    ::hat::FileFeature feature;
+    ::hat::ImageFeature feature;
     feature.__read(__is);
     __is->endReadEncaps();
-    updateFeature(feature, __current);
+    ::IceInternal::BasicStream* __os = __inS.os();
+    bool __ret = updateFeature(feature, __current);
+    __os->write(__ret);
     return ::Ice::DispatchOK;
 }
 
@@ -705,6 +1003,7 @@ static ::std::string __hat__Profile_all[] =
     "ice_ids",
     "ice_isA",
     "ice_ping",
+    "refreshPath",
     "updateFeature",
     "updateFile",
     "updateMeta"
@@ -713,7 +1012,7 @@ static ::std::string __hat__Profile_all[] =
 ::Ice::DispatchStatus
 hat::Profile::__dispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair< ::std::string*, ::std::string*> r = ::std::equal_range(__hat__Profile_all, __hat__Profile_all + 7, current.operation);
+    ::std::pair< ::std::string*, ::std::string*> r = ::std::equal_range(__hat__Profile_all, __hat__Profile_all + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -739,13 +1038,17 @@ hat::Profile::__dispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
         }
         case 4:
         {
-            return ___updateFeature(in, current);
+            return ___refreshPath(in, current);
         }
         case 5:
         {
-            return ___updateFile(in, current);
+            return ___updateFeature(in, current);
         }
         case 6:
+        {
+            return ___updateFile(in, current);
+        }
+        case 7:
         {
             return ___updateMeta(in, current);
         }

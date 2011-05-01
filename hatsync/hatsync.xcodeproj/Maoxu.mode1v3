@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,6 +275,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>13</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -312,7 +316,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.cpp</string>
+								<string>Synchronizer.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -320,14 +324,17 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>main.cpp</string>
+										<string>Synchronizer.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47FA01136C9A7B0029BC57</string>
+										<string>FE47FD5D136D46FE0029BC57</string>
 										<key>history</key>
 										<array>
-											<string>FE47FA00136C9A7B0029BC57</string>
+											<string>FE47FB50136CDF180029BC57</string>
+											<string>FE47FB61136CEA3E0029BC57</string>
+											<string>FE47FBC1136CF8090029BC57</string>
+											<string>FE47FB72136CEBDB0029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -349,8 +356,6 @@
 							<string>418pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -527,6 +532,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>FE47FBE2136CFC870029BC57</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FE47F998136C96600029BC57</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hatsync/hatsync.xcodeproj</string>
@@ -548,12 +554,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.cpp</string>
+								<string>SynchronizerI.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -570,8 +578,6 @@
 							<string>370pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>

@@ -15,8 +15,10 @@ namespace hat
 		virtual ~FilterI();
 				
 	public:
-		virtual ::Ice::StringSeq select(const ::std::string&, const ::Ice::Current& = ::Ice::Current());
+		virtual ::hat::FileInfoSeq select(const ::std::string&, const ::Ice::Current& = ::Ice::Current());
 		
+		virtual ::hat::FileInfoSeq score(::Ice::Int, const ::Ice::Current& = ::Ice::Current());
+
 	private:
 		::Ice::PropertiesPtr _properties;
 		::Ice::LoggerPtr _logger;
