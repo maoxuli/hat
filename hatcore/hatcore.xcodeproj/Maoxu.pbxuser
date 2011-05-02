@@ -73,8 +73,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 326055911;
-			PBXWorkspaceStateSaveDate = 326055911;
+			PBXPerProjectTemplateStateSaveDate = 326062995;
+			PBXWorkspaceStateSaveDate = 326062995;
 		};
 		perUserProjectItems = {
 			FE47F645136B91AB0029BC57 /* PBXTextBookmark */ = FE47F645136B91AB0029BC57 /* PBXTextBookmark */;
@@ -91,8 +91,10 @@
 			FE47FD27136D3D8E0029BC57 /* PBXTextBookmark */ = FE47FD27136D3D8E0029BC57 /* PBXTextBookmark */;
 			FE47FD71136E0D4B0029BC57 /* PBXTextBookmark */ = FE47FD71136E0D4B0029BC57 /* PBXTextBookmark */;
 			FE5BECE7136F37F200A398D8 /* PBXTextBookmark */ = FE5BECE7136F37F200A398D8 /* PBXTextBookmark */;
-			FE5BED3E136F3ED700A398D8 /* XCBuildMessageTextBookmark */ = FE5BED3E136F3ED700A398D8 /* XCBuildMessageTextBookmark */;
-			FE5BED71136F432400A398D8 /* PBXTextBookmark */ = FE5BED71136F432400A398D8 /* PBXTextBookmark */;
+			FE5BEDDD136F5EC700A398D8 /* PBXTextBookmark */ = FE5BEDDD136F5EC700A398D8 /* PBXTextBookmark */;
+			FE5BEDDE136F5EC700A398D8 /* PBXTextBookmark */ = FE5BEDDE136F5EC700A398D8 /* PBXTextBookmark */;
+			FE5BEDE0136F5EC700A398D8 /* PBXTextBookmark */ = FE5BEDE0136F5EC700A398D8 /* PBXTextBookmark */;
+			FE5BEE62136F6B5B00A398D8 /* PBXTextBookmark */ = FE5BEE62136F6B5B00A398D8 /* PBXTextBookmark */;
 			FEBA0ED61369BB7D00540F83 /* PBXTextBookmark */ = FEBA0ED61369BB7D00540F83 /* PBXTextBookmark */;
 			FEBA0EDB1369BB7D00540F83 /* PBXTextBookmark */ = FEBA0EDB1369BB7D00540F83 /* PBXTextBookmark */;
 			FEBA0EEF1369BC5F00540F83 /* PBXTextBookmark */ = FEBA0EEF1369BC5F00540F83 /* PBXTextBookmark */;
@@ -271,24 +273,66 @@
 		vrLen = 776;
 		vrLoc = 2470;
 	};
-	FE5BED3E136F3ED700A398D8 /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "'socre' was not declared in this scope";
-		fRef = FEBA119C136A0DF700540F83 /* Persistence.cpp */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 383;
-		rType = 1;
-	};
-	FE5BED71136F432400A398D8 /* PBXTextBookmark */ = {
+	FE5BEDDD136F5EC700A398D8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = FEBA119C136A0DF700540F83 /* Persistence.cpp */;
 		name = "Persistence.cpp: 406";
 		rLen = 0;
-		rLoc = 9781;
+		rLoc = 10108;
 		rType = 0;
 		vrLen = 849;
 		vrLoc = 9118;
+	};
+	FE5BEDDE136F5EC700A398D8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE5BEDDF136F5EC700A398D8 /* PlayUrl.cpp */;
+		name = "PlayUrl.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 810;
+		vrLoc = 1281;
+	};
+	FE5BEDDF136F5EC700A398D8 /* PlayUrl.cpp */ = {
+		isa = PBXFileReference;
+		name = PlayUrl.cpp;
+		path = "/Users/Maoxu/Desktop/QQFW-WORK/FireWind-v1/firewind/src/fwGui/PlayUrl.cpp";
+		sourceTree = "<absolute>";
+	};
+	FE5BEDE0136F5EC700A398D8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE5BEDE1136F5EC700A398D8 /* ChannelURL.cpp */;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+		rType = 0;
+	};
+	FE5BEDE1136F5EC700A398D8 /* ChannelURL.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = ChannelURL.cpp;
+		path = "/Users/Maoxu/Desktop/QQFW-WORK/FireWind-v1/firewind/src/fwGui/ChannelURL.cpp";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1027, 3624}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{3785, 866}";
+		};
+	};
+	FE5BEE62136F6B5B00A398D8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE5BEE63136F6B5B00A398D8 /* ChannelURL.cpp */;
+		name = "ChannelURL.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 866;
+		vrLoc = 3785;
+	};
+	FE5BEE63136F6B5B00A398D8 /* ChannelURL.cpp */ = {
+		isa = PBXFileReference;
+		name = ChannelURL.cpp;
+		path = "/Users/Maoxu/Desktop/QQFW-WORK/FireWind-v1/firewind/src/fwGui/ChannelURL.cpp";
+		sourceTree = "<absolute>";
 	};
 	FEA8F56F136B18EF00B379C5 /* ProfileI.cpp:118 */ = {
 		isa = PBXFileBreakpoint;
@@ -450,7 +494,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1181, 832}}";
 			sepNavSelRange = "{960, 0}";
-			sepNavVisRange = "{282, 897}";
+			sepNavVisRange = "{378, 805}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
@@ -616,9 +660,9 @@
 	};
 	FEBA119C136A0DF700540F83 /* Persistence.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 5785}}";
-			sepNavSelRange = "{9781, 0}";
-			sepNavVisRange = "{9118, 849}";
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 6370}}";
+			sepNavSelRange = "{9219, 0}";
+			sepNavVisRange = "{8718, 1260}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};

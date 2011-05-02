@@ -58,7 +58,7 @@ string ImgFile::histogram()
 		return "";
 	
 	//ｃalculate histogram
-	int hdims = 10;
+	int hdims = 50;
 	float hranges_arr[] = {0,255};
 	float* hranges = hranges_arr;
 	CvHistogram *hist = cvCreateHist( 1, &hdims, CV_HIST_ARRAY, &hranges, 1 );
@@ -70,14 +70,19 @@ string ImgFile::histogram()
 	float max_val = 0.0;
 	cvGetMinMaxHistValue(hist, 0, &max_val, 0, 0);
 	cvConvertScale( hist->bins, hist->bins, max_val ? 255. / max_val : 0., 0 );
-	
+
+	/*
 	ostringstream oss;
 	for (int i=0; i<hdims; ++i) 
 	{
 		int v = (int)cvGetReal1D(hist->bins,i);
-		oss << v;
-		oss << ";";
-	}
+		oss << v << ":";
+	}*/
+	
+	std::ostringstream oss;
+	int i = 0;
+    oss << std::hex << std::setfill('0');
+    while(i < hdims) oss << std::setw(2) << (int)cvGetReal1D(hist->bins,i++);
 	
 	cvReleaseHist(&hist);
 	return oss.str();

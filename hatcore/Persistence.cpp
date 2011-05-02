@@ -1,6 +1,7 @@
 #include "Persistence.h"
 #include <iostream>
 #include <string>
+#include <math.h>
 
 using namespace std;
 using namespace hat;
@@ -369,22 +370,29 @@ vector<FILE_INFO> Persistence::likeFiles(int id)
 			cout << hist1 << endl;
 			
 			otl_stream os4;
-			os4.set_column_type(2, otl_var_char, 512);
-			os4.open(50,"select id,histogram from feature where id!=:id<int>",_db);
-			os4 << id;
+			os4.set_column_type(2, otl_var_char, 256);
+			os4.set_column_type(5, otl_var_char, 128);
+			os4.set_column_type(6, otl_var_char, 512);
+			os4.open(50,"select file.id,uri,stamp,size,hash,histogram from file,feature where file.id=feature.id",_db);
 			
 			while(!os4.eof())
 			{
 				int id2 = 0;
-				char hist2[512];
-				os4 >> id2 >> hist2;
+				long size2 = 0;
+				char uri2[256], hash2[128], hist2[512];
+				otl_datetime odt2;
+				os4 >>  id2 >> uri2 >> odt2 >> size2 >> hash2 >> hist2;
 
 				float score = scoreHist(hist1,hist2); 
 				
-				if(score >= 50.00)
+				if(score >= 70.00)
 				{
 					FILE_INFO fi;
 					fi.id = id2;
+					fi.uri = uri2;
+					fi.stamp = time2long(odt2);
+					fi.size = size2;
+					fi.hash = hash2;
 					fi.score = score;
 					files.push_back(fi);
 				}
@@ -403,9 +411,54 @@ vector<FILE_INFO> Persistence::likeFiles(int id)
 
 float Persistence::scoreHist(const char* hist1, const char* hist2)
 {
-	printf("Persistence::scoreHist(%s,%s) = [0.00]\n",hist1,hist2);
-
-	return 0.00;
+	printf("Persistence::scoreHist()\n");
+	
+	string shist1 = hist1;
+	string shist2 = hist2;
+	
+	cout << shist1 << endl;
+	std::vector<unsigned char> ihist1;
+	for(int i = 0; i < shist1.size()/2; ++i)
+	{ 
+		istringstream iss(shist1.substr(i * 2, 2));
+		unsigned int temp;
+		iss >> std::hex >> temp;
+		ihist1.push_back(static_cast<unsigned char>(temp));
+	}
+	
+	for(int i=0; i<ihist1.size(); i++)
+	{
+		cout << (int)ihist1[i] << ",";
+	}
+	cout << endl;
+	
+	cout << shist2 << endl;
+	std::vector<unsigned char> ihist2;
+	for(int i = 0; i < shist2.size()/2; ++i)
+	{ 
+		istringstream iss(shist2.substr(i * 2, 2));
+		unsigned int temp;
+		iss >> std::hex >> temp;
+		ihist2.push_back(static_cast<unsigned char>(temp));
+	}
+	
+	for(int i=0; i<ihist2.size(); i++)
+	{
+		cout << (int)ihist2[i] << ",";
+	}
+	cout << endl;
+	
+	long sum = 0;
+	for(int i=0; i<ihist1.size(); i++)
+	{
+		sum += (ihist1[i] - ihist2[i]) * (ihist1[i] - ihist2[i]);
+	}
+	sum = sum/ihist1.size();
+	
+	float score = (255 - sqrt(sum)) * 100 / 255.00;
+	cout << "Euclidean distance: " << score << endl;
+	
+	return score;
 }
 
 otl_datetime Persistence::long2time(long t)
