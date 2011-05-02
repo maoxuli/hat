@@ -316,7 +316,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Synchronizer.h</string>
+								<string>SynchronizerI.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -324,17 +324,17 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Synchronizer.h</string>
+										<string>SynchronizerI.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47FD5D136D46FE0029BC57</string>
+										<string>FE47FD69136E0D3F0029BC57</string>
 										<key>history</key>
 										<array>
 											<string>FE47FB50136CDF180029BC57</string>
 											<string>FE47FB61136CEA3E0029BC57</string>
+											<string>FE47FD64136E0D2C0029BC57</string>
 											<string>FE47FBC1136CF8090029BC57</string>
-											<string>FE47FB72136CEBDB0029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -346,14 +346,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 418}}</string>
+								<string>{{0, 0}, {1072, 411}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>418pt</string>
+							<string>411pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -366,14 +366,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 423}, {1072, 189}}</string>
+								<string>{{0, 416}, {1072, 196}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>189pt</string>
+							<string>196pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -392,9 +392,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>FE47FA02136C9A7B0029BC57</string>
+				<string>FE47FD66136E0D2C0029BC57</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>FE47FA03136C9A7B0029BC57</string>
+				<string>FE47FD67136E0D2C0029BC57</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -532,8 +532,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>FE47FBE2136CFC870029BC57</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FE47F998136C96600029BC57</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hatsync/hatsync.xcodeproj</string>
 	</array>
@@ -554,14 +552,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SynchronizerI.h</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -617,7 +613,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>FE47F998136C96600029BC57</string>
-				<string>FE47F9EF136C99DD0029BC57</string>
+				<string>FE47FD68136E0D2C0029BC57</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

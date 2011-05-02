@@ -56,15 +56,15 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325884236;
-			PBXWorkspaceStateSaveDate = 325884236;
+			PBXPerProjectTemplateStateSaveDate = 325979423;
+			PBXWorkspaceStateSaveDate = 325979423;
 		};
 		perUserProjectItems = {
 			FE47FB50136CDF180029BC57 /* PBXTextBookmark */ = FE47FB50136CDF180029BC57 /* PBXTextBookmark */;
 			FE47FB61136CEA3E0029BC57 /* PBXTextBookmark */ = FE47FB61136CEA3E0029BC57 /* PBXTextBookmark */;
-			FE47FB72136CEBDB0029BC57 /* PBXTextBookmark */ = FE47FB72136CEBDB0029BC57 /* PBXTextBookmark */;
 			FE47FBC1136CF8090029BC57 /* PBXTextBookmark */ = FE47FBC1136CF8090029BC57 /* PBXTextBookmark */;
-			FE47FD5D136D46FE0029BC57 /* PBXTextBookmark */ = FE47FD5D136D46FE0029BC57 /* PBXTextBookmark */;
+			FE47FD64136E0D2C0029BC57 /* PBXTextBookmark */ = FE47FD64136E0D2C0029BC57 /* PBXTextBookmark */;
+			FE47FD69136E0D3F0029BC57 /* PBXTextBookmark */ = FE47FD69136E0D3F0029BC57 /* PBXTextBookmark */;
 		};
 		sourceControlManager = FE47F98D136C957C0029BC57 /* Source Control */;
 		userBuildSettings = {
@@ -159,16 +159,16 @@
 	};
 	FE47F9BF136C99090029BC57 /* Synchronizer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 7215}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1321, 6981}}";
 			sepNavSelRange = "{17981, 0}";
 			sepNavVisRange = "{0, 754}";
 		};
 	};
 	FE47F9C0136C99090029BC57 /* SynchronizerI.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1181, 2249}}";
-			sepNavSelRange = "{1946, 0}";
-			sepNavVisRange = "{1089, 933}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 2314}}";
+			sepNavSelRange = "{2625, 0}";
+			sepNavVisRange = "{2447, 542}";
 			sepNavWindowFrame = "{{15, 70}, {1240, 708}}";
 		};
 	};
@@ -200,16 +200,6 @@
 		vrLen = 825;
 		vrLoc = 180;
 	};
-	FE47FB72136CEBDB0029BC57 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = FE47F9BF136C99090029BC57 /* Synchronizer.h */;
-		name = "Synchronizer.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 754;
-		vrLoc = 0;
-	};
 	FE47FBC1136CF8090029BC57 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = FE47F9C0136C99090029BC57 /* SynchronizerI.cpp */;
@@ -220,7 +210,7 @@
 		vrLen = 663;
 		vrLoc = 2453;
 	};
-	FE47FD5D136D46FE0029BC57 /* PBXTextBookmark */ = {
+	FE47FD64136E0D2C0029BC57 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = FE47F9BF136C99090029BC57 /* Synchronizer.h */;
 		name = "Synchronizer.h: 544";
@@ -229,5 +219,15 @@
 		rType = 0;
 		vrLen = 754;
 		vrLoc = 0;
+	};
+	FE47FD69136E0D3F0029BC57 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FE47F9C0136C99090029BC57 /* SynchronizerI.cpp */;
+		name = "SynchronizerI.cpp: 118";
+		rLen = 0;
+		rLoc = 2625;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 2447;
 	};
 }

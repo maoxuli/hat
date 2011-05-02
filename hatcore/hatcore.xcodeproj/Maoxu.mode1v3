@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FilterI.cpp</string>
+								<string>Persistence.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FilterI.cpp</string>
+										<string>Persistence.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FE47FD5B136D46F90029BC57</string>
+										<string>FE47FD76136E8AAF0029BC57</string>
 										<key>history</key>
 										<array>
 											<string>FEBA0ED61369BB7D00540F83</string>
@@ -348,7 +348,6 @@
 											<string>FE47F64A136B91AB0029BC57</string>
 											<string>FE47F76E136BAE750029BC57</string>
 											<string>FE47F8D4136BDD080029BC57</string>
-											<string>FE47FA2E136CA4EF0029BC57</string>
 											<string>FE47FA9B136CCC2E0029BC57</string>
 											<string>FE47FA9E136CCC2E0029BC57</string>
 											<string>FE47FB1D136CD6F50029BC57</string>
@@ -356,7 +355,8 @@
 											<string>FE47FBB8136CF8090029BC57</string>
 											<string>FE47FC49136D1D380029BC57</string>
 											<string>FE47FD27136D3D8E0029BC57</string>
-											<string>FE47FB39136CDCD10029BC57</string>
+											<string>FE47FD71136E0D4B0029BC57</string>
+											<string>FE47FA2E136CA4EF0029BC57</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -368,14 +368,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 551}}</string>
+								<string>{{0, 0}, {1072, 549}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>551pt</string>
+							<string>549pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -388,14 +388,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 556}, {1072, 56}}</string>
+								<string>{{0, 554}, {1072, 58}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 125 1280 653 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>56pt</string>
+							<string>58pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -414,9 +414,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>FE47FA31136CA4EF0029BC57</string>
+				<string>FE47FD73136E0D4B0029BC57</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>FE47FA32136CA4EF0029BC57</string>
+				<string>FE47FD74136E0D4B0029BC57</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -554,8 +554,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>FE47FD52136D3ED70029BC57</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FEBA0E4E1369AE5F00540F83</string>
 		<string>/Users/Maoxu/Desktop/LIM-Labs/hat/hatcore/hatcore.xcodeproj</string>
 	</array>
@@ -581,7 +579,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FilterI.cpp</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -598,8 +596,6 @@
 							<string>163pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -639,7 +635,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>FEBA0E4E1369AE5F00540F83</string>
-				<string>FE47FA33136CA4EF0029BC57</string>
+				<string>FE47FD75136E0D4B0029BC57</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -652,7 +648,7 @@
 			<key>WindowToolGUID</key>
 			<string>FEBA0E4E1369AE5F00540F83</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
