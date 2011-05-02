@@ -24,6 +24,7 @@ namespace hat
 			stamp = 0;
 			size = 0;
 			hash = "";
+			score = 0.0;
 		}
 		
 		_FILE_INFO(const FileStat& fs)
@@ -33,6 +34,7 @@ namespace hat
 			stamp = fs.stamp;
 			size = fs.size;
 			hash = "";
+			score = 0.0;
 		}
 		
 		_FILE_INFO(const FileStat& fs, const string& fh)
@@ -42,6 +44,7 @@ namespace hat
 			stamp = fs.stamp;
 			size = fs.size;
 			hash = fh;
+			score = 0.0;
 		}
 		
 		hat::FileInfo toFileInfo()
@@ -52,6 +55,7 @@ namespace hat
 			fi.stamp = stamp;
 			fi.size = size;
 			fi.hash = hash;
+			fi.score = score;
 			
 			return fi;
 		}
@@ -61,6 +65,7 @@ namespace hat
 		long	stamp;
 		long	size;
 		string	hash;
+		float	score;
 	
 	}FILE_INFO;
 		
@@ -94,14 +99,17 @@ namespace hat
 		_IMAGE_FEATURE()
 		{
 			id = -1;
+			hist = "";
 		}
 		
 		_IMAGE_FEATURE(const ImageFeature& imf)
 		{
 			id = imf.id;
+			hist = imf.hist;
 		}
 		
 		int		id;
+		string	hist;
 		
 	}IMAGE_FEATURE;
 	
@@ -137,6 +145,7 @@ namespace hat
 		string _dsn;
 		otl_connect _db; //OTL database connection
 		
+		float scoreHist(const char* hist1, const char* hist2);
 		otl_datetime long2time(long t);
 		long time2long(otl_datetime odt);
 

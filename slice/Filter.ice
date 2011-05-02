@@ -12,6 +12,7 @@ module hat
 		long	stamp;
 		long	size;
 		string	hash;
+		float	score;
 	};
 	sequence<FileInfo> FileInfoSeq;
 	

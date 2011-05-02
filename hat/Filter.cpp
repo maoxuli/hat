@@ -66,6 +66,7 @@ hat::FileInfo::__write(::IceInternal::BasicStream* __os) const
     __os->write(stamp);
     __os->write(size);
     __os->write(hash);
+    __os->write(score);
 }
 
 void
@@ -76,6 +77,7 @@ hat::FileInfo::__read(::IceInternal::BasicStream* __is)
     __is->read(stamp);
     __is->read(size);
     __is->read(hash);
+    __is->read(score);
 }
 
 void
@@ -93,7 +95,7 @@ void
 hat::__readFileInfoSeq(::IceInternal::BasicStream* __is, ::hat::FileInfoSeq& v)
 {
     ::Ice::Int sz;
-    __is->readAndCheckSeqSize(22, sz);
+    __is->readAndCheckSeqSize(26, sz);
     v.resize(sz);
     for(int i = 0; i < sz; ++i)
     {

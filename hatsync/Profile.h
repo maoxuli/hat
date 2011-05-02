@@ -299,6 +299,7 @@ struct ImageMeta
 struct ImageFeature
 {
     ::Ice::Int id;
+    ::std::string hist;
 
     bool operator==(const ImageFeature& __rhs) const
     {
@@ -307,6 +308,10 @@ struct ImageFeature
             return true;
         }
         if(id != __rhs.id)
+        {
+            return false;
+        }
+        if(hist != __rhs.hist)
         {
             return false;
         }
@@ -324,6 +329,14 @@ struct ImageFeature
             return true;
         }
         else if(__rhs.id < id)
+        {
+            return false;
+        }
+        if(hist < __rhs.hist)
+        {
+            return true;
+        }
+        else if(__rhs.hist < hist)
         {
             return false;
         }

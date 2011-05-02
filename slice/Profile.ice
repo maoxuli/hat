@@ -26,6 +26,7 @@ module hat
 	struct ImageFeature
 	{
 		int		id;
+		string	hist;
 	};
 		
 	interface Profile

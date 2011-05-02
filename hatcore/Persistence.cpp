@@ -61,6 +61,12 @@ bool Persistence::deleteFile(int id)
 	{
 		otl_stream os(1, "delete from file where id=:id<int>",_db);
 		os << id;
+		
+		otl_stream os2(1, "delete from meta where id=:id<int>",_db);
+		os2 << id;
+		
+		otl_stream os3(1, "delete from meta where id=:id<int>",_db);
+		os3 << id;
 	}
 	catch(otl_exception& e)
 	{        
@@ -95,6 +101,13 @@ int  Persistence::insertFile(const FILE_INFO& info)
 		{
 			in >> id;
 		}
+		
+		otl_stream os2(1, "insert into meta (id,flag) values (:id<int>,1)",_db);
+		os2 << id;
+		
+		otl_stream os3(1, "insert into feature (id,flag) values (:id<int>,1)",_db);
+		os3 << id;
+		
 	}
 	catch(otl_exception& e)
 	{        
@@ -124,6 +137,13 @@ bool Persistence::markFile(int id)
 	{
 		otl_stream os(1, "update file set flag=1 where id=:id<int>", _db);
 		os << id;
+		
+		otl_stream os2(1, "update meta set flag=1 where id=:id<int>",_db);
+		os2 << id;
+		
+		otl_stream os3(1, "update feature set flag=1 where id=:id<int>", _db);
+		os3 << id;
+		
 		ret = true;
 	}
 	catch (otl_exception& e)
@@ -169,8 +189,23 @@ IMAGE_META Persistence::getMeta(int id)
 bool Persistence::updateMeta(const IMAGE_META& meta)
 {
 	printf("Persistence::updateMeta(%d)\n",meta.id);
-
-	return true;
+	
+	bool ret = false;
+	try
+	{ 
+		otl_stream os(1, "update meta set flag=0 where id=:id<int>",_db);
+		os << meta.id;
+		ret = true;
+		
+	}
+	catch (otl_exception& e)
+	{
+		cerr << e.msg << endl;          // print out error message
+		cerr << e.stm_text << endl;     // print out SQL that caused the error
+		cerr << e.var_info << endl;     // print out the variable that caused the error
+	}
+	
+	return ret;
 }
 
 IMAGE_FEATURE Persistence::getFeature(int id)
@@ -183,9 +218,24 @@ IMAGE_FEATURE Persistence::getFeature(int id)
 
 bool Persistence::updateFeature(const IMAGE_FEATURE& feature)
 {
-	printf("Persistence::updateFeature(%d)\n",feature.id);
+	printf("Persistence::updateFeature(%d,%s)\n",feature.id,feature.hist.c_str());
 
-	return false;
+	bool ret = false;
+	try
+	{ 
+		otl_stream os(1, "update feature set flag=0,histogram=:hist<char[512]> where id=:id<int>",_db);
+		os << feature.hist.c_str() << feature.id;
+		ret = true;
+		
+	}
+	catch (otl_exception& e)
+	{
+		cerr << e.msg << endl;          // print out error message
+		cerr << e.stm_text << endl;     // print out SQL that caused the error
+		cerr << e.var_info << endl;     // print out the variable that caused the error
+	}
+	
+	return ret;
 }
 
 map<string,FILE_INFO*> Persistence::checkFiles(const string& path)
@@ -284,7 +334,6 @@ vector<FILE_INFO> Persistence::likeFiles(int id)
 		{
 			char hash[128];
 			os >> hash;
-			cout << hash << endl;
 		
 			otl_stream os2;
 			os2.set_column_type(2, otl_var_char, 256);
@@ -302,8 +351,43 @@ vector<FILE_INFO> Persistence::likeFiles(int id)
 				fi.uri = uri;
 				fi.stamp = time2long(odt);
 				fi.hash = hash;
+				fi.score = 100.00;
 				
 				files.push_back(fi);
+			}
+		}
+		
+		otl_stream os3;
+		os3.set_column_type(1, otl_var_char, 512);
+		os3.open(1,"select histogram from feature where id=:id<int>",_db);
+		os3 << id;
+		
+		if(!os3.eof())
+		{
+			char hist1[512];
+			os3 >> hist1;
+			cout << hist1 << endl;
+			
+			otl_stream os4;
+			os4.set_column_type(2, otl_var_char, 512);
+			os4.open(50,"select id,histogram from feature where id!=:id<int>",_db);
+			os4 << id;
+			
+			while(!os4.eof())
+			{
+				int id2 = 0;
+				char hist2[512];
+				os4 >> id2 >> hist2;
+
+				float score = scoreHist(hist1,hist2); 
+				
+				if(score >= 50.00)
+				{
+					FILE_INFO fi;
+					fi.id = id2;
+					fi.score = score;
+					files.push_back(fi);
+				}
 			}
 		}
 	}
@@ -315,6 +399,13 @@ vector<FILE_INFO> Persistence::likeFiles(int id)
 	}
 	
 	return files;
+}
+
+float Persistence::scoreHist(const char* hist1, const char* hist2)
+{
+	printf("Persistence::scoreHist(%s,%s) = [0.00]\n",hist1,hist2);
+
+	return 0.00;
 }
 
 otl_datetime Persistence::long2time(long t)

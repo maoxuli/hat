@@ -86,7 +86,7 @@ int HatApp::run(int argc, char* argv[])
 				int i=0;
 				for (hat::FileInfoSeq::iterator p = files.begin(); p != files.end(); ++p) 
 				{
-					cout << ++i << ":\t" << p->id << "\t" << p->uri << "\t" << p->size << endl;
+					cout << ++i << ":\t" << p->id << "\t" << p->uri << "\t[" << p->score << "]"<< endl;
 				}
 				filter = NULL; 
 			}

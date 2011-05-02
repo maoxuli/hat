@@ -127,12 +127,14 @@ void
 hat::ImageFeature::__write(::IceInternal::BasicStream* __os) const
 {
     __os->write(id);
+    __os->write(hist);
 }
 
 void
 hat::ImageFeature::__read(::IceInternal::BasicStream* __is)
 {
     __is->read(id);
+    __is->read(hist);
 }
 
 ::hat::FileStatSeq

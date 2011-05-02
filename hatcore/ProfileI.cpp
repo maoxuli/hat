@@ -102,7 +102,7 @@ bool ProfileI::updateMeta(const ::hat::ImageMeta& meta, const ::Ice::Current&)
 
 bool ProfileI::updateFeature(const ::hat::ImageFeature& feature, const ::Ice::Current&)
 {
-	printf("ProfileI::updateFeature(%d)\n", feature.id);
+	printf("ProfileI::updateFeature(%d,%s)\n", feature.id, feature.hist.c_str());
 		
 	bool ret = false;
 	if(persistence())

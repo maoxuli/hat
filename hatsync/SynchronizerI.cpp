@@ -1,5 +1,6 @@
 #include "SynchronizerI.h"
 #include "FSWatcher.h"
+#include "ImgFile.h"
 
 #include <iostream>
 #include <iomanip>
@@ -73,11 +74,31 @@ void SynchronizerI::refresh(const ::std::string& path, const ::Ice::Current&)
 			{
 				printf("Refresh hash return true (%d)\n",p->id);
 				
-				//Update image meta
-				//ImageMeta
+				ImgFile imgfile;
+				if(imgfile.load(p->pathname))
+				{
+					//Update image meta
+					//ImageMeta
+					ImgMeta im = imgfile.metadata();
+					
+					ImageMeta imm;
+					imm.id = p->id;
+					imm.width = im.width;
+					imm.height = im.height;
+					imm.origin = im.origin;
+					profile->updateMeta(imm);
+					cout << "Refresh meta:" << imm.width << "," << imm.height << "," << imm.origin << endl;
 				
-				//Update image feature
-				//ImageFeature
+					//Update image feature
+					//ImageFeature
+					string hist = imgfile.histogram();
+					ImageFeature imf;
+					imf.id = p->id;
+					imf.hist = hist;
+					profile->updateFeature(imf);
+					cout << "Refresh feature: " << imf.hist << endl;
+
+				}
 			}
 		}
 		

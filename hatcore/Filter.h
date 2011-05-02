@@ -98,6 +98,7 @@ struct FileInfo
     ::Ice::Long stamp;
     ::Ice::Long size;
     ::std::string hash;
+    ::Ice::Float score;
 
     bool operator==(const FileInfo& __rhs) const
     {
@@ -122,6 +123,10 @@ struct FileInfo
             return false;
         }
         if(hash != __rhs.hash)
+        {
+            return false;
+        }
+        if(score != __rhs.score)
         {
             return false;
         }
@@ -171,6 +176,14 @@ struct FileInfo
             return true;
         }
         else if(__rhs.hash < hash)
+        {
+            return false;
+        }
+        if(score < __rhs.score)
+        {
+            return true;
+        }
+        else if(__rhs.score < score)
         {
             return false;
         }
