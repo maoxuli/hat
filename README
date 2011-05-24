@@ -1,4 +1,4 @@
-What in the hat?
+What's in the hat?
 
 This is a class project at The George Washington University.
 
@@ -11,11 +11,8 @@ Prof. Howie H. Huang
 Team:
 Maoxu Li (lim@gwmail.gwu.edu)
 
-Homepage: 
-http://www.limlabs.com/hat
-
-Web Demo: 
-http://app.limlabs.com/hat
-
 Opensource: 
+https://github.com/limlabs/hat-0.1
+
+A new project based on this one is on:
 https://github.com/limlabs/hat
