@@ -2,17 +2,22 @@ What's in the hat?
 
 This is a class project at The George Washington University.
 
+A proof of concept of the idea to manage our photos that distributed on 
+decentralized storage with a centralized management system. 
+
 Class:
 Grid and Network Computing (ECE6130, Spring 2011)
 
 Instructor:
-Prof. Howie H. Huang
+Dr. Howie H. Huang
 
 Team:
-Maoxu Li (lim@gwmail.gwu.edu)
+Maoxu Li (lim@gwmail.gwu.edu, li@limaoxu.net)
 
 Opensource: 
 https://github.com/limlabs/hat
 
 A new project based on this one is on:
 https://github.com/openhat
+http://www.limlabs.com/openhat
+
