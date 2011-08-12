@@ -1,9 +1,13 @@
+Hat: Simple management for personal photos
+
 What's in the hat?
+This is a class project I did at The George Washington University in 
+spring 2011 when I was a master student in Computer Science. A simple 
+central management system is proposed to manage personal photos on the 
+heterogeneous storage. 
 
-This is a class project at The George Washington University.
-
-A proof of concept of the idea to manage our photos that distributed on 
-decentralized storage with a centralized management system. 
+A prototype software with three command-line processes is design and 
+implemented as a proof-of-concept. 
 
 Class:
 Grid and Network Computing (ECE6130, Spring 2011)
@@ -14,10 +18,10 @@ Dr. Howie H. Huang
 Team:
 Maoxu Li (lim@gwmail.gwu.edu, li@limaoxu.net)
 
-Opensource: 
+Project homepage:
+http://www.limlabs.com/hat
+
+Open-source: 
 https://github.com/limlabs/hat
 
-A new project based on this one is on:
-https://github.com/openhat
-http://www.limlabs.com/openhat
 
