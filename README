@@ -7,23 +7,28 @@ central management system is proposed to manage personal photos on the
 heterogeneous storage. 
 
 A prototype software with three command-line processes is design and 
-implemented as a proof-of-concept. 
+implemented as a proof-of-concept. Communications between software 
+modules are based on Zero Ice, a ORB (Object Request Broker) style 
+communication framework. OpenCV and ImageMagik are used to read image 
+files, extract meta-data, and calculate characteristic data like hash 
+and histogram. Central database (realized with SQLite) collects 
+characteristic data of photos, realizes advanced search and analysis 
+of identical or similar photos. Based on which, advance functions of 
+photos management, such as deduplication or automatic duplication for 
+backup is possible.
+
 
 Class:
 Grid and Network Computing (ECE6130, Spring 2011)
+The George Washington University, Washington DC
 
 Instructor:
 Dr. Howie H. Huang
 
-Team:
-Maoxu Li (lim@gwmail.gwu.edu, li@limaoxu.net)
+Author:
+Maoxu Li (lim@gwmail.gwu.edu, li@maoxuli.net)
 
-Project homepage:
-http://www.limlabs.com/hat
+links:
+https://github.com/maoxuli/hat
+http://www.maoxuli.com/portfolio2.html#hat
 
-Open-source: 
-https://github.com/limlabs/hat
-
-Related project:
-http://www.limlabs.com/openhat
-htts://github.com/openhat
