@@ -1,23 +1,34 @@
+Hat: Simple management for personal photos
+
 What's in the hat?
+This is a class project I did at The George Washington University in 
+spring 2011 when I was a master student in Computer Science. A simple 
+central management system is proposed to manage personal photos on the 
+heterogeneous storage. 
 
-This is a class project at The George Washington University.
+A prototype software with three command-line processes is design and 
+implemented as a proof-of-concept. Communications between software 
+modules are based on Zero Ice, a ORB (Object Request Broker) style 
+communication framework. OpenCV and ImageMagik are used to read image 
+files, extract meta-data, and calculate characteristic data like hash 
+and histogram. Central database (realized with SQLite) collects 
+characteristic data of photos, realizes advanced search and analysis 
+of identical or similar photos. Based on which, advance functions of 
+photos management, such as deduplication or automatic duplication for 
+backup is possible.
 
-A proof of concept of the idea to manage our photos that distributed on 
-decentralized storage with a centralized management system. 
 
 Class:
 Grid and Network Computing (ECE6130, Spring 2011)
+The George Washington University, Washington DC
 
 Instructor:
 Dr. Howie H. Huang
 
-Team:
-Maoxu Li (lim@gwmail.gwu.edu, li@limaoxu.net)
+Author:
+Maoxu Li (lim@gwmail.gwu.edu, li@maoxuli.com)
 
-Opensource: 
-https://github.com/limlabs/hat
-
-A new project based on this one is on:
-https://github.com/openhat
-http://www.limlabs.com/openhat
+links:
+https://github.com/maoxuli/hat
+http://www.maoxuli.com/gwu/hat.hmtl
 
