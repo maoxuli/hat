@@ -1,1 +1,31 @@
+# Mac OS X
+*.DS_Store
 
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+*.xcworkspace/
+xcuserdata/
+
+*.o
+*.dylib
+*~.nib
+
+# MSVC
+release/
+debug/
+Release/
+Debug/
+ipch/
+
+*.dll
+*.lib
+*.exe
+
+*.sdf
+*.suo
+*.sln
+*.user
